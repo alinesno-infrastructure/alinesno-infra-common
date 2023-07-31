@@ -1,0 +1,722 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.1.2</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.alinesno.infra.common</groupId>
+	<artifactId>alinesno-infra-platform-parent</artifactId>
+	<version>${revision}</version>
+	<description>定义工程版本号和父类信息</description>
+	<packaging>pom</packaging>
+	<url>https://github.com/alinesno-infrastructure/alinesno-infra-common</url>
+
+	<name>alinesno-infra-platform-parent</name>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>luoxiaodong</name>
+			<email>luoandon@gmail.com</email>
+			<url>https://github.com/switchII</url>
+		</developer>
+	</developers>
+
+	<properties>
+
+		<!-- alinesno_infra_version_start -->
+		<revision>1.0.0-SNAPSHOT</revision>
+		<!-- alinesno_infra_version_end -->
+
+		<!-- 解决unknown error -->
+		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+
+		<!-- compile -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.source.version>17</java.source.version>
+		<java.target.version>17</java.target.version>
+		<java.version>17</java.version>
+		<argLine>-Dfile.encoding=UTF-8</argLine>
+		<skipTests>true</skipTests>
+		<nexus.repository>http://nexus.infra.linesno.com/nexus</nexus.repository>
+
+		<!-- docker registry -->
+		<docker.repository>registry.cn-shenzhen.aliyuncs.com</docker.repository>
+		<docker.public.repostory>registry.cn-shenzhen.aliyuncs.com</docker.public.repostory>
+		<docker.registry.name>alinesno-cloud</docker.registry.name>
+		<docker.base.images>registry.cn-shenzhen.aliyuncs.com/alinesno-cloud-base/openjdk:11.0.16-jdk-slim</docker.base.images>
+		<docker.user>alinesno</docker.user>
+
+		<docker.maven.plugin.version>0.4.13</docker.maven.plugin.version>
+		<jib.maven.plugin.version>3.3.0</jib.maven.plugin.version>
+		<flatten.maven.plugin.version>1.1.0</flatten.maven.plugin.version>
+		<maven.source.plugin.version>3.0.1</maven.source.plugin.version>
+
+		<!-- plugin version -->
+		<sonar.maven.plugin.version>3.6.0.1398</sonar.maven.plugin.version>
+		<versions.maven.plugin.version>2.7</versions.maven.plugin.version>
+		<lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
+		<frontend.maven.plugin.version>1.10.0</frontend.maven.plugin.version>
+		<flatten.maven.plugin.version>1.2.2</flatten.maven.plugin.version>
+
+		<!-- apache common -->
+		<common.lang.version>2.6</common.lang.version>
+		<dom4j.version>2.1.3</dom4j.version>
+
+		<!-- email -->
+		<javax.mail.version>1.4.7</javax.mail.version>
+		<geronimo.javamail_1.4_spec.version>1.6</geronimo.javamail_1.4_spec.version>
+
+		<!-- poi -->
+		<poi.version>3.17</poi.version>
+		<easypoi.web.version>3.0.3</easypoi.web.version>
+		<cxf.version>3.0.2</cxf.version>
+		<openoffice.version>3.2.1</openoffice.version>
+
+		<!-- zxing -->
+		<google.zxing.javase.version>3.3.0</google.zxing.javase.version>
+		<google.zxing.core.version>3.3.0</google.zxing.core.version>
+
+		<!-- guava -->
+		<guava.version>20.0</guava.version>
+
+		<!-- json -->
+		<json.smart.version>2.2</json.smart.version>
+		<fastjson.version>1.2.83</fastjson.version>
+		<gson.version>2.8.9</gson.version>
+
+		<!-- velocity -->
+		<velocity.version>1.7</velocity.version>
+
+		<!-- swagger -->
+		<swagger2.version>2.8.0</swagger2.version>
+		<swagger.ui.version>2.8.0</swagger.ui.version>
+
+		<!-- hutool -->
+		<hutool.version>5.7.18</hutool.version>
+
+		<!-- dubbo -->
+		<druid-spring-boot.version>1.1.17</druid-spring-boot.version>
+
+		<!-- mybatis-plus -->
+        <mybatis-plus-boot.version>3.4.1</mybatis-plus-boot.version>
+
+		<!--	kryo	-->
+		<kryo-version>5.2.0</kryo-version>
+		<kryo-serializers-version>0.45</kryo-serializers-version>
+
+		<!-- from 2.1.3-Alpha version -->
+		<forest.version>1.5.27</forest.version>
+		<commons.codec.version>1.15</commons.codec.version>
+		<xnio.api.version>3.8.8.Final</xnio.api.version>
+		<netty.all.version>4.1.42.Final</netty.all.version>
+
+		<!-- 安全检测plugin -->
+		<license.maven.plugin>2.0.0</license.maven.plugin>
+		<spotbugs.maven.plugin>4.7.3.3</spotbugs.maven.plugin>
+		<dependency.check.maven>6.3.0</dependency.check.maven>
+		<maven.pmd.plugin>3.20.0</maven.pmd.plugin>
+
+	</properties>
+
+	<modules>
+        <!-- 公共代码配置
+        <module>alinesno-infra-core</module>
+        -->
+
+        <!-- 公共SDK服务
+		<module>alinesno-infra-sdk</module>
+        -->
+
+        <!-- 安全
+        <module>alinesno-infra-security</module>
+        -->
+
+        <!-- 指标
+		<module>alinesno-infra-metrics</module>
+        -->
+
+        <!-- 前端服务
+		<module>alinesno-infra-web</module>
+        -->
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- netty-all_starter -->
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-all</artifactId>
+				<version>${netty.all.version}</version>
+			</dependency>
+			<!-- netty-all_starter -->
+
+			<!-- xnio-api_start -->
+			<dependency>
+				<groupId>org.jboss.xnio</groupId>
+				<artifactId>xnio-api</artifactId>
+				<version>${xnio.api.version}</version>
+			</dependency>
+			<!-- xnio-api_end -->
+
+			<!-- commons-codec_start -->
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>${commons.codec.version}</version>
+			</dependency>
+			<!-- commons-codec_end -->
+
+			<!--forest_start -->
+			<dependency>
+				<groupId>com.dtflys.forest</groupId>
+				<artifactId>forest-spring-boot-starter</artifactId>
+				<version>${forest.version}</version>
+			</dependency>
+			<!--forest_end -->
+
+			<!-- mybatis-plus_start -->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>${mybatis-plus-boot.version}</version>
+			</dependency>
+			<!-- mybatis-plus_end -->
+
+			<!-- dom4j_start -->
+			<dependency>
+				<groupId>org.dom4j</groupId>
+				<artifactId>dom4j</artifactId>
+				<version>${dom4j.version}</version>
+			</dependency>
+			<!-- dom4j_end -->
+
+			<!-- nacos_start -->
+			<dependency>
+				<groupId>com.alibaba.spring</groupId>
+				<artifactId>spring-context-support</artifactId>
+				<version>${alibaba.spring.support.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.dubbo</groupId>
+				<artifactId>dubbo-registry-nacos</artifactId>
+				<version>${dubbo.registry.nacos.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba.nacos</groupId>
+				<artifactId>nacos-client</artifactId>
+				<version>${nacos.client.version}</version>
+			</dependency>
+			<!-- nacos_end -->
+
+			<!-- druid_start -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${druid-spring-boot.version}</version>
+			</dependency>
+			<!-- druid_end -->
+
+			<!-- curator_start -->
+			<dependency>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-framework</artifactId>
+				<version>${curator.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-client</artifactId>
+				<version>${curator.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-recipes</artifactId>
+				<version>${curator.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-test</artifactId>
+				<version>${curator.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- curator_start -->
+
+			<!-- spring cloud_start -->
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-client</artifactId>
+				<version>${spring-boot-admin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-server</artifactId>
+				<version>${spring-boot-admin.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.zipkin.brave</groupId>
+				<artifactId>brave-instrumentation-dubbo</artifactId>
+				<version>${brave-dubbo.version}</version>
+			</dependency>
+			<!-- spring cloud_end -->
+
+			<!-- spring boot_start -->
+			<dependency>
+				<groupId>org.apache.dubbo</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>${dubbo.version}</version>
+			</dependency>
+			<!-- spring boot_end -->
+
+			<!-- hutool start -->
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool.version}</version>
+			</dependency>
+			<!-- hutool start -->
+
+			<!--Swagger2 start -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${swagger2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>${swagger.ui.version}</version>
+			</dependency>
+			<!--Swagger2 end -->
+
+			<!-- velocity start -->
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity</artifactId>
+				<version>${velocity.version}</version>
+			</dependency>
+			<!-- velocity end -->
+
+			<!-- guava_start -->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+			<!-- guava_end -->
+
+			<!-- json start -->
+			<dependency>
+				<groupId>net.minidev</groupId>
+				<artifactId>json-smart</artifactId>
+				<version>${json.smart.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+			<!-- json end -->
+
+			<!-- zxing start -->
+			<dependency>
+				<groupId>com.google.zxing</groupId>
+				<artifactId>core</artifactId>
+				<version>${google.zxing.core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.zxing</groupId>
+				<artifactId>javase</artifactId>
+				<version>${google.zxing.javase.version}</version>
+			</dependency>
+			<!-- zxing end -->
+
+			<!-- java mail start -->
+			<dependency>
+				<groupId>javax.mail</groupId>
+				<artifactId>mail</artifactId>
+				<version>${javax.mail.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.geronimo.specs</groupId>
+				<artifactId>geronimo-javamail_1.4_spec</artifactId>
+				<version>${geronimo.javamail_1.4_spec.version}</version>
+			</dependency>
+			<!-- java mail end -->
+
+			<!-- poi start -->
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>${poi.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.apache.commons</groupId>
+						<artifactId>commons-collections4</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml</artifactId>
+				<version>${poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml-schemas</artifactId>
+				<version>${poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-scratchpad</artifactId>
+				<version>${poi.version}</version>
+			</dependency>
+
+			<!-- apache common start -->
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>${common.lang.version}</version>
+			</dependency>
+			<!-- apache common end -->
+
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+
+		<!-- 插件管理 -->
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+						<layers>
+							<enabled>true</enabled> <!-- sb2.3.X后支持分层Jar文件打包 -->
+						</layers>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<configuration>
+						<skip>true</skip> <!-- 跳过测试 -->
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+
+			<!-- 编译源代码插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.source.version}</source>
+					<target>${java.source.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<failOnError>true</failOnError>
+					<verbose>false</verbose>
+					<fork>false</fork>
+					<compilerArgument>-nowarn</compilerArgument>
+				</configuration>
+			</plugin>
+
+			<!-- sonar 插件 -->
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>${sonar.maven.plugin.version}</version>
+			</plugin>
+
+
+			<!-- google docker打包插件 mvn compile jib:build mvn compile jib:dockerBuild
+                mvn compile jib:buildTar -->
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>${jib.maven.plugin.version}</version>
+				<configuration>
+					<from>
+						<image>${docker.base.images}</image>
+					</from>
+					<to>
+						<image>${docker.repository}/${docker.registry.name}/${project.artifactId}:${project.version}
+                        </image>
+						<tags>
+							<tag>${project.version}</tag>
+							<tag>latest</tag>
+						</tags>
+						<auth>
+							<!--在docker-hub或者阿里云上的账号和密码-->
+							<username>${env.REGISTRY_USERNAME}</username>
+							<password>${env.REGISTRY_PASSWORD}</password>
+						</auth>
+					</to>
+					<container>
+						<appRoot>/home/${docker.user}</appRoot>
+						<workingDirectory>/home/${docker.user}</workingDirectory>
+						<user>${docker.user}</user>
+						<!--使用当前时间-->
+						<creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+						<jvmFlags>
+							<jvmFlag>-Dfile.encoding=UTF-8</jvmFlag>
+
+							<!-- 调整成 -e JAVA_TOOL_OPTIONS="-Xms1G -Xmx1G -Dspring.profiles.active=prod"
+                                传递参数,以适应多种环境 <jvmFlag>-Xms128m</jvmFlag> <jvmFlag>-Xmx512m</jvmFlag> <jvmFlag>-Dspring.profiles.active=hub</jvmFlag>
+                                <jvmFlag>-XX:+UseParNewGC</jvmFlag> <jvmFlag>-XX:+UseConcMarkSweepGC</jvmFlag> -->
+							<jvmFlag>-XX:+DisableExplicitGC</jvmFlag>
+							<jvmFlag>-Xdebug</jvmFlag>
+							<jvmFlag>-Duser.timezone=GMT+08</jvmFlag>
+							<jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>
+
+						</jvmFlags>
+						<environment>
+							<TZ>Asia/Shanghai</TZ>
+						</environment>
+						<!--
+                        <useCurrentTimestamp>true</useCurrentTimestamp>
+                         -->
+					</container>
+					<allowInsecureRegistries>true</allowInsecureRegistries>
+				</configuration>
+			</plugin>
+
+			<!--version_plugin_start -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+			</plugin>
+			<!--version_plugin_end -->
+
+			<!-- 打包点位符号处理_start -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>flatten-maven-plugin</artifactId>
+				<version>${flatten.maven.plugin.version}</version>
+				<configuration>
+					<updatePomFile>true</updatePomFile>
+					<flattenMode>resolveCiFriendliesOnly</flattenMode>
+				</configuration>
+				<executions>
+					<execution>
+						<id>flatten</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>flatten</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>flatten.clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- 打包点位符号处理_end -->
+
+			<plugin>
+				<groupId>org.eclipse.m2e</groupId>
+				<artifactId>lifecycle-mapping</artifactId>
+				<version>${lifecycle.mapping.version}</version>
+				<inherited>true</inherited>
+				<configuration>
+					<lifecycleMappingMetadata>
+						<pluginExecutions>
+							<pluginExecution>
+								<pluginExecutionFilter>
+									<groupId>org.codehaus.mojo</groupId>
+									<artifactId>flatten-maven-plugin</artifactId>
+									<versionRange>[1.0.0,)</versionRange>
+									<goals>
+										<goal>flatten</goal>
+									</goals>
+								</pluginExecutionFilter>
+								<action>
+									<ignore />
+								</action>
+							</pluginExecution>
+						</pluginExecutions>
+					</lifecycleMappingMetadata>
+				</configuration>
+			</plugin>
+
+			<!-- node打包插件_start -->
+			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>${frontend.maven.plugin.version}</version>
+			</plugin>
+			<!-- node打包插件_end -->
+
+			<!-- 安装检测插件_start -->
+			<!-- 依赖包版权检测 mvn license:aggregate-add-third-party license:aggregate-third-party-report '-DXms2G' '-DXmx2G' -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>${license.maven.plugin}</version>
+				<configuration>
+					<outputType>JSON</outputType>
+					<outputDirectory>${maven.multiModuleProjectDirectory}/license</outputDirectory>
+					<!-- 设置检测结果文件，默认是 txt 文件 -->
+					<thirdPartyFilename>LICENSE_THIRD_PARTY.csv</thirdPartyFilename>
+					<!-- mvn 命令会从不同的 repository 中下载 license 文件，经常会出现请求超时的情况，默认超时时间是 5 秒，将其调整为 10 秒 -->
+					<!-- assuming that the file is in the same dir as the pom.xml -->
+					<connectionRequestTimeout>10000</connectionRequestTimeout>
+					<connectTimeout>10000</connectTimeout>
+					<socketTimeout>10000</socketTimeout>
+					<!-- 有些依赖可能检测不到 license、mvn 检测出来的 license 有误，或者你需要对某些模块的 license 自己指定，将该配置设置为 true -->
+					<!-- 默认配置在 ${basedir}/src/license/THIRD-PARTY.properties 文件中，稍后进行解释 -->
+					<!--
+					<useMissingFile>true</useMissingFile>
+					<missingFile>/Users/luodong/Desktop/license/THIRD-PARTY.properties</missingFile>
+					-->
+					<!-- 排除项目中某些 groupId，不对其进行检测，比如自己写的模块，是没必要进行检测的 -->
+					<excludedGroups>com.alinesno</excludedGroups>
+					<!-- 由于不同依赖中使用的 license 名称不同，为了便于自己分类管理，可以将 license 进行合并，比如以下将 Apache 系列的 license 都合并为 The Apache Software License -->
+					<licenseMerges>
+						<!-- 第一个为合并之后的 license 名称，之后每个 license 以 | 分隔 -->
+						<licenseMerge>
+							The Apache Software License
+							|Apache
+							|ASF 2.0
+							|Apache v2
+							|The Apache Software License, Version 2.0
+						</licenseMerge>
+						<licenseMerge>
+							BSD License
+							|BSD
+							|BSD-2-Clause
+							|The BSD 3-Clause License
+						</licenseMerge>
+					</licenseMerges>
+					<!-- failIfWarning 配合这两个属性使用 <includedLicenses> <excludedLicenses> -->
+					<!-- <includedLicenses> 表示白名单，license 一定要在这个列表中 -->
+					<!-- <excludedLicenses> 表示黑名单，这个列表中的 license 一定不能出现 -->
+					<!-- failIfWarning 设置为 true，表示 license 不在白名单中、或 license 在黑名单中，将会构建失败。结合这个功能，非常方便看出项目中是否有非法 license -->
+					<failIfWarning>false</failIfWarning>
+				</configuration>
+			</plugin>
+			<!-- 安全问题检测 mvn spotbugs:spotbugs -->
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+				<version>${spotbugs.maven.plugin}</version>
+				<configuration>
+					<effort>Max</effort>
+					<threshold>Low</threshold>
+					<failOnError>false</failOnError>
+					<xmlOutput>true</xmlOutput>
+					<xmlOutputDirectory>${maven.multiModuleProjectDirectory}/spotbugs/${artifactId}</xmlOutputDirectory>
+				</configuration>
+			</plugin>
+
+			<!-- 安全漏洞检测 mvn org.owasp:dependency-check-maven:check -Dformat=JSON -->
+			<plugin>
+				<groupId>org.owasp</groupId>
+				<artifactId>dependency-check-maven</artifactId>
+				<version>${dependency.check.maven}</version>
+				<configuration>
+					<formats>
+						<format>JSON</format>
+					</formats>
+					<outputDirectory>${maven.multiModuleProjectDirectory}/owasp</outputDirectory>
+					<name>dependency-check-report</name>
+					<reportI18n>zh-cn</reportI18n>
+					<locale>zh_CN</locale>
+				</configuration>
+			</plugin>
+
+			<!-- 编码规约扫描命令： mvn pmd:pmd-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>${maven.pmd.plugin}</version>
+				<configuration>
+					<rulesets>
+						<ruleset>rulesets/java/ali-comment.xml</ruleset>
+						<ruleset>rulesets/java/ali-comment.xml</ruleset>
+						<ruleset>rulesets/java/ali-concurrent.xml</ruleset>
+						<ruleset>rulesets/java/ali-constant.xml</ruleset>
+						<ruleset>rulesets/java/ali-exception.xml</ruleset>
+						<ruleset>rulesets/java/ali-flowcontrol.xml</ruleset>
+						<ruleset>rulesets/java/ali-naming.xml</ruleset>
+						<ruleset>rulesets/java/ali-oop.xml</ruleset>
+						<ruleset>rulesets/java/ali-orm.xml</ruleset>
+						<ruleset>rulesets/java/ali-other.xml</ruleset>
+						<ruleset>rulesets/java/ali-set.xml</ruleset>
+					</rulesets>
+					<printFailingErrors>true</printFailingErrors>
+					<linkXRef>false</linkXRef>
+					<format>xml</format>
+					<targetDirectory>${maven.multiModuleProjectDirectory}/pmd/${artifactId}</targetDirectory>
+					<outputDirectory>${maven.multiModuleProjectDirectory}/pmd/${artifactId}</outputDirectory>
+				</configuration>
+				<executions>
+
+					<!-- 绑定pmd:pmd到site生命周期 -->
+					<execution>
+						<id>pmd-pmd-site</id>
+						<phase>site</phase>
+						<goals>
+							<goal>pmd</goal>
+						</goals>
+					</execution>
+				</executions>
+				<!-- p3c依赖 -->
+				<dependencies>
+					<dependency>
+						<groupId>com.alibaba.p3c</groupId>
+						<artifactId>p3c-pmd</artifactId>
+						<version>2.1.1</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<!-- 安装检测插件_end -->
+
+		</plugins>
+
+	</build>
+
+	<!-- 用于生成错误到代码内容的链接 -->
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+				<version>${spotbugs.maven.plugin}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>${license.maven.plugin}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>3.3.0</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
+
+</project>
+
