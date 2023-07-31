@@ -11,10 +11,19 @@
 	<artifactId>alinesno-infra-common-feign</artifactId>
 	<packaging>jar</packaging>
 
+	<properties>
+		<forest.version>1.5.32</forest.version>
+	</properties>
 
 	<dependencies>
 
-
+		<!-- 引入forest_start -->
+		<dependency>
+			<groupId>com.dtflys.forest</groupId>
+			<artifactId>forest-spring-boot3-starter</artifactId>
+			<version>${forest.version}</version>
+		</dependency>
+		
 	</dependencies>
 
 
