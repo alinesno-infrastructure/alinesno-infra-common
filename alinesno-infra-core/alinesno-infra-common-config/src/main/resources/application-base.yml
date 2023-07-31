@@ -1,0 +1,26 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER    
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 10MB
+
+alinesno:
+  file:
+    mapping.path: /upload-files
+    local.path: ${user.home}/alinesno-upload-files
+  logback:
+    logstash.host: ${LOGBASH_LOGSTASH_HOST:localhost:5044}
+    logging.home: ${LOGBASH_LOGSTASH_LOGGING_HOME:${user.home}/alinesno-running-logger/}
+    max:
+      file.size: ${LOGBASH_MAX_FILE_SIZE:2048MB}
+      file.history: ${LOGBASH_MAX_FILE_HISTORY:60}
+
+jasypt:
+    encryptor:
+      password: 
+      private-key-string: 

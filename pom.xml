@@ -191,24 +191,6 @@
 			</dependency>
 			<!-- dom4j_end -->
 
-			<!-- nacos_start -->
-			<dependency>
-				<groupId>com.alibaba.spring</groupId>
-				<artifactId>spring-context-support</artifactId>
-				<version>${alibaba.spring.support.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.dubbo</groupId>
-				<artifactId>dubbo-registry-nacos</artifactId>
-				<version>${dubbo.registry.nacos.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.alibaba.nacos</groupId>
-				<artifactId>nacos-client</artifactId>
-				<version>${nacos.client.version}</version>
-			</dependency>
-			<!-- nacos_end -->
-
 			<!-- druid_start -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
@@ -252,21 +234,7 @@
 				<artifactId>spring-boot-admin-starter-server</artifactId>
 				<version>${spring-boot-admin.version}</version>
 			</dependency>
-
-			<dependency>
-				<groupId>io.zipkin.brave</groupId>
-				<artifactId>brave-instrumentation-dubbo</artifactId>
-				<version>${brave-dubbo.version}</version>
-			</dependency>
 			<!-- spring cloud_end -->
-
-			<!-- spring boot_start -->
-			<dependency>
-				<groupId>org.apache.dubbo</groupId>
-				<artifactId>dubbo</artifactId>
-				<version>${dubbo.version}</version>
-			</dependency>
-			<!-- spring boot_end -->
 
 			<!-- hutool start -->
 			<dependency>

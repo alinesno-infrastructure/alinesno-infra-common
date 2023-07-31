@@ -13,10 +13,16 @@
 
 	<packaging>pom</packaging>
 
-	<artifactId>alinesno-infra-common-core</artifactId>
+	<artifactId>alinesno-infra-common-kernel</artifactId>
 
 	<modules>
+	
 		<!-- common core -->
+		<module>alinesno-infra-common-config</module>	
+		<module>alinesno-infra-common-facade</module>	
+		<module>alinesno-infra-common-core</module>	
+		<module>alinesno-infra-common-feign</module>	
+		
 	</modules>
 
 </project>
