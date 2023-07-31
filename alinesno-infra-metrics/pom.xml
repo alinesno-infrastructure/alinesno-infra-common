@@ -13,7 +13,7 @@
 
 	<packaging>pom</packaging>
 
-	<artifactId>alinesno-infra-platform-mertics</artifactId>
+	<artifactId>alinesno-infra-common-mertics</artifactId>
 
 	<modules>
 		<!-- common core -->

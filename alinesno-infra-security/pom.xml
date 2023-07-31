@@ -13,7 +13,7 @@
 
 	<packaging>pom</packaging>
 
-	<artifactId>alinesno-infra-platform-security</artifactId>
+	<artifactId>alinesno-infra-common-security</artifactId>
 
 	<modules>
 		<!-- common core -->

@@ -13,7 +13,7 @@
 
 	<packaging>pom</packaging>
 
-	<artifactId>alinesno-infra-platform-sdk</artifactId>
+	<artifactId>alinesno-infra-common-sdk</artifactId>
 
 	<modules>
 		<!-- common core -->
