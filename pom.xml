@@ -34,22 +34,12 @@
     </developers>
 
 	<modules>
-        <!-- 公共代码配置-->
-        <module>alinesno-infra-core</module>
-
-        <!-- 公共SDK服务-->
-		<module>alinesno-infra-sdk</module>
-
-        <!-- 安全-->
-        <module>alinesno-infra-security</module>
-
-        <!-- 指标-->
-		<module>alinesno-infra-metrics</module>
-
-        <!-- 前端服务-->
-		<module>alinesno-infra-web</module>
+		<module>alinesno-infra-core</module> <!-- 公共代码配置-->
+		<module>alinesno-infra-sdk</module> <!-- 公共SDK服务-->
+		<module>alinesno-infra-security</module> <!-- 安全-->
+		<module>alinesno-infra-metrics</module> <!-- 指标-->
+		<module>alinesno-infra-web</module> <!-- 前端服务-->
 	</modules>
-
 
 	<properties>
 
@@ -73,8 +63,8 @@
 		<!-- docker registry -->
 		<docker.repository>registry.cn-shenzhen.aliyuncs.com</docker.repository>
 		<docker.public.repostory>registry.cn-shenzhen.aliyuncs.com</docker.public.repostory>
-		<docker.registry.name>alinesno-cloud</docker.registry.name>
-		<docker.base.images>registry.cn-shenzhen.aliyuncs.com/alinesno-cloud-base/openjdk:11.0.16-jdk-slim</docker.base.images>
+		<docker.registry.name>alinesno-infra</docker.registry.name>
+		<docker.base.images>registry.cn-shenzhen.aliyuncs.com/alinesno-infra-base/openjdk:17.0.16-jdk-slim</docker.base.images>
 		<docker.user>alinesno</docker.user>
 
 		<docker.maven.plugin.version>0.4.13</docker.maven.plugin.version>
@@ -88,7 +78,7 @@
 		<lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
 		<frontend.maven.plugin.version>1.10.0</frontend.maven.plugin.version>
 		<flatten.maven.plugin.version>1.2.2</flatten.maven.plugin.version>
-        <maven.source.plugin.version>3.3.0</maven.source.plugin.version>
+		<maven.source.plugin.version>3.3.0</maven.source.plugin.version>
 
 		<!-- apache common -->
 		<common.lang.version>2.6</common.lang.version>
@@ -130,7 +120,7 @@
 		<druid-spring-boot.version>1.1.17</druid-spring-boot.version>
 
 		<!-- mybatis-plus -->
-        <mybatis-plus-boot.version>3.4.1</mybatis-plus-boot.version>
+		<mybatis-plus-boot.version>3.4.1</mybatis-plus-boot.version>
 
 		<!--	kryo	-->
 		<kryo-version>5.2.0</kryo-version>
