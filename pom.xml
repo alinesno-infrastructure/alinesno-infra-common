@@ -31,7 +31,25 @@
 			<email>luoandon@gmail.com</email>
 			<url>https://github.com/switchII</url>
 		</developer>
-	</developers>
+    </developers>
+
+	<modules>
+        <!-- 公共代码配置-->
+        <module>alinesno-infra-core</module>
+
+        <!-- 公共SDK服务-->
+		<module>alinesno-infra-sdk</module>
+
+        <!-- 安全-->
+        <module>alinesno-infra-security</module>
+
+        <!-- 指标-->
+		<module>alinesno-infra-metrics</module>
+
+        <!-- 前端服务-->
+		<module>alinesno-infra-web</module>
+	</modules>
+
 
 	<properties>
 
@@ -70,6 +88,7 @@
 		<lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
 		<frontend.maven.plugin.version>1.10.0</frontend.maven.plugin.version>
 		<flatten.maven.plugin.version>1.2.2</flatten.maven.plugin.version>
+        <maven.source.plugin.version>3.3.0</maven.source.plugin.version>
 
 		<!-- apache common -->
 		<common.lang.version>2.6</common.lang.version>
@@ -130,28 +149,6 @@
 		<maven.pmd.plugin>3.20.0</maven.pmd.plugin>
 
 	</properties>
-
-	<modules>
-        <!-- 公共代码配置
-        <module>alinesno-infra-core</module>
-        -->
-
-        <!-- 公共SDK服务
-		<module>alinesno-infra-sdk</module>
-        -->
-
-        <!-- 安全
-        <module>alinesno-infra-security</module>
-        -->
-
-        <!-- 指标
-		<module>alinesno-infra-metrics</module>
-        -->
-
-        <!-- 前端服务
-		<module>alinesno-infra-web</module>
-        -->
-	</modules>
 
 	<dependencyManagement>
 		<dependencies>
@@ -444,6 +441,21 @@
 				<version>${sonar.maven.plugin.version}</version>
 			</plugin>
 
+            <!-- 源码打包 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven.source.plugin.version}</version>
+                <executions>
+                  <execution>
+                    <id>attach-sources</id>
+                    <phase>verify</phase>
+                    <goals>
+                      <goal>jar-no-fork</goal>
+                    </goals>
+                  </execution>
+                </executions>
+            </plugin>
 
 			<!-- google docker打包插件 mvn compile jib:build mvn compile jib:dockerBuild
                 mvn compile jib:buildTar -->
