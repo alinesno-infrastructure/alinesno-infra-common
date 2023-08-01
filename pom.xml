@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -31,7 +31,7 @@
 			<email>luoandon@gmail.com</email>
 			<url>https://github.com/switchII</url>
 		</developer>
-    </developers>
+	</developers>
 
 	<modules>
 		<module>alinesno-infra-core</module> <!-- 公共代码配置-->
@@ -124,9 +124,10 @@
 		<p6spy.version>3.9.1</p6spy.version>
 		<satoken.version>1.35.0.RC</satoken.version>
 		<redisson.version>3.20.1</redisson.version>
-		
+        <hibernate.validator.version>7.0.4.Final</hibernate.validator.version>
+
 		<!-- SMS 配置 -->
-        <sms4j.version>2.2.0</sms4j.version>
+		<sms4j.version>2.2.0</sms4j.version>
 
 		<!-- kryo -->
 		<kryo-version>5.2.0</kryo-version>
@@ -146,46 +147,52 @@
 
 	<dependencyManagement>
 		<dependencies>
-		
+
 			<!--短信sms4j-->
-            <dependency>
-                <groupId>org.dromara.sms4j</groupId>
-                <artifactId>sms4j-spring-boot-starter</artifactId>
-                <version>${sms4j.version}</version>
-            </dependency>
-            
-            <!-- sql性能分析插件 -->
-            <dependency>
-                <groupId>p6spy</groupId>
-                <artifactId>p6spy</artifactId>
-                <version>${p6spy.version}</version>
-            </dependency>
-            
-            <!-- dynamic-datasource 多数据源-->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-                <version>${dynamic-ds.version}</version>
-            </dependency>
-            
-            <!-- Sa-Token 权限认证, 在线文档：http://sa-token.dev33.cn/ -->
-            <dependency>
-                <groupId>cn.dev33</groupId>
-                <artifactId>sa-token-spring-boot-starter</artifactId>
-                <version>${satoken.version}</version>
-            </dependency>
-            <!-- Sa-Token 整合 jwt -->
-            <dependency>
-                <groupId>cn.dev33</groupId>
-                <artifactId>sa-token-jwt</artifactId>
-                <version>${satoken.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>cn.hutool</groupId>
-                        <artifactId>hutool-all</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+			<dependency>
+				<groupId>org.dromara.sms4j</groupId>
+				<artifactId>sms4j-spring-boot-starter</artifactId>
+				<version>${sms4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>${hibernate.validator.version}</version>
+			</dependency>
+
+			<!-- sql性能分析插件 -->
+			<dependency>
+				<groupId>p6spy</groupId>
+				<artifactId>p6spy</artifactId>
+				<version>${p6spy.version}</version>
+			</dependency>
+
+			<!-- dynamic-datasource 多数据源-->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+				<version>${dynamic-ds.version}</version>
+			</dependency>
+
+			<!-- Sa-Token 权限认证, 在线文档：http://sa-token.dev33.cn/ -->
+			<dependency>
+				<groupId>cn.dev33</groupId>
+				<artifactId>sa-token-spring-boot-starter</artifactId>
+				<version>${satoken.version}</version>
+			</dependency>
+			<!-- Sa-Token 整合 jwt -->
+			<dependency>
+				<groupId>cn.dev33</groupId>
+				<artifactId>sa-token-jwt</artifactId>
+				<version>${satoken.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>cn.hutool</groupId>
+						<artifactId>hutool-all</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
 
 			<!-- netty-all_starter -->
 			<dependency>
@@ -443,20 +450,20 @@
 				<version>${sonar.maven.plugin.version}</version>
 			</plugin>
 
-            <!-- 源码打包 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                  <execution>
-                    <id>attach-sources</id>
-                    <phase>verify</phase>
-                    <goals>
-                      <goal>jar-no-fork</goal>
-                    </goals>
-                  </execution>
-                </executions>
-            </plugin>
+			<!-- 源码打包 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
 			<!-- google docker打包插件 mvn compile jib:build mvn compile jib:dockerBuild
                 mvn compile jib:buildTar -->
