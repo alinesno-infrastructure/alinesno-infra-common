@@ -3,7 +3,6 @@ package com.alinesno.infra.common.core.auto;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.alinesno.infra.common.core.cache.CacheRedisUtil;
 import com.alinesno.infra.common.core.cache.RedisConfig;
 import com.alinesno.infra.common.core.config.AsyncConfig;
 import com.alinesno.infra.common.core.context.SpringContext;
@@ -30,8 +29,7 @@ public class CoreImportProvider {
 		s.add(SpringContext.class.getName());
 		s.add(AsyncConfig.class.getName()); // 添加异步线程池
 		s.add(RedisConfig.class.getName()); // Redis配置
-		s.add(CacheRedisUtil.class.getName()); // Redis配置
-		s.add(WebUploadUtils.class.getName()); // Redis配置
+		s.add(WebUploadUtils.class.getName()); 
 
 		// 数据库源
 		s.add(MyBatisPlusConfig.class.getName());

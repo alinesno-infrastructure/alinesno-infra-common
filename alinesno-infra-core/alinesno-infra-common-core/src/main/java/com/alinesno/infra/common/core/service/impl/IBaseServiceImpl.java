@@ -39,9 +39,9 @@ public class IBaseServiceImpl<Entity extends BaseEntity, M extends IBaseMapper<E
 	protected M mapper;
 
 	@Override
-	public void deleteByIds(@NotNull String[] ids) {
+	public void deleteByIds(@NotNull Long[] ids) {
 
-		List<String> idList = new ArrayList<String>();
+		List<Long> idList = new ArrayList<Long>();
 		CollectionUtils.addAll(idList, ids);
 
 		log.debug("delete id list:{}", idList.size());
@@ -60,13 +60,13 @@ public class IBaseServiceImpl<Entity extends BaseEntity, M extends IBaseMapper<E
 	}
 
 	@Override
-	public void updateById(Entity e, @NotNull String id) {
+	public void updateById(Entity e, @NotNull Long id) {
 		e.setId(id);
 		mapper.updateById(e);
 	}
 
 	@Override
-	public boolean updateHasStatus(@NotNull String id) {
+	public boolean updateHasStatus(@NotNull Long id) {
 		Entity e = mapper.selectById(id);
 
 		int modStatus = e.getHasStatus() % 2;

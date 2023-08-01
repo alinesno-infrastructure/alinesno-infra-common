@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 
 public abstract class SuperController {
 
+	@SuppressWarnings("unused")
 	private static final Logger log = LoggerFactory.getLogger(SuperController.class);
 
 	protected <T> ResponseEntity<T> ok(T body) {

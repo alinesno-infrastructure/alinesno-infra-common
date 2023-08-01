@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
  * @author LuoAnDong
  * @since 2023年8月1日 上午6:23:43
  */
+@SuppressWarnings("serial")
 public class InfraBaseEntity extends BaseEntity {
 
 	@TableField()

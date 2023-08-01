@@ -11,7 +11,6 @@ import com.alinesno.infra.common.facade.account.CurrentAccountHandle;
 import com.alinesno.infra.common.facade.exception.ServiceException;
 import com.alinesno.infra.common.facade.mapper.entity.BaseEntity;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.http.HttpStatus;
@@ -37,14 +36,13 @@ public class CreateAndUpdateMetaInject implements MetaObjectHandler {
 				baseEntity.setAddTime(current);
 				baseEntity.setUpdateTime(current);
 
-				String username = StringUtils.isNotBlank(baseEntity.getOperatorId()) ? baseEntity.getOperatorId()
-						: getLoginUsername();
+				long userId = baseEntity.getOperatorId() != 0 ? baseEntity.getOperatorId() : getUserId();
 
 				// 当前已登录 且 创建人为空 则填充
-				baseEntity.setOperatorId(username);
+				baseEntity.setOperatorId(userId);
 
 				// 当前已登录 且 更新人为空 则填充
-				baseEntity.setLastUpdateOperatorId(username);
+				baseEntity.setLastUpdateOperatorId(userId);
 			}
 		} catch (Exception e) {
 			throw new ServiceException("自动注入异常 => " + e.getMessage(), HttpStatus.HTTP_UNAUTHORIZED);
@@ -61,10 +59,11 @@ public class CreateAndUpdateMetaInject implements MetaObjectHandler {
 
 				// 更新时间填充(不管为不为空)
 				baseEntity.setUpdateTime(current);
-				String username = getLoginUsername();
+				Long userId = getUserId();
+				
 				// 当前已登录 更新人填充(不管为不为空)
-				if (StringUtils.isNotBlank(username)) {
-					baseEntity.setLastUpdateOperatorId(username);
+				if (userId != 0) {
+					baseEntity.setLastUpdateOperatorId(userId);
 				}
 			}
 		} catch (Exception e) {
@@ -75,7 +74,7 @@ public class CreateAndUpdateMetaInject implements MetaObjectHandler {
 	/**
 	 * 获取登录用户名
 	 */
-	private String getLoginUsername() {
+	private Long getUserId() {
 		CurrentAccountBean loginUser;
 		try {
 			loginUser = CurrentAccountHandle.getCurrentAccount();
@@ -83,7 +82,7 @@ public class CreateAndUpdateMetaInject implements MetaObjectHandler {
 			log.warn("自动注入警告 => 用户未登录");
 			return null;
 		}
-		return ObjectUtil.isNotNull(loginUser) ? loginUser.getLoginName() : null;
+		return ObjectUtil.isNotNull(loginUser) ? loginUser.getId()  : null;
 	}
 
 }

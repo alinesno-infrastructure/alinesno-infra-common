@@ -31,7 +31,7 @@ public abstract class BaseController<E extends BaseEntity, S extends IBaseServic
 	 * @return
 	 */
 	@GetMapping("modifyHasStatus")
-	boolean modifyHasStatus(@RequestParam("id") String id) {
+	boolean modifyHasStatus(@RequestParam("id") Long id) {
 		return feign.updateHasStatus(id);
 	}
 

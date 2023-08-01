@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.util.Assert;
 
 /**
  * 脚本安全工具，这里做初步的参数过滤处理和安全处理
@@ -22,12 +23,12 @@ public class ScriptTools {
 	public static boolean isRightfulString(String text) {
 
 		// 初步判断字符间距
-//		boolean b = match(text, "^[A-Za-z0-9_-]+$");
-//		Assert.isTrue(b , "参数中含有非法的字符:" + text) ; 
+		boolean b = match(text, "^[A-Za-z0-9_-]+$");
+		Assert.isTrue(b , "参数中含有非法的字符:" + text) ; 
 
 		// 进一步判断特殊字符
-		// boolean b2 = containsSqlInjection(text) ;
-		// Assert.isTrue(b2 , "参数中含有非法的字符:" + text) ;
+		 boolean b2 = containsSqlInjection(text) ;
+		 Assert.isTrue(b2 , "参数中含有非法的字符:" + text) ;
 
 		return true;
 	}

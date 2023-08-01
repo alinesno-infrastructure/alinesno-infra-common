@@ -48,6 +48,7 @@ public class MybatisEncryptInterceptor implements Interceptor {
 	 *
 	 * @param sourceObject 待加密对象
 	 */
+	@SuppressWarnings("unused")
 	private void encryptHandler(Object sourceObject) {
 		if (ObjectUtil.isNull(sourceObject)) {
 			return;
@@ -63,6 +64,7 @@ public class MybatisEncryptInterceptor implements Interceptor {
 			}
 			// 判断第一个元素是否含有注解。如果没有直接返回，提高效率
 			Object firstItem = sourceList.get(0);
+			
 			((List<?>) sourceObject).forEach(this::encryptHandler);
 			return;
 		}
@@ -75,6 +77,7 @@ public class MybatisEncryptInterceptor implements Interceptor {
 	 * @param field 待加密字段
 	 * @return 加密后结果
 	 */
+	@SuppressWarnings("unused")
 	private String encryptField(String value, Field field) {
 		return null;
 	}

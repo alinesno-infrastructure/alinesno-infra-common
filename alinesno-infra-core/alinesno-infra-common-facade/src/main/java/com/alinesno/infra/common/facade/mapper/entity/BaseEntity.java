@@ -17,15 +17,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  * @author WeiXiaoJin
  * @date 2017年8月4日
  */
+@SuppressWarnings("serial")
 public class BaseEntity implements Serializable {
 
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 1L;
-
 	@TableId(type = IdType.ASSIGN_UUID)
-	private String id; // 唯一ID号
+	private Long id; // 唯一ID号
 
 	@TableField
 	private String fieldProp; // 字段属性
@@ -51,27 +47,11 @@ public class BaseEntity implements Serializable {
 	private Date updateTime; // 更新时间
 
 	@TableField
-	private String operatorId; // 操作员 用户权限: 只能看到自己操作的数据
+	private Long operatorId; // 操作员 用户权限: 只能看到自己操作的数据
 
 	@TableField
-	private String lastUpdateOperatorId; // 最后更新操作员 用户权限: 只能看到自己操作的数据
-
-	public String getLastUpdateOperatorId() {
-		return lastUpdateOperatorId;
-	}
-
-	public void setLastUpdateOperatorId(String lastUpdateOperatorId) {
-		this.lastUpdateOperatorId = lastUpdateOperatorId;
-	}
-
-	public String getOperatorId() {
-		return operatorId;
-	}
-
-	public void setOperatorId(String operatorId) {
-		this.operatorId = operatorId;
-	}
-
+	private Long lastUpdateOperatorId; // 最后更新操作员 用户权限: 只能看到自己操作的数据
+	
 	public Date getUpdateTime() {
 		return updateTime;
 	}
@@ -88,12 +68,28 @@ public class BaseEntity implements Serializable {
 		this.hasStatus = hasStatus;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getOperatorId() {
+		return operatorId;
+	}
+
+	public void setOperatorId(Long operatorId) {
+		this.operatorId = operatorId;
+	}
+
+	public Long getLastUpdateOperatorId() {
+		return lastUpdateOperatorId;
+	}
+
+	public void setLastUpdateOperatorId(Long lastUpdateOperatorId) {
+		this.lastUpdateOperatorId = lastUpdateOperatorId;
 	}
 
 	public String getFieldProp() {

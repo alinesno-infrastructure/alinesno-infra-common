@@ -27,7 +27,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author WeiXiaoJin
  * @since 2019年7月7日 下午6:56:03
  */
-//@Configuration
+@SuppressWarnings("deprecation")
 public class RedisConfig extends CachingConfigurerSupport implements RedisConstants {
 
 	@SuppressWarnings("unused")
@@ -71,7 +71,7 @@ public class RedisConfig extends CachingConfigurerSupport implements RedisConsta
 	 * @param factory
 	 * @return
 	 */
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings("removal")
 	@Bean
 	public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
 

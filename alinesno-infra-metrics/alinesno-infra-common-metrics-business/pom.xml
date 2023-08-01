@@ -11,7 +11,7 @@
 		<relativePath>../../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>alinesno-infra-common-sdk-mongodb</artifactId>
+	<artifactId>alinesno-infra-common-metrics-business</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>

@@ -11,7 +11,7 @@
 		<relativePath>../../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>alinesno-infra-sdk-redis</artifactId>
+	<artifactId>alinesno-infra-common-sdk-redis</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>

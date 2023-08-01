@@ -11,7 +11,7 @@
 		<relativePath>../../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>alinesno-infra-sdk-kafka</artifactId>
+	<artifactId>alinesno-infra-common-sdk-kafka</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>

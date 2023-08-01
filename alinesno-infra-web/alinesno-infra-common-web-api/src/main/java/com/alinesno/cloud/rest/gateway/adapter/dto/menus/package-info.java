@@ -1,1 +1,0 @@
-package com.alinesno.cloud.rest.gateway.adapter.dto.menus;

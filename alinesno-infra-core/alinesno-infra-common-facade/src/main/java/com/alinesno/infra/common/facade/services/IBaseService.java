@@ -22,7 +22,7 @@ public interface IBaseService<Entity> extends IService<Entity> {
 	 * 
 	 * @param ids
 	 */
-	void deleteByIds(String[] ids);
+	void deleteByIds(Long[] ids);
 
 	/**
 	 * 条件删除
@@ -41,7 +41,7 @@ public interface IBaseService<Entity> extends IService<Entity> {
 	 * 
 	 * @param id
 	 */
-	void updateById(Entity e, String id);
+	void updateById(Entity e, Long id);
 
 	/**
 	 * 修改状态
@@ -49,7 +49,7 @@ public interface IBaseService<Entity> extends IService<Entity> {
 	 * @param id
 	 * @return
 	 */
-	boolean updateHasStatus(String id);
+	boolean updateHasStatus(Long id);
 
 	/**
 	 * 通过id进行查询

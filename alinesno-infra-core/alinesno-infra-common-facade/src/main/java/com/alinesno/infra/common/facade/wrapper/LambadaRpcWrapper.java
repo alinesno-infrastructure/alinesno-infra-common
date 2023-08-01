@@ -31,8 +31,8 @@ import com.google.common.base.CaseFormat;
 @SuppressWarnings("serial")
 public class LambadaRpcWrapper<T> extends Wrapper {
 
-	@SuppressWarnings("unused")
 	private static final Logger log = LoggerFactory.getLogger(LambadaRpcWrapper.class);
+	
 	private boolean isHasOrder = false;
 	private boolean removeApplication = false;
 

@@ -13,10 +13,14 @@
 
 	<packaging>pom</packaging>
 
-	<artifactId>alinesno-infra-common-mertics</artifactId>
+	<artifactId>alinesno-infra-common-metrics-web-parent</artifactId>
 
 	<modules>
 		<!-- common core -->
+		<module>alinesno-infra-common-metrics</module>
+		<module>alinesno-infra-common-metrics-business</module>
+		<module>alinesno-infra-common-metrics-database</module>
+		<module>alinesno-infra-common-metrics-web</module>
 	</modules>
 
 </project>
