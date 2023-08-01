@@ -5,6 +5,7 @@ import java.util.Date;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -43,7 +44,42 @@ public class BaseEntity implements Serializable {
 
 	@TableField(fill = FieldFill.INSERT)
 	private int hasStatus; // = HasStatusEnums.LEGAL.value ; // 状态(0启用|1禁用)
-	
+
+	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@TableField(fill = FieldFill.UPDATE, updateStrategy = FieldStrategy.IGNORED)
+	private Date updateTime; // 更新时间
+
+	@TableField
+	private String operatorId; // 操作员 用户权限: 只能看到自己操作的数据
+
+	@TableField
+	private String lastUpdateOperatorId; // 最后更新操作员 用户权限: 只能看到自己操作的数据
+
+	public String getLastUpdateOperatorId() {
+		return lastUpdateOperatorId;
+	}
+
+	public void setLastUpdateOperatorId(String lastUpdateOperatorId) {
+		this.lastUpdateOperatorId = lastUpdateOperatorId;
+	}
+
+	public String getOperatorId() {
+		return operatorId;
+	}
+
+	public void setOperatorId(String operatorId) {
+		this.operatorId = operatorId;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+
 	public int getHasStatus() {
 		return hasStatus;
 	}

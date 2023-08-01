@@ -6,7 +6,7 @@ import java.util.List;
 import com.alinesno.infra.common.core.cache.CacheRedisUtil;
 import com.alinesno.infra.common.core.cache.RedisConfig;
 import com.alinesno.infra.common.core.config.AsyncConfig;
-import com.alinesno.infra.common.core.context.ApplicationContextProvider;
+import com.alinesno.infra.common.core.context.SpringContext;
 import com.alinesno.infra.common.core.exceptions.aspect.RpcServiceExceptionAspect;
 import com.alinesno.infra.common.core.utils.WebUploadUtils;
 import com.alinesno.infra.common.facade.wrapper.mybatis.MyBatisPlusConfig;
@@ -27,7 +27,7 @@ public class CoreImportProvider {
 	public static List<String> classLoader() {
 		List<String> s = new ArrayList<>();
 
-		s.add(ApplicationContextProvider.class.getName());
+		s.add(SpringContext.class.getName());
 		s.add(AsyncConfig.class.getName()); // 添加异步线程池
 		s.add(RedisConfig.class.getName()); // Redis配置
 		s.add(CacheRedisUtil.class.getName()); // Redis配置

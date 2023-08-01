@@ -22,10 +22,10 @@ public class AjaxResult extends HashMap<String, Object> {
 	public static final String DATA_TAG = "data";
 
 	/** 返回 http 状态 */
-	public static final String STATUS_TAG = "status" ; 
-	
+	public static final String STATUS_TAG = "status";
+
 	/** 运行执行的状态 */
-	public static final String PROCESS_TAG = "process" ; 
+	public static final String PROCESS_TAG = "process";
 
 	/**
 	 * 初始化一个新创建的 AjaxResult 对象，使其表示一个空消息。

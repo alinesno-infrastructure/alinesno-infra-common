@@ -11,7 +11,7 @@ import com.alinesno.infra.common.core.monitor.server.Mem;
 import com.alinesno.infra.common.core.monitor.server.Sys;
 import com.alinesno.infra.common.core.monitor.server.SysFile;
 import com.alinesno.infra.common.core.utils.Arith;
-import com.alinesno.infra.common.core.utils.IPUtils;
+import com.alinesno.infra.common.core.utils.ip.IPUtils;
 
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;

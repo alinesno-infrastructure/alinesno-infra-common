@@ -20,18 +20,18 @@ public class ScriptTools {
 	 * @return
 	 */
 	public static boolean isRightfulString(String text) {
-		
+
 		// 初步判断字符间距
 //		boolean b = match(text, "^[A-Za-z0-9_-]+$");
 //		Assert.isTrue(b , "参数中含有非法的字符:" + text) ; 
-		
+
 		// 进一步判断特殊字符
-		// boolean b2 = containsSqlInjection(text) ; 
-		// Assert.isTrue(b2 , "参数中含有非法的字符:" + text) ; 
-		
-		return true ; 
+		// boolean b2 = containsSqlInjection(text) ;
+		// Assert.isTrue(b2 , "参数中含有非法的字符:" + text) ;
+
+		return true;
 	}
-	
+
 	/**
 	 * 是否含有sql注入，返回true表示含有
 	 * 
@@ -39,7 +39,8 @@ public class ScriptTools {
 	 * @return
 	 */
 	public static boolean containsSqlInjection(Object obj) {
-		Pattern pattern = Pattern.compile("\\b(exec|insert|select|drop|grant|alter|delete|update|count|chr|truncate|char|declare|or)\\b|(\\*|;|\\+|'|%)");
+		Pattern pattern = Pattern.compile(
+				"\\b(exec|insert|select|drop|grant|alter|delete|update|count|chr|truncate|char|declare|or)\\b|(\\*|;|\\+|'|%)");
 		Matcher matcher = pattern.matcher(obj.toString());
 		return matcher.find();
 	}
@@ -57,5 +58,5 @@ public class ScriptTools {
 		}
 		return Pattern.compile(reg).matcher(text).matches();
 	}
-	
+
 }

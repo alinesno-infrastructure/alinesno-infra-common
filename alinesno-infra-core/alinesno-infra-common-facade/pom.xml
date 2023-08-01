@@ -19,6 +19,20 @@
 
 	<dependencies>
 	
+		<!-- hutool start -->
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+		</dependency>
+		<!-- hutool start -->	
+		
+		<!-- jakarta_start -->
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+		</dependency>
+		<!-- jakarta_end -->
+		
 		<!-- spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>

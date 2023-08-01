@@ -19,7 +19,6 @@ import com.alinesno.infra.common.facade.mapper.repository.IBaseMapper;
 import com.alinesno.infra.common.facade.services.IBaseService;
 import com.alinesno.infra.common.facade.wrapper.RpcWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.ReflectionKit;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
@@ -31,8 +30,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
  * @since 2018年11月20日 下午8:05:00
  */
 @Transactional
-public class IBaseServiceImpl<Entity extends BaseEntity, M extends IBaseMapper<Entity>>
-		extends ServiceImpl<M, Entity> implements IBaseService<Entity> {
+public class IBaseServiceImpl<Entity extends BaseEntity, M extends IBaseMapper<Entity>> extends ServiceImpl<M, Entity>
+		implements IBaseService<Entity> {
 
 	private static final Logger log = LoggerFactory.getLogger(IBaseServiceImpl.class);
 
@@ -189,19 +188,4 @@ public class IBaseServiceImpl<Entity extends BaseEntity, M extends IBaseMapper<E
 		return mapper.selectOne(wrapper.toQueryWrapper());
 	}
 
-	/**
-	 * 重写此方法是为了修复批量插入或者 saveOrUpdate 时无法获取到实体类信息抛出<br />
-	 * MybatisPlusException Not Found TableInfoCache
-	 *
-	 * @return
-	 */
-	@Override
-	protected Class<Entity> currentModelClass() {
-		return (Class<Entity>) ReflectionKit.getSuperClassGenericType(getClass(), 0);
-	}
-
-	@Override
-	protected Class<Entity> currentMapperClass() {
-		return (Class<Entity>) ReflectionKit.getSuperClassGenericType(getClass(), 1);
-	}
 }

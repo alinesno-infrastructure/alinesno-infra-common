@@ -25,7 +25,7 @@ import com.google.common.base.CaseFormat;
 public class RpcWrapper<T> extends Wrapper {
 
 	private static final Logger log = LoggerFactory.getLogger(RpcWrapper.class);
-	
+
 	private boolean isHasOrder = false;
 	private boolean removeApplication = false;
 
@@ -400,10 +400,10 @@ public class RpcWrapper<T> extends Wrapper {
 				String conditionKey = c.getCondition();
 				String column = c.getColumn();
 				Object params = c.getParams();
-		
+
 				// 判断是否包含特殊的字符
-				validateXssValue(column , params) ; 
-				
+				validateXssValue(column, params);
+
 				// 在SQL语句中发现不符合下划线风格的列
 				column = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, column);
 				if (params != null && StringUtils.isNotBlank(params + "")) {
@@ -427,7 +427,7 @@ public class RpcWrapper<T> extends Wrapper {
 					case NE:
 						wrapper.ne(column, params);
 					case OR:
-						wrapper.or().eq(column, params) ; 
+						wrapper.or().eq(column, params);
 						break;
 					case LIKE:
 						wrapper.like(column, params);
@@ -486,12 +486,13 @@ public class RpcWrapper<T> extends Wrapper {
 
 	/**
 	 * 初步判断xss和不安全字符
+	 * 
 	 * @param column
 	 * @param params
 	 */
 	private void validateXssValue(String column, Object params) {
-		ScriptTools.isRightfulString(column) ; 
-		ScriptTools.isRightfulString(params+"") ; 
+		ScriptTools.isRightfulString(column);
+		ScriptTools.isRightfulString(params + "");
 	}
 
 }

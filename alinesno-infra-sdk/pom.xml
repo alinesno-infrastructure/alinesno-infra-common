@@ -13,10 +13,14 @@
 
 	<packaging>pom</packaging>
 
-	<artifactId>alinesno-infra-common-sdk</artifactId>
+	<artifactId>alinesno-infra-common-sdk-parent</artifactId>
 
 	<modules>
 		<!-- common core -->
+		<module>alinesno-infra-sdk-distlock</module>
+		<module>alinesno-infra-sdk-kafka</module>
+		<module>alinesno-infra-sdk-mongodb</module>
+		<module>alinesno-infra-sdk-redis</module>
 	</modules>
 
 </project>
