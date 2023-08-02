@@ -39,6 +39,9 @@
 		<module>alinesno-infra-security</module> <!-- 安全-->
 		<module>alinesno-infra-metrics</module> <!-- 指标-->
 		<module>alinesno-infra-web</module> <!-- 前端服务-->
+		
+		<!-- 集成示例 --> 
+		<module>alinesno-infra-simples</module>
 	</modules>
 
 	<properties>
@@ -212,11 +215,6 @@
 			<dependency>
 				<groupId>cn.dev33</groupId>
 				<artifactId>sa-token-redis</artifactId>
-				<version>${satoken.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>cn.dev33</groupId>
-				<artifactId>sa-token-redis-jackson</artifactId>
 				<version>${satoken.version}</version>
 			</dependency>
 
