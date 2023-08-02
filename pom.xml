@@ -426,6 +426,17 @@
 		</dependencies>
     </dependencyManagement>
 
+    <distributionManagement>
+        <repository>
+            <id>internal.repo</id>
+            <url>${nexus.repository}/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>internal.repo</id>
+            <url>${nexus.repository}/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 	<build>
 		<!-- 插件管理 -->
 		<pluginManagement>
