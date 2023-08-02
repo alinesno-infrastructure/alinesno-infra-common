@@ -89,7 +89,8 @@
 		<geronimo.javamail_1.4_spec.version>1.6</geronimo.javamail_1.4_spec.version>
 
 		<!-- poi -->
-		<poi.version>3.17</poi.version>
+		<poi.version>5.2.2</poi.version>
+		<poi.ooxml.schedmas.version>4.1.2</poi.ooxml.schedmas.version>
 		<easypoi.web.version>3.0.3</easypoi.web.version>
 		<cxf.version>3.0.2</cxf.version>
 		<openoffice.version>3.2.1</openoffice.version>
@@ -99,10 +100,10 @@
 		<google.zxing.core.version>3.3.0</google.zxing.core.version>
 
 		<!-- guava -->
-		<guava.version>20.0</guava.version>
+		<guava.version>32.0.1-jre</guava.version>
 
 		<!-- json -->
-		<json.smart.version>2.2</json.smart.version>
+		<json.smart.version>2.5.0</json.smart.version>
 		<fastjson.version>1.2.83</fastjson.version>
 		<gson.version>2.8.9</gson.version>
 
@@ -128,6 +129,7 @@
 
 		<!-- SMS 配置 -->
 		<sms4j.version>2.2.0</sms4j.version>
+		<bcprov.jdk15on.version>1.70</bcprov.jdk15on.version>
 
 		<!-- kryo -->
 		<kryo-version>5.2.0</kryo-version>
@@ -135,7 +137,7 @@
 		<forest.version>1.5.27</forest.version>
 		<commons.codec.version>1.15</commons.codec.version>
 		<xnio.api.version>3.8.8.Final</xnio.api.version>
-		<netty.all.version>4.1.42.Final</netty.all.version>
+		<netty.all.version>5.0.0.Alpha2</netty.all.version>
 
 		<!-- 安全检测plugin -->
 		<license.maven.plugin>2.0.0</license.maven.plugin>
@@ -147,6 +149,14 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+			<!-- bcprov_start -->	
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcprov-jdk15on</artifactId>
+				<version>${bcprov.jdk15on.version}</version>
+			</dependency>
+			<!-- bcprov_end -->	
 
 			<!--短信sms4j-->
 			<dependency>
@@ -182,6 +192,11 @@
 				<version>${satoken.version}</version>
 			</dependency>
 			<!-- Sa-Token 整合 jwt -->
+			<dependency>
+				<groupId>cn.dev33</groupId>
+				<artifactId>sa-token-redis-jackson</artifactId>
+				<version>${satoken.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>cn.dev33</groupId>
 				<artifactId>sa-token-jwt</artifactId>
@@ -394,7 +409,7 @@
 			<dependency>
 				<groupId>org.apache.poi</groupId>
 				<artifactId>poi-ooxml-schemas</artifactId>
-				<version>${poi.version}</version>
+				<version>${poi.ooxml.schedmas.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.poi</groupId>

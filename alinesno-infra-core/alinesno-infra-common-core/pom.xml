@@ -20,7 +20,7 @@
 		<curator.version>4.2.0</curator.version>
 		<easypoi.boot.version>4.0.0</easypoi.boot.version>
 		<easypoi.version>3.0.3</easypoi.version>
-		<commmons.io.version>2.4</commmons.io.version>
+		<commmons.io.version>2.13.0</commmons.io.version>
 		<commmons.collections.version>4.4</commmons.collections.version>
 
 		<druid.version>1.1.17</druid.version>
@@ -49,8 +49,7 @@
 		<!-- bcprov_start -->	
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-jdk15on</artifactId>
-			<version>1.70</version>
+			<artifactId>bcprov-jdk15on</artifactId> 
 		</dependency>
 		<!-- bcprov_end -->	
 		
@@ -72,7 +71,7 @@
                 <version>${redisson.version}</version>
             </dependency>
 		
-		<dependency>
+			<dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>easyexcel</artifactId>
                 <version>${easyexcel.version}</version>
