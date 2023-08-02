@@ -39,8 +39,8 @@
 		<module>alinesno-infra-security</module> <!-- 安全-->
 		<module>alinesno-infra-metrics</module> <!-- 指标-->
 		<module>alinesno-infra-web</module> <!-- 前端服务-->
-		
-		<!-- 集成示例 --> 
+
+		<!-- 集成示例 -->
 		<module>alinesno-infra-simples</module>
 	</modules>
 
@@ -60,8 +60,8 @@
 		<java.target.version>17</java.target.version>
 		<java.version>17</java.version>
 		<argLine>-Dfile.encoding=UTF-8</argLine>
-		<skipTests>true</skipTests>
-		<nexus.repository>http://nexus.infra.linesno.com/nexus</nexus.repository>
+        <skipTests>true</skipTests>
+        <nexus.repository>http://repo.infra.linesno.com/nexus</nexus.repository>
 
 		<!-- docker registry -->
 		<docker.repository>registry.cn-shenzhen.aliyuncs.com</docker.repository>
@@ -153,13 +153,13 @@
 	<dependencyManagement>
 		<dependencies>
 
-			<!-- bcprov_start -->	
+			<!-- bcprov_start -->
 			<dependency>
 				<groupId>org.bouncycastle</groupId>
 				<artifactId>bcprov-jdk15on</artifactId>
 				<version>${bcprov.jdk15on.version}</version>
 			</dependency>
-			<!-- bcprov_end -->	
+			<!-- bcprov_end -->
 
 			<!--短信sms4j-->
 			<dependency>
@@ -424,7 +424,18 @@
 			<!-- apache common end -->
 
 		</dependencies>
-	</dependencyManagement>
+    </dependencyManagement>
+
+    <distributionManagement>
+      <repository>
+        <id>internal.repo</id>
+        <url>${nexus.repository}/content/repositories/releases</url>
+      </repository>
+      <snapshotRepository>
+        <id>internal.repo</id>
+        <url>${nexus.repository}/content/repositories/snapshots</url>
+      </snapshotRepository>
+    </distributionManagement>
 
 	<build>
 
