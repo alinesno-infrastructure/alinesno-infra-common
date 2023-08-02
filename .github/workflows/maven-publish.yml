@@ -27,7 +27,7 @@ jobs:
 
       - name: Create Nexus Config File
         run: |
-          cat << EOF > nexus-config.xml
+          cat > nexus-config.xml <<EOF 
             <?xml version="1.0" encoding="UTF-8"?>
             <settings>
               <mirrors>
