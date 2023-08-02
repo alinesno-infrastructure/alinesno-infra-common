@@ -129,6 +129,7 @@
 
 		<!-- SMS 配置 -->
 		<sms4j.version>2.2.0</sms4j.version>
+		<bcprov.jdk15on.version>1.70</bcprov.jdk15on.version>
 
 		<!-- kryo -->
 		<kryo-version>5.2.0</kryo-version>
@@ -148,6 +149,14 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+			<!-- bcprov_start -->	
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcprov-jdk15on</artifactId>
+				<version>${bcprov.jdk15on.version}</version>
+			</dependency>
+			<!-- bcprov_end -->	
 
 			<!--短信sms4j-->
 			<dependency>
@@ -183,6 +192,11 @@
 				<version>${satoken.version}</version>
 			</dependency>
 			<!-- Sa-Token 整合 jwt -->
+			<dependency>
+				<groupId>cn.dev33</groupId>
+				<artifactId>sa-token-redis-jackson</artifactId>
+				<version>${satoken.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>cn.dev33</groupId>
 				<artifactId>sa-token-jwt</artifactId>
