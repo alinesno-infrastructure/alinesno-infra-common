@@ -25,21 +25,153 @@ jobs:
           server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-      - name: Build with Maven
-        run: mvn -B package --file pom.xml
-
       - name: Create Nexus Config File
         run: |
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > nexus-config.xml
-          echo '<settings>' >> nexus-config.xml
-          echo '  <servers>' >> nexus-config.xml
-          echo '    <server>' >> nexus-config.xml
-          echo '      <id>internal.repo</id>' >> nexus-config.xml
-          echo '      <username>${{ secrets.NEXUS_USERNAME }}</username>' >> nexus-config.xml
-          echo '      <password>${{ secrets.NEXUS_PASSWORD }}</password>' >> nexus-config.xml
-          echo '    </server>' >> nexus-config.xml
-          echo '  </servers>' >> nexus-config.xml
-          echo '</settings>' >> nexus-config.xml
+          cat << EOF > nexus-config.xml
+			<?xml version="1.0" encoding="UTF-8"?>
+			<settings>
+				<mirrors>
+					<mirror>
+						<id>mirror</id>
+						<mirrorOf>central,jcenter,!rdc-releases,!rdc-snapshots</mirrorOf>
+						<name>mirror</name>
+						<url>https://maven.aliyun.com/nexus/content/groups/public</url>
+					</mirror>
+
+					<mirror>
+						<id>rdc-releases</id>
+						<mirrorOf>releases</mirrorOf>
+						<url>https://packages.aliyun.com/maven/repository/2201346-release-2LoXPn/</url>
+					</mirror>
+					<mirror>
+						<id>rdc-snapshots</id>
+						<mirrorOf>snapshots</mirrorOf>
+						<url>https://packages.aliyun.com/maven/repository/2201346-snapshot-hFrgM0/</url>
+					</mirror>
+				</mirrors>
+
+				<servers>
+					<server>
+						<id>ossrh</id>
+						<username>${{ secrets.NEXUS_USERNAME  }}</username>
+						<username>${{ secrets.NEXUS_PASSWORD }}</username>
+					</server>
+					<server>
+						<id>rdc-releases</id>
+						<username>${{ secrets.NEXUS_USERNAME  }}</username>
+						<username>${{ secrets.NEXUS_PASSWORD }}</username>
+					</server>
+					<server>
+						<id>rdc-snapshots</id>
+						<username>${{ secrets.NEXUS_USERNAME  }}</username>
+						<username>${{ secrets.NEXUS_PASSWORD }}</username>
+					</server>
+				</servers>
+				<profiles>
+					<profile>
+						<id>rdc</id>
+						<properties>
+							<altReleaseDeploymentRepository>
+								rdc-releases::default::https://packages.aliyun.com/maven/repository/2201346-release-2LoXPn/
+							</altReleaseDeploymentRepository>
+							<altSnapshotDeploymentRepository>
+								rdc-snapshots::default::https://packages.aliyun.com/maven/repository/2201346-snapshot-hFrgM0/
+							</altSnapshotDeploymentRepository>
+						</properties>
+						<repositories>
+							<repository>
+								<id>central</id>
+								<url>https://maven.aliyun.com/nexus/content/groups/public</url>
+								<releases>
+									<enabled>true</enabled>
+								</releases>
+								<snapshots>
+									<enabled>false</enabled>
+								</snapshots>
+							</repository>
+							<repository>
+								<id>snapshots</id>
+								<url>https://maven.aliyun.com/nexus/content/groups/public</url>
+								<releases>
+									<enabled>false</enabled>
+								</releases>
+								<snapshots>
+									<enabled>true</enabled>
+								</snapshots>
+							</repository>
+							<repository>
+								<id>rdc-releases</id>
+								<url>https://packages.aliyun.com/maven/repository/2201346-release-2LoXPn/</url>
+								<releases>
+									<enabled>true</enabled>
+								</releases>
+								<snapshots>
+									<enabled>false</enabled>
+								</snapshots>
+							</repository>
+							<repository>
+								<id>rdc-snapshots</id>
+								<url>https://packages.aliyun.com/maven/repository/2201346-snapshot-hFrgM0/</url>
+								<releases>
+									<enabled>false</enabled>
+								</releases>
+								<snapshots>
+									<enabled>true</enabled>
+								</snapshots>
+							</repository>
+						</repositories>
+						<pluginRepositories>
+							<pluginRepository>
+								<id>central</id>
+								<url>https://maven.aliyun.com/nexus/content/groups/public</url>
+								<releases>
+									<enabled>true</enabled>
+								</releases>
+								<snapshots>
+									<enabled>false</enabled>
+								</snapshots>
+							</pluginRepository>
+							<pluginRepository>
+								<id>snapshots</id>
+								<url>https://maven.aliyun.com/nexus/content/groups/public</url>
+								<releases>
+									<enabled>false</enabled>
+								</releases>
+								<snapshots>
+									<enabled>true</enabled>
+								</snapshots>
+							</pluginRepository>
+							<pluginRepository>
+								<id>rdc-releases</id>
+								<url>https://packages.aliyun.com/maven/repository/2201346-release-2LoXPn/</url>
+								<releases>
+									<enabled>true</enabled>
+								</releases>
+								<snapshots>
+									<enabled>false</enabled>
+								</snapshots>
+							</pluginRepository>
+							<pluginRepository>
+								<id>rdc-snapshots</id>
+								<url>https://packages.aliyun.com/maven/repository/2201346-snapshot-hFrgM0/</url>
+								<releases>
+									<enabled>false</enabled>
+								</releases>
+								<snapshots>
+									<enabled>true</enabled>
+								</snapshots>
+							</pluginRepository>
+						</pluginRepositories>
+					</profile>
+				</profiles>
+				<activeProfiles>
+					<activeProfile>rdc</activeProfile>
+				</activeProfiles>
+			</settings>
+			EOF
+
+      - name: Build with Maven
+        run: mvn -B clean deploy --settings nexus-config.xml
 
       - name: Build and Deploy to Nexus
         run: mvn clean deploy --settings nexus-config.xml
