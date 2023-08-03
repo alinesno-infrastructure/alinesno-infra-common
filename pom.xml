@@ -71,8 +71,7 @@
 		<docker.user>infra</docker.user>
  
 		<jib.maven.plugin.version>3.3.2</jib.maven.plugin.version>
-		<flatten.maven.plugin.version>1.1.0</flatten.maven.plugin.version>
-		<maven.source.plugin.version>3.0.1</maven.source.plugin.version>
+		<maven.source.plugin.version>3.2.1</maven.source.plugin.version>
 
 		<!-- plugin version -->
 		<sonar.maven.plugin.version>3.6.0.1398</sonar.maven.plugin.version>
@@ -140,6 +139,7 @@
 		<commons.codec.version>1.15</commons.codec.version>
 		<xnio.api.version>3.8.8.Final</xnio.api.version>
 		<netty.all.version>5.0.0.Alpha2</netty.all.version>
+		<snakeyaml.version>2.0</snakeyaml.version>
 
 		<!-- 安全检测plugin -->
 		<license.maven.plugin>2.0.0</license.maven.plugin>
@@ -159,6 +159,12 @@
 				<version>${bcprov.jdk15on.version}</version>
 			</dependency>
 			<!-- bcprov_end -->
+
+			<dependency>
+				<groupId>org.yaml</groupId>
+				<artifactId>snakeyaml</artifactId>
+				<version>${snakeyaml.version}</version>
+			</dependency>
 
 			<!--短信sms4j-->
 			<dependency>
