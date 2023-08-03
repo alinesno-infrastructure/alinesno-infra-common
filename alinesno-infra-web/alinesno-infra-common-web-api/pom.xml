@@ -14,8 +14,7 @@
 
 	<properties>
 		<bitwalker.version>1.21</bitwalker.version>
-		<jwt.version>0.9.1</jwt.version>
-		<kaptcha.version>2.3.2</kaptcha.version>
+		<jwt.version>0.9.1</jwt.version> 
 	</properties>
 
 	<dependencies>
@@ -60,15 +59,7 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-pool2</artifactId>
 		</dependency>
-
-
-		<!--验证码 -->
-		<dependency>
-			<groupId>com.github.penggle</groupId>
-			<artifactId>kaptcha</artifactId>
-			<version>${kaptcha.version}</version>
-		</dependency>
-
+  
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>

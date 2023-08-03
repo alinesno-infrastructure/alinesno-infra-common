@@ -68,9 +68,8 @@
 		<docker.public.repostory>registry.cn-shenzhen.aliyuncs.com</docker.public.repostory>
 		<docker.registry.name>alinesno-infra</docker.registry.name>
 		<docker.base.images>registry.cn-shenzhen.aliyuncs.com/alinesno-infra-base/openjdk:17.0.16-jdk-slim</docker.base.images>
-		<docker.user>alinesno</docker.user>
-
-		<docker.maven.plugin.version>0.4.13</docker.maven.plugin.version>
+		<docker.user>infra</docker.user>
+ 
 		<jib.maven.plugin.version>3.3.2</jib.maven.plugin.version>
 		<flatten.maven.plugin.version>1.1.0</flatten.maven.plugin.version>
 		<maven.source.plugin.version>3.0.1</maven.source.plugin.version>
@@ -121,14 +120,14 @@
 		<hutool.version>5.8.21</hutool.version>
 
 		<!-- dubbo -->
-		<druid-spring-boot.version>1.1.17</druid-spring-boot.version>
+		<druid-spring-boot.version>1.2.18</druid-spring-boot.version>
 
 		<!-- mybatis-plus -->
 		<mybatis-plus-boot.version>3.5.3.1</mybatis-plus-boot.version>
 		<p6spy.version>3.9.1</p6spy.version>
 		<satoken.version>1.35.0.RC</satoken.version>
 		<redisson.version>3.20.1</redisson.version>
-        <hibernate.validator.version>7.0.4.Final</hibernate.validator.version>
+        <hibernate.validator.version>8.0.1.Final</hibernate.validator.version>
 
 		<!-- SMS 配置 -->
 		<sms4j.version>2.2.0</sms4j.version>

@@ -6,7 +6,7 @@ package com.alinesno.infra.common.config.file;
  * ${LOGBASH_MAX_FILE_SIZE:2048MB} file.history: ${LOGBASH_MAX_FILE_HISTORY:60}
  * 
  * @author LuoAnDong
- * @date 2020年12月22日 上午11:47:46
+ * @date 2018年12月22日 上午11:47:46
  */
 public class FileConfig {
 

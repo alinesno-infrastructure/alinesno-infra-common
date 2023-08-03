@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.alinesno.infra.common.web.adapter.config.CORSProperites;
-import com.alinesno.infra.common.web.adapter.config.CaptchaConfig;
 import com.alinesno.infra.common.web.adapter.config.CorsFilter;
 import com.alinesno.infra.common.web.adapter.config.ServletConfig;
 import com.alinesno.infra.common.web.adapter.config.WhiteListDefine;
@@ -31,8 +30,7 @@ public class CommonApiImport {
 		// >>>>>>>>>>>> Http请求封装_start >>>>>>>>>>>>>>>>>
 		importBean.add(WhiteListDefine.class.getName());
 		// >>>>>>>>>>>> Http请求封装_end >>>>>>>>>>>>>>>>>
-
-		importBean.add(CaptchaConfig.class.getName());
+ 
 		importBean.add(GlobalExceptionHandler.class.getName());
 
 		// 平台字段转换

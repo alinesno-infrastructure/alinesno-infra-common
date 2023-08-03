@@ -1,4 +1,4 @@
-package com.alinesno.infra.common.web.adapter.page;
+package com.alinesno.infra.common.facade.pageable;
 
 import java.io.Serializable;
 import java.util.List;

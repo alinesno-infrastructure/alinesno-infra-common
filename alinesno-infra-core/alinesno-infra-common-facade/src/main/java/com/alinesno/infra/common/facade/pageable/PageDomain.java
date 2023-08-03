@@ -1,6 +1,4 @@
-package com.alinesno.infra.common.web.adapter.page;
-
-import com.alinesno.infra.common.core.utils.StringUtils;
+package com.alinesno.infra.common.facade.pageable;
 
 /**
  * 分页数据
@@ -22,11 +20,13 @@ public class PageDomain {
 	private String isAsc = "asc";
 
 	public String getOrderBy() {
-		if (!StringUtils.isEmpty(orderByColumn)) {
+		if (!PageUtils.isEmpty(orderByColumn)) {
 			return "";
 		}
-		return StringUtils.toUnderScoreCase(orderByColumn) + " " + isAsc;
+		return PageUtils.toUnderScoreCase(orderByColumn) + " " + isAsc;
 	}
+	
+	
 
 	public Integer getPageNum() {
 		return pageNum;
