@@ -1,0 +1,1 @@
+package com.alinesno.infra.common.simples.adapter;

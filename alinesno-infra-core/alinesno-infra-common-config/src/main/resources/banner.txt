@@ -9,4 +9,7 @@ ${application.title}
  
 Have fun. Don't forget to bookmark this website ${AnsiColor.BRIGHT_RED} http://portal.info.linesno.com :) 
 --------------------------------------------------------------------------------------- 
-SpringBoot: ${application.formatted-version} ${spring-boot.version}  
+${AnsiColor.BRIGHT_GREEN}
+Spring Boot Version: ${spring-boot.version}${spring-boot.formatted-version}
+Alinesno Infrastructure Version: ${alinesno.infrastructure.version} ${alinesno.infrastructure.formatted-version}
+${AnsiColor.BLACK}

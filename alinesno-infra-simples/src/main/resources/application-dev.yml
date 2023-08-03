@@ -1,0 +1,13 @@
+server:
+  port: 8080 
+  
+# spring 配置  
+spring:
+  application:
+    name: alinesno-infra-common-simple
+  devtools:
+    restart:
+      enabled: true
+      
+sa-token:
+  is-print: false

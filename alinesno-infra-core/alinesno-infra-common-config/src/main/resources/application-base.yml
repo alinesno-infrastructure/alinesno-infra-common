@@ -9,7 +9,11 @@ spring:
       max-file-size: 20MB
       max-request-size: 10MB
 
+# project-info
 alinesno:
+  infrastructure:
+    version: @version@
+    formatted-version: (v@version@)
   file:
     mapping.path: /upload-files
     local.path: ${user.home}/alinesno-upload-files

@@ -1,0 +1,1 @@
+package com.alinesno.infra.common.web.adapter.base.adapter;

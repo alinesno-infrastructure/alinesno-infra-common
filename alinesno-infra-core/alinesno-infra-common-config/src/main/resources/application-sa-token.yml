@@ -14,6 +14,8 @@ sa-token:
     token-style: uuid
     # 是否输出操作日志 
     is-log: true
+    # 关闭控制台banner 
+    is-print: false
     # token前缀
     token-prefix: Bearer
     # 允许同一账号在多个设备一起登录
