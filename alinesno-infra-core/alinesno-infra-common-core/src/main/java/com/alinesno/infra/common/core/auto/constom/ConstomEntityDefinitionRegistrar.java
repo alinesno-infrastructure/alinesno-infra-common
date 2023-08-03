@@ -19,7 +19,7 @@ import org.springframework.util.StringUtils;
  * 实体扫描器
  * 
  * @author WeiXiaoJin
- * @since 2020年2月29日 下午12:38:06
+ * @since 2018年2月29日 下午12:38:06
  */
 public abstract class ConstomEntityDefinitionRegistrar
 		implements ImportBeanDefinitionRegistrar, BaseConstomBusinessAuto {

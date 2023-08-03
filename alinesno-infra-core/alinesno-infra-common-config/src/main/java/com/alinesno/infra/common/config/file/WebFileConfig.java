@@ -8,7 +8,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * 
  * 
  * @author LuoAnDong
- * @date 2020年12月22日 上午11:47:46
+ * @date 2018年12月22日 上午11:47:46
  */
 @ConfigurationProperties(prefix = "web.file")
 public class WebFileConfig {

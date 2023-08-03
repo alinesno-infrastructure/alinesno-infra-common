@@ -20,7 +20,7 @@ public class InfraBaseEntity extends BaseEntity {
 
 	//////////////////////////////// 数据权限规划 _start ///////////////////////
 	@TableField
-	private String applicationId; // 所属应用 应用权限: 只能看到所属应用的权限【默认】
+	private Long applicationId; // 所属应用 应用权限: 只能看到所属应用的权限【默认】
 
 	@TableField
 	private String applicationName; // 应用名称，唯一性，用于做应用标识【最好与springboot的applicaiotn.name对应】
@@ -35,7 +35,7 @@ public class InfraBaseEntity extends BaseEntity {
 	private String departmentId; // 部门权限: 只能看到自己所在部门的数据
 	/////////////////////////////// 数据权限规划 _end ///////////////////////
 
-	public String getApplicationId() {
+	public Long getApplicationId() {
 		return applicationId;
 	}
 
@@ -63,7 +63,7 @@ public class InfraBaseEntity extends BaseEntity {
 		this.departmentId = departmentId;
 	}
 
-	public void setApplicationId(String applicationId) {
+	public void setApplicationId(Long applicationId) {
 		this.applicationId = applicationId;
 	}
 

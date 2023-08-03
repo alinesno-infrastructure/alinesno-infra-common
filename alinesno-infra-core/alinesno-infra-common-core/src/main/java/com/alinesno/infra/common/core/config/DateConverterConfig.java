@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * 时间类型转换
  * 
  * @author WeiXiaoJin
- * @since 2020年1月27日 下午19:45:08
+ * @since 2018年1月27日 下午19:45:08
  */
 @Component
 public class DateConverterConfig implements Converter<String, Date> {

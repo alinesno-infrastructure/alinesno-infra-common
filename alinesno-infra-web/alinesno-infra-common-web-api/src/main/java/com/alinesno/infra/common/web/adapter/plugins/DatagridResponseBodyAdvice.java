@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.alinesno.infra.common.web.adapter.page.TableDataInfo;
+import com.alinesno.infra.common.facade.pageable.TableDataInfo;
 
 /**
  * 数据切面

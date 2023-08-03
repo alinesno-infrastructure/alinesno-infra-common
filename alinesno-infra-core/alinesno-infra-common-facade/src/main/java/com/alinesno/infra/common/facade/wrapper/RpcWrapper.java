@@ -19,7 +19,7 @@ import com.google.common.base.CaseFormat;
  * 用于rpc的条件封装，传输参数封装，便于后期自定义和兼容扩展，兼容dubbo和http的请示参数，同时方便前后端集成
  *
  * @author LuoAnDong
- * @since 2021年1月6日 上午5:44:30
+ * @since 2018年1月6日 上午5:44:30
  */
 @SuppressWarnings("serial")
 public class RpcWrapper<T> extends Wrapper {
@@ -251,93 +251,7 @@ public class RpcWrapper<T> extends Wrapper {
 
 		return null;
 	}
-
-//	public <T> Predicate toSelfPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-//
-//		List<Predicate> predicates = new ArrayList<Predicate>();
-//
-//		if (condition != null && condition.size() > 0) {
-//			for (Condition c : condition) {
-//
-//				String conditionKey = c.getCondition();
-//				String column = c.getColumn();
-//				Object params = c.getParams();
-//
-//				switch (conditionKey) {
-//				case IN : 
-//					CriteriaBuilder.In<Object> in = criteriaBuilder.in(root.get(column)) ; 
-//					if(params instanceof Collection) {
-//						Collection<?> psList = (Collection<?>) params ;
-//						Iterator<?> it = psList.iterator() ; 
-//						while(it.hasNext()) {
-//							in.value(it.next()) ;
-//						}
-//					}else {
-//						in.value(params) ;
-//					}
-//					predicates.add(in); 
-//					break;
-//				case EQ : predicates.add(criteriaBuilder.equal(root.get(column), params)); break;
-//				case NE : predicates.add(criteriaBuilder.notEqual(root.get(column), params)); break;
-//				case LIKE : predicates.add(criteriaBuilder.like(root.get(column), "%" + params + "%")); break;
-//				case NOT_LIKE : predicates.add(criteriaBuilder.notLike(root.get(column), "%" + params + "%")); break;
-//				case LIKE_LEFT : predicates.add(criteriaBuilder.like(root.get(column), "%" + params)); break;
-//				case LIKE_RIGHT : predicates.add(criteriaBuilder.like(root.get(column), params + "%")); break;
-//				case LE : predicates.add(criteriaBuilder.le(root.get(column), Double.parseDouble(params + ""))); break;
-//				case LT : predicates.add(criteriaBuilder.lt(root.get(column), Double.parseDouble(params + ""))); break;
-//				case LETIME : predicates.add(criteriaBuilder.greaterThan(root.<Date>get(column), parseDate(params + ""))); break;
-//				case LTTIME : predicates.add(criteriaBuilder.lessThan(root.<Date>get(column), parseDate(params + ""))); break;
-//				case GE : predicates.add(criteriaBuilder.ge(root.get(column), Double.parseDouble(params + ""))); break;
-//				case GT : predicates.add(criteriaBuilder.gt(root.get(column), Double.parseDouble(params + ""))); break;
-//				case GETIME : predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.<Date>get(column), parseDate(params + ""))); break;
-//				case GTTIME : predicates.add(criteriaBuilder.lessThanOrEqualTo(root.<Date>get(column), parseDate(params + ""))); break;
-//				case ORDER_BY : query.orderBy(Boolean.parseBoolean(params + "") ? criteriaBuilder.asc(root.get(column)): criteriaBuilder.desc(root.get(column))); break;
-//				default: predicates.add(criteriaBuilder.equal(root.<Object>get(column), params)); break;
-//				}
-//			}
-//		}
-//
-//		return query.where(predicates.toArray(new Predicate[predicates.size()])).getRestriction();
-//	}
-
-//	public <T> Specification<T> toSpecification() {
-//
-//		Specification<T> spec = new Specification<T>() {
-//			@Override
-//			public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-//				return toSelfPredicate(root, query, criteriaBuilder);
-//			}
-//
-//		};
-//
-//		return spec;
-//	}
-
-	/**
-	 * 网页时间格式化
-	 * 
-	 * @param inputDate
-	 * @return
-	 */
-//	private static Date parseDate(String inputDate) {
-//        Date outputDate = null;
-//        String[] possibleDateFormats =
-//                {
-//                        "yyyy-MM-dd",
-//                        "yyyyMMdd",
-//                        "yyyy/MM/dd",
-//                        "yyyy年MM月dd日",
-//                        "yyyy MM dd"
-//                };
-// 
-//        try {
-//            outputDate = DateUtils.parseDate(inputDate, possibleDateFormats);
-//        } catch (ParseException e) {
-//        	log.error("时间【"+inputDate+"】格式化错误:" + e);
-//        }
-//        return outputDate;
-//    }
-
+ 
 	/**
 	 * 条件转换
 	 *

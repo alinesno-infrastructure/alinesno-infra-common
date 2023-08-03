@@ -1,4 +1,4 @@
-package com.alinesno.infra.common.web.adapter.page;
+package com.alinesno.infra.common.facade.pageable;
 
 /**
  * 表格数据处理

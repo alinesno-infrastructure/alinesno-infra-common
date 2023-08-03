@@ -4,7 +4,7 @@ package com.alinesno.infra.common.facade.constants;
  * 公共数据库字段
  * 
  * @author LuoAnDong
- * @since 2021年1月3日 下午1:24:12
+ * @since 2018年1月3日 下午1:24:12
  *
  */
 public class FieldConstants {

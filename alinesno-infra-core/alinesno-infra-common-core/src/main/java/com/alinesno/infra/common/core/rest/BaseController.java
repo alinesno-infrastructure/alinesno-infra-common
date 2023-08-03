@@ -5,10 +5,13 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.alinesno.infra.common.facade.mapper.entity.BaseEntity;
+import com.alinesno.infra.common.facade.pageable.DatatablesPageBean;
+import com.alinesno.infra.common.facade.pageable.TableDataInfo;
 import com.alinesno.infra.common.facade.services.IBaseService;
 
 /**
@@ -31,19 +34,26 @@ public abstract class BaseController<E extends BaseEntity, S extends IBaseServic
 	 * @return
 	 */
 	@GetMapping("modifyHasStatus")
-	boolean modifyHasStatus(@RequestParam("id") Long id) {
+	protected boolean modifyHasStatus(@RequestParam("id") Long id) {
 		return feign.updateHasStatus(id);
 	}
 
 	@GetMapping("findAllByApplicationId")
-	List<E> findAllByApplicationId(@RequestParam("applicationId") String applicationId) {
-//		return feign.findAllByApplicationId(applicationId);
+	protected List<E> findAllByApplicationId(@RequestParam("applicationId") String applicationId) { 
 		return null;
 	}
 
 	@GetMapping("findAllByTenantId")
-	List<E> findAllByTenantId(@RequestParam("tenantId") String tenantId) {
-//		return feign.findAllByTenantId(tenantId);
+	protected List<E> findAllByTenantId(@RequestParam("tenantId") String tenantId) { 
 		return null;
+	}
+	
+
+	protected TableDataInfo toDataInfo(Model model, S feign, DatatablesPageBean page) { 
+		return null;
+	}
+
+	public S getFeign() { 
+		return feign;
 	}
 }
