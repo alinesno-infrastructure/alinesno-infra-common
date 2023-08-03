@@ -468,7 +468,7 @@
 			<!-- sonar 插件 -->
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
-				<artifactId>sonar-aven-plugin</artifactId>
+				<artifactId>sonar-maven-plugin</artifactId>
 				<version>${sonar.maven.plugin.version}</version>
 			</plugin>
 
@@ -506,7 +506,9 @@
 						</tags>
 						<auth>
 							<!--在docker-hub或者阿里云上的账号和密码-->
+							<!--suppress UnresolvedMavenProperty -->
 							<username>${env.REGISTRY_USERNAME}</username>
+							<!--suppress UnresolvedMavenProperty -->
 							<password>${env.REGISTRY_PASSWORD}</password>
 						</auth>
 					</to>
@@ -574,32 +576,6 @@
 			</plugin>
 			<!-- 打包点位符号处理_end -->
 
-			<plugin>
-				<groupId>org.eclipse.m2e</groupId>
-				<artifactId>lifecycle-mapping</artifactId>
-				<version>${lifecycle.mapping.version}</version>
-				<inherited>true</inherited>
-				<configuration>
-					<lifecycleMappingMetadata>
-						<pluginExecutions>
-							<pluginExecution>
-								<pluginExecutionFilter>
-									<groupId>org.codehaus.mojo</groupId>
-									<artifactId>flatten-maven-plugin</artifactId>
-									<versionRange>[1.0.0,)</versionRange>
-									<goals>
-										<goal>flatten</goal>
-									</goals>
-								</pluginExecutionFilter>
-								<action>
-									<ignore />
-								</action>
-							</pluginExecution>
-						</pluginExecutions>
-					</lifecycleMappingMetadata>
-				</configuration>
-			</plugin>
-
 			<!-- node打包插件_start -->
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
@@ -615,7 +591,6 @@
 				<artifactId>license-maven-plugin</artifactId>
 				<version>${license.maven.plugin}</version>
 				<configuration>
-					<outputType>JSON</outputType>
 					<outputDirectory>${maven.multiModuleProjectDirectory}/license</outputDirectory>
 					<!-- 设置检测结果文件，默认是 txt 文件 -->
 					<thirdPartyFilename>LICENSE_THIRD_PARTY.csv</thirdPartyFilename>
@@ -681,8 +656,6 @@
 					</formats>
 					<outputDirectory>${maven.multiModuleProjectDirectory}/owasp</outputDirectory>
 					<name>dependency-check-report</name>
-					<reportI18n>zh-cn</reportI18n>
-					<locale>zh_CN</locale>
 				</configuration>
 			</plugin>
 
