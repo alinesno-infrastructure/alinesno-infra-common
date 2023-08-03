@@ -19,7 +19,7 @@
 
 		<!-- common core -->
 		<module>alinesno-infra-common-web-api</module>
-		<module>alinesno-infra-common-web-api-base</module>
+		<module>alinesno-infra-common-web-api-adapter</module>
 		<module>alinesno-infra-common-web-api-login</module>
 		<module>alinesno-infra-common-web-api-sso</module>
 

@@ -11,7 +11,7 @@
 		<relativePath>../../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>alinesno-infra-common-web-api-base</artifactId>
+	<artifactId>alinesno-infra-common-web-api-adapter</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>
