@@ -3,5 +3,6 @@ spring:
     include:
     - base
     - mybatis
+    - sa-token
     active:
     - dev
