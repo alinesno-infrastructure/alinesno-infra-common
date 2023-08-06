@@ -74,6 +74,7 @@
 		<maven.source.plugin.version>3.2.1</maven.source.plugin.version>
 
 		<!-- plugin version -->
+		<maven.plugin.validation>brief</maven.plugin.validation>
 		<sonar.maven.plugin.version>3.6.0.1398</sonar.maven.plugin.version>
 		<versions.maven.plugin.version>2.7</versions.maven.plugin.version>
 		<lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
