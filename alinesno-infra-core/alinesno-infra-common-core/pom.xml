@@ -23,7 +23,7 @@
 		<commmons.io.version>2.13.0</commmons.io.version>
 		<commmons.collections.version>4.4</commmons.collections.version>
 
-		<druid.version>1.1.17</druid.version>
+		<druid.version>1.2.18</druid.version>
 		
 		<!-- 离线IP地址定位库 -->
         <ip2region.version>2.7.0</ip2region.version>

@@ -66,14 +66,15 @@
 		<!-- docker registry -->
 		<docker.repository>registry.cn-shenzhen.aliyuncs.com</docker.repository>
 		<docker.public.repostory>registry.cn-shenzhen.aliyuncs.com</docker.public.repostory>
-		<docker.registry.name>alinesno-infra</docker.registry.name>
-		<docker.base.images>registry.cn-shenzhen.aliyuncs.com/alinesno-infra-base/openjdk:17.0.16-jdk-slim</docker.base.images>
-		<docker.user>infra</docker.user>
- 
+		<docker.registry.name>alinesno-infra-platform</docker.registry.name>
+		<docker.base.images>registry.cn-shenzhen.aliyuncs.com/alinesno-infra-base/openjdk:17-jdk-alpine</docker.base.images>
+		<docker.user>alinesno</docker.user>
+
 		<jib.maven.plugin.version>3.3.2</jib.maven.plugin.version>
 		<maven.source.plugin.version>3.2.1</maven.source.plugin.version>
 
 		<!-- plugin version -->
+		<maven.plugin.validation>brief</maven.plugin.validation>
 		<sonar.maven.plugin.version>3.6.0.1398</sonar.maven.plugin.version>
 		<versions.maven.plugin.version>2.7</versions.maven.plugin.version>
 		<lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
@@ -430,7 +431,7 @@
 
 		</dependencies>
     </dependencyManagement>
- 
+
 	<build>
 		<!-- 插件管理 -->
 		<pluginManagement>

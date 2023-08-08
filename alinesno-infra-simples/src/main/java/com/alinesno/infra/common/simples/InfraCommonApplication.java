@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * @author LuoAnDong
  * @since 2023年8月3日 上午6:23:43
  */
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication
 public class InfraCommonApplication {
 
 	public static void main(String[] args) {
