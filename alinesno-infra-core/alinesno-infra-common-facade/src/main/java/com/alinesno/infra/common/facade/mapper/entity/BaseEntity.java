@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @SuppressWarnings("serial")
 public class BaseEntity implements Serializable {
 
-	@TableId(type = IdType.ASSIGN_UUID)
+	@TableId(type = IdType.ASSIGN_ID)
 	private Long id; // 唯一ID号
 
 	@TableField
