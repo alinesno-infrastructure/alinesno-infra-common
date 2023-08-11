@@ -24,10 +24,10 @@
 		<commmons.collections.version>4.4</commmons.collections.version>
 
 		<druid.version>1.2.18</druid.version>
+		<mysql.connecot.version>8.0.33</mysql.connecot.version>
 		
 		<!-- 离线IP地址定位库 -->
         <ip2region.version>2.7.0</ip2region.version>
-        
         <easyexcel.version>3.3.1</easyexcel.version>
 	</properties>
 
@@ -151,7 +151,13 @@
 		</dependency>
 		<!-- easy poi_end -->
 
-
+		<!-- mysql-driver_start -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connecot.version}</version>
+		</dependency>
+		<!-- mysql-driver_end -->
 
 		<dependency>
 			<groupId>org.slf4j</groupId>

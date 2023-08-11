@@ -1,0 +1,44 @@
+{
+  "properties": {
+    "sa-token.token-name": {
+      "type": "java.lang.String",
+      "description": "Token名称（同时也是cookie名称）"
+    },
+    "sa-token.timeout": {
+      "type": "java.lang.Long",
+      "description": "Token有效期（单位：秒），默认30天，-1代表永久有效"
+    },
+    "sa-token.active-timeout": {
+      "type": "java.lang.Long",
+      "description": "Token最低活跃频率（单位：秒），如果Token超过此时间没有访问系统就会被冻结，默认-1代表不限制，永不冻结"
+    },
+    "sa-token.is-concurrent": {
+      "type": "java.lang.Boolean",
+      "description": "是否允许同一账号多地同时登录（为true时允许一起登录，为false时新登录挤掉旧登录）"
+    },
+    "sa-token.is-share": {
+      "type": "java.lang.Boolean",
+      "description": "在多人登录同一账号时，是否共用一个Token（为true时所有登录共用一个Token，为false时每次登录新建一个Token）"
+    },
+    "sa-token.token-style": {
+      "type": "java.lang.String",
+      "description": "Token风格（默认可取值：uuid、simple-uuid、random-32、random-64、random-128、tik）"
+    },
+    "sa-token.is-log": {
+      "type": "java.lang.Boolean",
+      "description": "是否输出操作日志"
+    },
+    "sa-token.is-print": {
+      "type": "java.lang.Boolean",
+      "description": "关闭控制台banner"
+    },
+    "sa-token.token-prefix": {
+      "type": "java.lang.String",
+      "description": "Token前缀"
+    },
+    "sa-token.jwt-secret-key": {
+      "type": "java.lang.String",
+      "description": "JWT秘钥"
+    }
+  }
+}

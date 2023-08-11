@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "mybatis-plus.global-config.banner": {
+      "type": "java.lang.Boolean",
+      "description": "是否显示 MyBatis Plus 的 Banner"
+    },
+    "mybatis-plus.mapper-locations": {
+      "type": "java.lang.String",
+      "description": "MyBatis Mapper XML 文件的位置"
+    }
+  }
+}

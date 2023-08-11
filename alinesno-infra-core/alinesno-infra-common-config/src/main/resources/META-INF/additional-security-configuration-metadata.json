@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "alinesno.security.public-key": {
+      "type": "java.lang.String",
+      "description": "公钥配置"
+    },
+    "alinesno.security.ase-key": {
+      "type": "java.lang.String",
+      "description": "ASE 密钥配置"
+    }
+  }
+}

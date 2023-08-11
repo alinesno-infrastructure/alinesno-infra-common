@@ -2,6 +2,7 @@ spring:
   profiles:
     include:
     - base
+    - security
     - mybatis
     - sa-token
     active:

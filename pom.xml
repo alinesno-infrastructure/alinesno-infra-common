@@ -51,7 +51,7 @@
 		<!-- alinesno_infra_version_end -->
 
 		<!-- 解决unknown error -->
-		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+		<maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
 
 		<!-- compile -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -71,7 +71,7 @@
 		<docker.user>alinesno</docker.user>
 
 		<jib.maven.plugin.version>3.3.2</jib.maven.plugin.version>
-		<maven.source.plugin.version>3.2.1</maven.source.plugin.version>
+		<maven.source.plugin.version>3.3.0</maven.source.plugin.version>
 
 		<!-- plugin version -->
 		<maven.plugin.validation>brief</maven.plugin.validation>
@@ -79,7 +79,7 @@
 		<versions.maven.plugin.version>2.7</versions.maven.plugin.version>
 		<lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
 		<frontend.maven.plugin.version>1.10.0</frontend.maven.plugin.version>
-		<flatten.maven.plugin.version>1.2.2</flatten.maven.plugin.version>
+		<flatten.maven.plugin.version>1.5.0</flatten.maven.plugin.version>
 		<maven.source.plugin.version>3.3.0</maven.source.plugin.version>
 
 		<!-- apache common -->
@@ -483,6 +483,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven.source.plugin.version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>

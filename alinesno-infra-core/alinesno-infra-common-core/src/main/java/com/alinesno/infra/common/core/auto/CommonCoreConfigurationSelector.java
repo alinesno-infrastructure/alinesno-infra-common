@@ -11,7 +11,7 @@ import com.alinesno.infra.common.core.auto.constom.CustomAutoConfigurationImport
  * 引入自动类
  * 
  * @author WeiXiaoJin
- * @sine 2019年4月5日 下午3:34:07
+ * @version 1.0.0
  */
 public class CommonCoreConfigurationSelector extends CustomAutoConfigurationImportSelector {
 

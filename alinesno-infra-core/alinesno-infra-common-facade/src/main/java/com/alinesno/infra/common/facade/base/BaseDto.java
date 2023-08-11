@@ -11,4 +11,13 @@ import com.alinesno.infra.common.facade.mapper.entity.BaseEntity;
 @SuppressWarnings("serial")
 public class BaseDto extends BaseEntity {
 
+    //参数签名 非空
+    private String sign;
+
+    //对称加密key 非空
+    private String aseKey;
+
+    //时间戳，精确到毫秒 非空
+    private long timestamp;
+
 }

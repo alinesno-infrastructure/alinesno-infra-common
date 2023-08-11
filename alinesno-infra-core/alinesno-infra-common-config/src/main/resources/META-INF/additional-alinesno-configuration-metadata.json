@@ -1,0 +1,36 @@
+{
+  "properties": {
+    "alinesno.infrastructure.version": {
+      "type": "java.lang.String",
+      "description": "Alinesno Infrastructure 版本"
+    },
+    "alinesno.infrastructure.formatted-version": {
+      "type": "java.lang.String",
+      "description": "格式化后的 Alinesno Infrastructure 版本"
+    },
+    "alinesno.file.mapping.path": {
+      "type": "java.lang.String",
+      "description": "文件映射路径"
+    },
+    "alinesno.file.local.path": {
+      "type": "java.lang.String",
+      "description": "本地文件路径"
+    },
+    "alinesno.logback.logstash.host": {
+      "type": "java.lang.String",
+      "description": "Logstash 主机地址"
+    },
+    "alinesno.logback.logging.home": {
+      "type": "java.lang.String",
+      "description": "日志文件存储路径"
+    },
+    "alinesno.logback.max.file.size": {
+      "type": "java.lang.String",
+      "description": "日志文件的最大大小"
+    },
+    "alinesno.logback.max.file.history": {
+      "type": "java.lang.String",
+      "description": "日志文件的最大历史版本数"
+    }
+  }
+}

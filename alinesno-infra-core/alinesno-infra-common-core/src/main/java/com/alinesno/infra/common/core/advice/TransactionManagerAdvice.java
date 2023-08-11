@@ -35,7 +35,7 @@ public class TransactionManagerAdvice {
 	private static final String AOP_POINTCUT_EXPRESSION = "execution(* com.alinesno.infra.**.impl.*Impl.*(..)))";
 
 	@Autowired
-	private PlatformTransactionManager transactionManager;
+	protected PlatformTransactionManager transactionManager;
 
 	@SuppressWarnings("deprecation")
 	@Bean
