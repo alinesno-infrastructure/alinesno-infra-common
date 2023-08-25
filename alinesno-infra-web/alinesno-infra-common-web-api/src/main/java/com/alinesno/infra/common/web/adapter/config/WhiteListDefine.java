@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * 资源服务器配置白名单列表，允许配置内的规则匿名访问
  *
  * @author luoandon@gmail.com
- * @date 2019/7/20
+ * @version 1.0.0
  */
 @ConfigurationProperties(prefix = "alinesno.infra")
 @Component

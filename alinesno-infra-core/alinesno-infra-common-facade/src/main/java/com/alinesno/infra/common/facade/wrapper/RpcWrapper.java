@@ -3,10 +3,10 @@ package com.alinesno.infra.common.facade.wrapper;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.core.toolkit.sql.SqlInjectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +21,6 @@ import com.google.common.base.CaseFormat;
  * @author LuoAnDong
  * @since 2018年1月6日 上午5:44:30
  */
-@SuppressWarnings("serial")
 public class RpcWrapper<T> extends Wrapper {
 
 	private static final Logger log = LoggerFactory.getLogger(RpcWrapper.class);
@@ -260,29 +259,32 @@ public class RpcWrapper<T> extends Wrapper {
 	public void builderCondition(Map<String, Object> c) {
 		if (c != null) {
 			if (condition != null) {
-				Iterator<Map.Entry<String, Object>> iterator = c.entrySet().iterator();
-				while (iterator.hasNext()) {
-					Map.Entry<String, Object> me = iterator.next();
-					String[] keys = me.getKey().trim().split("\\|");
-					Object value = me.getValue();
+                for (Map.Entry<String, Object> me : c.entrySet()) {
+                    String[] keys = me.getKey().trim().split("\\|");
+                    Object value = me.getValue();
 
-					if (StringUtils.isBlank(keys[0]) || value == null || StringUtils.isBlank("" + value)) {
-						continue;
-					}
-					Condition condition = new Condition();
-					if (keys.length == 1) { // 条件
-						condition.setCondition("eq");
-						condition.setColumn(keys[0]);
-						condition.setParams(String.valueOf(me.getValue()));
-					} else if (keys.length >= 2) { // 条件
-						condition.setCondition(keys[1]);
-						condition.setColumn(keys[0]);
-						condition.setParams(String.valueOf(me.getValue()));
-					}
+                    if (StringUtils.isBlank(keys[0]) || value == null || StringUtils.isBlank("" + value)) {
+                        continue;
+                    }
+					Condition condition = getCondition(me, keys);
 					this.condition.add(condition);
-				}
+                }
 			}
 		}
+	}
+
+	private static Condition getCondition(Map.Entry<String, Object> me, String[] keys) {
+		Condition condition = new Condition();
+		if (keys.length == 1) { // 条件
+			condition.setCondition("eq");
+			condition.setColumn(keys[0]);
+			condition.setParams(String.valueOf(me.getValue()));
+		} else if (keys.length >= 2) { // 条件
+			condition.setCondition(keys[1]);
+			condition.setColumn(keys[0]);
+			condition.setParams(String.valueOf(me.getValue()));
+		}
+		return condition;
 	}
 
 	public static <T> RpcWrapper<T> build() {
@@ -298,7 +300,6 @@ public class RpcWrapper<T> extends Wrapper {
 	/**
 	 * 转换成mybatis-plus对象
 	 *
-	 * @param <T>
 	 * @return
 	 */
 	public QueryWrapper<T> toQueryWrapper() {
@@ -308,7 +309,7 @@ public class RpcWrapper<T> extends Wrapper {
 
 	public QueryWrapper<T> toQueryWrapper(QueryWrapper<T> wrapper) {
 
-		if (condition != null && condition.size() > 0) {
+		if (condition != null && !condition.isEmpty()) {
 			for (Condition c : condition) {
 
 				String conditionKey = c.getCondition();
@@ -320,16 +321,12 @@ public class RpcWrapper<T> extends Wrapper {
 
 				// 在SQL语句中发现不符合下划线风格的列
 				column = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, column);
-				if (params != null && StringUtils.isNotBlank(params + "")) {
+				if (StringUtils.isNotBlank(params + "")) {
 					switch (conditionKey) {
 					case IN:
 						List<Object> in = new ArrayList<Object>();
-						if (params instanceof Collection) {
-							Collection<?> psList = (Collection<?>) params;
-							Iterator<?> it = psList.iterator();
-							while (it.hasNext()) {
-								in.add(it.next());
-							}
+						if (params instanceof Collection<?> psList) {
+							in.addAll(psList);
 						} else {
 							in.add(params);
 						}
@@ -395,6 +392,7 @@ public class RpcWrapper<T> extends Wrapper {
 			}
 		}
 		log.info("execute sql:\t{}", wrapper.getTargetSql());
+
 		return wrapper;
 	}
 
@@ -405,8 +403,9 @@ public class RpcWrapper<T> extends Wrapper {
 	 * @param params
 	 */
 	private void validateXssValue(String column, Object params) {
-		ScriptTools.isRightfulString(column);
-		ScriptTools.isRightfulString(params + "");
+		// 手动校验方式
+		SqlInjectionUtils.check(column) ;
+		SqlInjectionUtils.check(params.toString()) ;
 	}
 
 }

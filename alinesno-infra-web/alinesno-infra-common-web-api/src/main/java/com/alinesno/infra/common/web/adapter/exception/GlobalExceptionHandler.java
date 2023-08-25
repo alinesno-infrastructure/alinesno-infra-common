@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
  * 全局异常处理器
  * 
  * @author LuoAnDong
- * @date 2023年7月21日 06:43:10
+ * @version 1.0.0
  */
 @RestControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)

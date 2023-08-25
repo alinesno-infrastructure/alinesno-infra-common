@@ -11,7 +11,7 @@ import io.prometheus.client.CollectorRegistry;
 /**
  * 集成Prometheus默认配置
  * @author LuoAnDong
- * @date 2023年7月21日 06:43:10
+ * @version 1.0.0
  */
 @AutoConfiguration
 public class PrometheusConfiguration {

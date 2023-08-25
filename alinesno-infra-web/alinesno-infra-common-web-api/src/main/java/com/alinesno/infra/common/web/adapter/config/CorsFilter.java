@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * @author luoandon@gmail.com
- * @date 2019/7/12
+ * @version 1.0.0
  */
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @Configuration

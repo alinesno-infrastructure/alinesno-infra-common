@@ -7,7 +7,7 @@ import com.alinesno.infra.common.core.constants.EncodeType;
  * 加密上下文 用于encryptor传递必要的参数。
  * 
  * @author LuoAnDong
- * @date 2023年7月21日 06:43:10
+ * @version 1.0.0
  */
 public class EncryptContext {
 

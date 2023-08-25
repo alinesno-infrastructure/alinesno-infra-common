@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  * 數據權限
  * 
  * @author LuoAnDong
- * @date 2023年7月21日 06:43:10
+ * @version 1.0.0
  */
 @Target({ ElementType.PARAMETER, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)

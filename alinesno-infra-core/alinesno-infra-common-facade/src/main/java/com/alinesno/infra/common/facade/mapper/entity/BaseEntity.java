@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  * 实体对象基类,定义基本属性
  *
  * @author WeiXiaoJin
- * @date 2017年8月4日
+ * @version 1.0.0
  */
 @SuppressWarnings("serial")
 public class BaseEntity implements Serializable {

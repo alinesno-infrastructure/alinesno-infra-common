@@ -4,6 +4,6 @@
 /**
  * 
  * @author LuoAnDong
- * @date 2018年12月22日 上午11:47:35
+ * @version 1.0.0
  */
 package com.alinesno.infra.common.config.file;

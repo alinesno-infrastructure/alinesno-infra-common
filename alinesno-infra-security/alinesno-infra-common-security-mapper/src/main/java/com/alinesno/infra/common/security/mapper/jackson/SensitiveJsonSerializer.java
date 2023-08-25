@@ -24,7 +24,7 @@ import cn.hutool.core.util.ObjectUtil;
  * 数据脱敏json序列化工具
  * 
  * @author LuoAnDong
- * @date 2023年7月21日 06:43:10
+ * @version 1.0.0
  */
 public class SensitiveJsonSerializer extends JsonSerializer<String> implements ContextualSerializer {
 

@@ -4,7 +4,7 @@ package com.alinesno.infra.common.security.mapper.service;
  * 脱敏服务
  * 
  * @author LuoAnDong
- * @date 2023年7月21日 06:43:10
+ * @version 1.0.0
  */
 public interface SensitiveService {
 

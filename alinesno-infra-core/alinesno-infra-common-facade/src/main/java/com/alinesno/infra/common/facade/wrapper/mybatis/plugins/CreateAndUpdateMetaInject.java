@@ -19,7 +19,7 @@ import cn.hutool.http.HttpStatus;
  * MyBaits-Plus 时间和更新对比
  * 
  * @author LuoAnDong
- * @date 2023年7月21日 06:43:10
+ * @version 1.0.0
  */
 public class CreateAndUpdateMetaInject implements MetaObjectHandler {
 

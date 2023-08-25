@@ -4,7 +4,7 @@ package com.alinesno.infra.common.web.adapter.dto;
  * 字典dto值
  * 
  * @author LuoAnDong
- * @date 2019年6月16日 下午7:28:37
+ * @version 1.0.0
  */
 public class DictDto {
 

@@ -14,7 +14,7 @@ import com.alinesno.infra.common.core.constants.EncodeType;
  * 字段加密注解
  * 
  * @author LuoAnDong
- * @date 2023年7月21日 06:43:10
+ * @version 1.0.0
  */
 @Documented
 @Inherited

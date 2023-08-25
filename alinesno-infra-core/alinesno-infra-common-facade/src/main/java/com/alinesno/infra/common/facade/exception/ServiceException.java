@@ -4,7 +4,7 @@ package com.alinesno.infra.common.facade.exception;
  * 业务异常
  * 
  * @author LuoAnDong
- * @date 2023年7月21日 06:43:10
+ * @version 1.0.0
  */
 public final class ServiceException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

@@ -13,7 +13,7 @@ import com.alinesno.infra.common.core.context.SpringContext;
  * 字段转换插件执行器
  *
  * @author luoandon@gmail.com
- * @date 2019/8/27
+ * @version 1.0.0
  */
 public class TranslationPluginExecutor {
 	private final static Logger log = LoggerFactory.getLogger(TranslationPluginExecutor.class);

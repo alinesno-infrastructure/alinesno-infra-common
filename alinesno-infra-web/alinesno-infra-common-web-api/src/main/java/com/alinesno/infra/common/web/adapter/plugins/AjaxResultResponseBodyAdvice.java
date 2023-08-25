@@ -23,7 +23,7 @@ import com.alinesno.infra.common.facade.response.AjaxResult;
  * 对于单个数据对象返回的数据处理,用于支持单个返回值的字段转换
  *
  * @author luoandon@gmail.com
- * @date 2019/8/27
+ * @version 1.0.0
  */
 @Order(2)
 @RestControllerAdvice

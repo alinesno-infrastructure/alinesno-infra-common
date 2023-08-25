@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
  * 平台内置注入插件
  *
  * @author WeiXiaoJin
- * @date 2018/10/17
+ * @version 1.0.0
  */
 public class InnerInjectPlugin implements EntityFieldInjectPlugin {
 	/**

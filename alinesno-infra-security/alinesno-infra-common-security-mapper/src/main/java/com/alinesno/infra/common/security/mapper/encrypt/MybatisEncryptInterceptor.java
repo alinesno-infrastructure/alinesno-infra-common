@@ -20,7 +20,7 @@ import cn.hutool.core.util.ObjectUtil;
  * 入参加密拦截处理
  * 
  * @author LuoAnDong
- * @date 2023年7月21日 06:43:10
+ * @version 1.0.0
  */
 @Intercepts({ @Signature(type = ParameterHandler.class, method = "setParameters", args = { PreparedStatement.class }) })
 public class MybatisEncryptInterceptor implements Interceptor {

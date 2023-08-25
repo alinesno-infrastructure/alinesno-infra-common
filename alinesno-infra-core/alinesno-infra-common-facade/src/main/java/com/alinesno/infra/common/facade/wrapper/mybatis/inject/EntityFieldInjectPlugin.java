@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
  * 平台实体类字段注入插件抽象
  *
  * @author WeiXiaoJin
- * @date 2018/10/17
+ * @version 1.0.0
  */
 public interface EntityFieldInjectPlugin {
 	/**
