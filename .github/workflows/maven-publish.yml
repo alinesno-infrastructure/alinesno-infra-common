@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      security-events: write
       packages: write
 
     env:
@@ -145,8 +146,32 @@ jobs:
 
       - name: Deploy to AliyunCR
         run: |
-          mvn -B -U -f ${{ env.PROJECT_NAME }}/pom.xml clean compile jib:build \
+          mvn -B -U -f ${{ env.PROJECT_NAME }}/pom.xml clean compile jib:build jib:dockerBuild \
                         -Ddocker.registry.name=${{ env.ALIYUN_CR_NAMESPACE }} \
                         -Djib.to.tags=${{ env.PRO_VERSION }}.${{ env.BUILD_NUMBER }} \
                         -Djib.to.auth.username=${{secrets.ALIYUN_CR_USERNAME}} \
                         -Djib.to.auth.password=${{secrets.ALIYUN_CR_PASSWORD}}
+
+      - name: Install MurphySec code scan cli
+        run: |
+          wget -q https://s.murphysec.com/release/install.sh -O - | /bin/bash
+
+      - name: Code scan
+        run: murphysec scan . --token ${{ secrets.MURPHYSEC_TOKEN }}
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: '${{ env.ALIYUN_CR_REGISTORY }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PROJECT_NAME }}:${{ env.PRO_VERSION }}.${{ env.BUILD_NUMBER }}'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          exit-code: '0'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'
+
