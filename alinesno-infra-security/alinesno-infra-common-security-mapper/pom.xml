@@ -16,7 +16,7 @@
 
 	<properties>
 		<mysql.connector.version>8.0.33</mysql.connector.version>
-		<postgresql.version>42.2.23</postgresql.version>
+		<postgresql.version>42.5.1</postgresql.version>
 		<clickhouse.version>0.3.1</clickhouse.version>
 	</properties>
 
