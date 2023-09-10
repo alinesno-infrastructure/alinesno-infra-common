@@ -144,6 +144,12 @@ jobs:
       - name: Build and Deploy to Nexus
         run: mvn clean deploy --settings nexus-config.xml
 
+      - uses: dbelyaev/action-checkstyle@v0.8.4
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          level: warning
+
       - name: Deploy to AliyunCR
         run: |
           mvn -B -U -f ${{ env.PROJECT_NAME }}/pom.xml clean compile jib:build jib:dockerBuild \
