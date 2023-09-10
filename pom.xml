@@ -70,10 +70,6 @@
 		<docker.base.images>registry.cn-shenzhen.aliyuncs.com/alinesno-infra-base/openjdk:17-jdk-alpine</docker.base.images>
 		<docker.user>alinesno</docker.user>
 
-		<!-- sonar cloud -->
-		<sonar.organization>alinesno-infrastructure</sonar.organization>
-		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-
 		<jib.maven.plugin.version>3.3.2</jib.maven.plugin.version>
 		<maven.source.plugin.version>3.3.0</maven.source.plugin.version>
 
