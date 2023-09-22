@@ -67,8 +67,8 @@
 		<docker.repository>registry.cn-shenzhen.aliyuncs.com</docker.repository>
 		<docker.public.repostory>registry.cn-shenzhen.aliyuncs.com</docker.public.repostory>
 		<docker.registry.name>alinesno-infra-platform</docker.registry.name>
-		<docker.base.images>registry.cn-shenzhen.aliyuncs.com/alinesno-infra-base/openjdk:17-jdk-alpine</docker.base.images>
-		<docker.user>alinesno</docker.user>
+		<docker.base.images>registry.cn-shenzhen.aliyuncs.com/alinesno-infra-base/openjdk:17.0.2-jdk</docker.base.images>
+		<docker.user>root</docker.user>
 
 		<jib.maven.plugin.version>3.3.2</jib.maven.plugin.version>
 		<maven.source.plugin.version>3.3.0</maven.source.plugin.version>
