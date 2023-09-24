@@ -7,7 +7,7 @@ import com.alinesno.infra.common.facade.mapper.entity.BaseEntity;
 /**
  * 当前用户信息
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2022年10月20日 上午6:23:43
  */
 @SuppressWarnings("serial")

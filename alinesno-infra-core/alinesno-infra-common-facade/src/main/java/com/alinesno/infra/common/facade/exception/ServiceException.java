@@ -3,7 +3,7 @@ package com.alinesno.infra.common.facade.exception;
 /**
  * 业务异常
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @version 1.0.0
  */
 public final class ServiceException extends RuntimeException {

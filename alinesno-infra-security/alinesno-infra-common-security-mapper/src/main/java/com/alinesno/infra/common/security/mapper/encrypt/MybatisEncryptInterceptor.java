@@ -19,7 +19,7 @@ import cn.hutool.core.util.ObjectUtil;
 /**
  * 入参加密拦截处理
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @version 1.0.0
  */
 @Intercepts({ @Signature(type = ParameterHandler.class, method = "setParameters", args = { PreparedStatement.class }) })

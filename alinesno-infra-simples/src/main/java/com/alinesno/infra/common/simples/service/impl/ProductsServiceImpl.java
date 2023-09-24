@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * 产品Service业务层处理
  *
  * @version 1.0.0
- * @author luoandong
+ * @author luoxiaodong
  */
 @Service
 public class ProductsServiceImpl extends IBaseServiceImpl<ProductsEntity, ProductsMapper> implements IProductsService {

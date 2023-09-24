@@ -22,7 +22,7 @@ import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 /**
  * 全局异常处理器
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @version 1.0.0
  */
 @RestControllerAdvice

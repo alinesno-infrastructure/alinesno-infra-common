@@ -9,7 +9,7 @@ import cn.hutool.core.util.PhoneUtil;
 
 /**
  * 验证手机号是否正确
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2022年3月5日 下午10:23:43
  */
 public class ValidateMobile implements ConstraintValidator<Phone, String> {

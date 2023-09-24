@@ -13,7 +13,7 @@ import com.alinesno.infra.common.core.constants.EncodeType;
 /**
  * 字段加密注解
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @version 1.0.0
  */
 @Documented

@@ -25,6 +25,7 @@
 
 		<druid.version>1.2.18</druid.version>
 		<mysql.connecot.version>8.0.33</mysql.connecot.version>
+		<lombok.version>1.18.30</lombok.version>
 		
 		<!-- 离线IP地址定位库 -->
         <ip2region.version>2.7.0</ip2region.version>
@@ -32,7 +33,7 @@
 	</properties>
 
 	<dependencies>
-	
+
 		<!-- infra 公共包_start -->
 		<dependency>
 			<groupId>com.alinesno.infra.common</groupId>
@@ -45,7 +46,13 @@
 			<version>${revision}</version>
 		</dependency>
 		<!-- infra 公共包_end -->
-	
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+		</dependency>
+
 		<!-- bcprov_start -->	
 		<dependency>
 			<groupId>org.bouncycastle</groupId>

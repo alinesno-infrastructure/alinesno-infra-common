@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * 订单Service业务层处理
  *
  * @version 1.0.0
- * @author luoandong
+ * @author luoxiaodong
  */
 @Service
 public class OrdersServiceImpl extends IBaseServiceImpl<OrdersEntity, OrdersMapper> implements IOrdersService {

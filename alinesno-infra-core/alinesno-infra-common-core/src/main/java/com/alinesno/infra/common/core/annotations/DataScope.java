@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 /**
  * 數據權限
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @version 1.0.0
  */
 @Target({ ElementType.PARAMETER, ElementType.METHOD })

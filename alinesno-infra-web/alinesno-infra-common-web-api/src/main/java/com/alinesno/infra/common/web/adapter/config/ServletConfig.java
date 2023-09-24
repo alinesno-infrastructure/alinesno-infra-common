@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 /**
  * fix:处理vue404页面的问题
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2019年4月19日 下午10:23:43
  */
 @Configuration

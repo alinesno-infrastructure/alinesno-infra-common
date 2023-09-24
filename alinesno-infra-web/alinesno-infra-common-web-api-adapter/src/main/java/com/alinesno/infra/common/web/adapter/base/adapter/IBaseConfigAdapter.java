@@ -7,8 +7,8 @@ import com.alinesno.infra.common.web.adapter.base.dto.ManagerSettingsDto;
 
 /**
  * 平台配置服务
- * @author LuoAnDong
- * @since 2023年8月3日 上午6:23:43
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public interface IBaseConfigAdapter {
 

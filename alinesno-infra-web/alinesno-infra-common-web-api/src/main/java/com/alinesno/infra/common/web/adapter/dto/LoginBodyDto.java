@@ -3,7 +3,7 @@ package com.alinesno.infra.common.web.adapter.dto;
 /**
  * 用户登录对象
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  */
 public class LoginBodyDto {
 	/**

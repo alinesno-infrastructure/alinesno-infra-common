@@ -18,7 +18,7 @@ import com.google.common.base.CaseFormat;
 /**
  * 用于rpc的条件封装，传输参数封装，便于后期自定义和兼容扩展，兼容dubbo和http的请示参数，同时方便前后端集成
  *
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2018年1月6日 上午5:44:30
  */
 public class RpcWrapper<T> extends Wrapper {

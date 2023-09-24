@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 /**
  * 自定义ID生成器
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2018年1月3日 上午5:39:02
  *
  */

@@ -3,7 +3,7 @@ package com.alinesno.infra.common.facade.response;
 /**
  * 返回状态码
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  */
 public class HttpStatus {
 	/**

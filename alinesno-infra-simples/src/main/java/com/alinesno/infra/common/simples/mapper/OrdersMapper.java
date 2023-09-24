@@ -7,7 +7,7 @@ import com.alinesno.infra.common.simples.entity.OrdersEntity;
  * 订单Mapper接口
  *
  * @version 1.0.0
- * @author luoandong
+ * @author luoxiaodong
  */
 public interface OrdersMapper extends IBaseMapper<OrdersEntity> {
 }

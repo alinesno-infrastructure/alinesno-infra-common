@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 分页查询对象封装
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2018年7月22日 下午3:16:25
  */
 public class ConditionDto implements Serializable {

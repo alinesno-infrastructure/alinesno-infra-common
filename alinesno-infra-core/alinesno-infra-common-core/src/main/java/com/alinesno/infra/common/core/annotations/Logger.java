@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 /**
  * 日誌操作記錄
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @version 1.0.0
  */
 @Target({ ElementType.PARAMETER, ElementType.METHOD })

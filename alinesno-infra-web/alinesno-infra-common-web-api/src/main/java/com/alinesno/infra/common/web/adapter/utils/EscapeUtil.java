@@ -3,7 +3,7 @@ package com.alinesno.infra.common.web.adapter.utils;
 /**
  * 转义和反转义工具类
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  */
 public class EscapeUtil {
 	public static final String RE_HTML_MARK = "(<[^<]*?>)|(<[\\s]*?/[^<]*?>)|(<[^<]*?/[\\s]*?>)";

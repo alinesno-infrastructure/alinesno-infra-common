@@ -13,7 +13,7 @@ import java.util.Date;
  * 产品实体类
  *
  * @version 1.0.0
- * @author luoandong
+ * @author luoxiaodong
  */
 @TableName("Products")
 public class ProductsEntity extends InfraBaseEntity {

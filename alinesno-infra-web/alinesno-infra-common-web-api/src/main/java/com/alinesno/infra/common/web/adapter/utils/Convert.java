@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * 类型转换器
  *
- * @author LuoAnDong
+ * @author luoxiaodong
  */
 public class Convert {
 	/**

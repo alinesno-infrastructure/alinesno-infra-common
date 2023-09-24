@@ -7,7 +7,7 @@ import com.alinesno.infra.common.simples.entity.ProductsEntity;
  * 产品Service接口
  *
  * @version 1.0.0
- * @author luoandong
+ * @author luoxiaodong
  */
 public interface IProductsService extends IBaseService<ProductsEntity> {
 }

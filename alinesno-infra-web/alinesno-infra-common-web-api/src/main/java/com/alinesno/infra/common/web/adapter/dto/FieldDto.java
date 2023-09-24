@@ -3,7 +3,7 @@ package com.alinesno.infra.common.web.adapter.dto;
 /**
  * 字段值
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2019年7月22日 下午10:34:56
  */
 public class FieldDto {

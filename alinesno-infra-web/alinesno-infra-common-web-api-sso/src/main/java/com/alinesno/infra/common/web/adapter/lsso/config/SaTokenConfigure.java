@@ -21,7 +21,7 @@ import cn.dev33.satoken.util.SaResult;
 /**
  * 配置SaToken
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2023年8月2日 上午6:23:43
  */
 @Configuration

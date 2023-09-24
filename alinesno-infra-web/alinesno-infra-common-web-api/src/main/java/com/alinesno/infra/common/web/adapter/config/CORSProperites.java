@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * 跨域配置
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2019年8月9日 上午6:23:43
  */
 @ConfigurationProperties(prefix = "alinesno.cors")

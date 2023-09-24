@@ -26,7 +26,7 @@ import cn.hutool.core.net.NetUtil;
 /**
  * MyBatis Plus分页配置
  *
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2018年1月3日 上午11:17:11
  */
 @Configuration

@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 /**
  * 平台基础实体对象
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2023年8月1日 上午6:23:43
  */
 @SuppressWarnings("serial")

@@ -3,7 +3,7 @@ package com.alinesno.infra.common.web.adapter.constants;
 /**
  * 通用常量信息
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  */
 public class Constants {
 	/**

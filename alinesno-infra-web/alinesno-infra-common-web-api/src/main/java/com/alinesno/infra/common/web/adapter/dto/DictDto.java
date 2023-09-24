@@ -3,7 +3,7 @@ package com.alinesno.infra.common.web.adapter.dto;
 /**
  * 字典dto值
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @version 1.0.0
  */
 public class DictDto {

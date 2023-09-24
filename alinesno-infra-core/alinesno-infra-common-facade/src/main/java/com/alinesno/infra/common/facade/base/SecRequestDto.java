@@ -12,7 +12,7 @@ package com.alinesno.infra.common.facade.base;
  *
  * 注意：serviceId字段在本章中可空，其他字段均为非空字段。
  *
- * @author luoandong
+ * @author luoxiaodong
  * @version 1.0.0
  */
 public class SecRequestDto {

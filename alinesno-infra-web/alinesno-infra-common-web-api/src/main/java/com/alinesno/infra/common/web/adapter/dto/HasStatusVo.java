@@ -3,7 +3,7 @@ package com.alinesno.infra.common.web.adapter.dto;
 /**
  * 状态vo
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2019年5月31日 下午9:02:02
  */
 public class HasStatusVo {

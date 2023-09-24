@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * 用户对象 sys_user
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  */
 @SuppressWarnings("serial")
 public class UserDto implements Serializable {

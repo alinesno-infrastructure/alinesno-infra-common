@@ -14,8 +14,8 @@ import com.alinesno.infra.common.web.adapter.base.dto.UpdatePasswordDto;
 
 /**
  * 平台认证服务
- * @author LuoAnDong
- * @since 2023年8月3日 上午6:23:43
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 public interface IBaseAuthorityAdapter {
 

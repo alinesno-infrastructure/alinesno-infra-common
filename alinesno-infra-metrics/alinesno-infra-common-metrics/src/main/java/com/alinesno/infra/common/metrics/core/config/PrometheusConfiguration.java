@@ -10,7 +10,7 @@ import io.prometheus.client.CollectorRegistry;
 
 /**
  * 集成Prometheus默认配置
- * @author LuoAnDong
+ * @author luoxiaodong
  * @version 1.0.0
  */
 @AutoConfiguration

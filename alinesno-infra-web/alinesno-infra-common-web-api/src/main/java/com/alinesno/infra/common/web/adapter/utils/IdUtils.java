@@ -3,7 +3,7 @@ package com.alinesno.infra.common.web.adapter.utils;
 /**
  * ID生成器工具类
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  */
 public class IdUtils {
 	/**

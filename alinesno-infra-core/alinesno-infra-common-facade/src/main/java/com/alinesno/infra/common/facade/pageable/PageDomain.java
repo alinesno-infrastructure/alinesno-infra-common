@@ -3,7 +3,7 @@ package com.alinesno.infra.common.facade.pageable;
 /**
  * 分页数据
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  */
 public class PageDomain {
 

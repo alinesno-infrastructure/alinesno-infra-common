@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 菜单权限表 sys_menu
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  */
 public class MenuDto {
 

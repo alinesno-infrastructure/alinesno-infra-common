@@ -11,7 +11,7 @@ import com.dtflys.forest.annotation.RequestAttributes;
 
 /**
  * 自定义请求路径加密和加权配置
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2023年8月1日 上午6:23:43
  */
 @Documented

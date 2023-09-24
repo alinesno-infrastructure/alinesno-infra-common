@@ -12,7 +12,7 @@ import java.util.Date;
  * 订单实体类
  *
  * @version 1.0.0
- * @author luoandong
+ * @author luoxiaodong
  */
 @TableName("Orders")
 public class OrdersEntity extends InfraBaseEntity {

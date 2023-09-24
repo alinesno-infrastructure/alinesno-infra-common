@@ -9,7 +9,7 @@ import org.springframework.util.Assert;
 /**
  * 脚本安全工具，这里做初步的参数过滤处理和安全处理
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since Nov 26, 2022 上午6:23:43
  */
 public class ScriptTools {

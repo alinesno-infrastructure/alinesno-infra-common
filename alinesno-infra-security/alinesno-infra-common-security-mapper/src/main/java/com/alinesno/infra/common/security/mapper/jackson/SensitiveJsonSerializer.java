@@ -23,7 +23,7 @@ import cn.hutool.core.util.ObjectUtil;
 /**
  * 数据脱敏json序列化工具
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @version 1.0.0
  */
 public class SensitiveJsonSerializer extends JsonSerializer<String> implements ContextualSerializer {

@@ -8,7 +8,7 @@ import com.dtflys.forest.utils.Base64Utils;
 /**
  * 请求生命周期配置
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2023年8月1日 上午6:23:43
  */
 public class HttpAuthLifeCycle implements MethodAnnotationLifeCycle<HttpAuth, Object> {

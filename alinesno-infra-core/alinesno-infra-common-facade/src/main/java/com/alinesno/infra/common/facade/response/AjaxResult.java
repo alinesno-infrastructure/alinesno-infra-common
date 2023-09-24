@@ -7,7 +7,7 @@ import org.springframework.util.StringUtils;
 /**
  * 操作消息提醒，后期使用 common-facade中的AjaxResult
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  */
 public class AjaxResult extends HashMap<String, Object> {
 	private static final long serialVersionUID = 1L;

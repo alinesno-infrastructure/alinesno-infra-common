@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 /**
  * Mybatis-Plus Wrapper Generator 兼容性封装配置
  * 
- * @author LuoAnDong
+ * @author luoxiaodong
  * @since 2018年1月3日 上午10:52:33
  *
  */
