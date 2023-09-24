@@ -15,17 +15,6 @@ import org.springframework.http.ResponseEntity;
 public abstract class SuperController {
 
 	/**
-	 * 返回成功地响应结果
-	 *
-	 * @param body 响应体
-	 * @param <T>  响应体类型
-	 * @return ResponseEntity包装的响应体
-	 */
-	protected <T> ResponseEntity<T> ok(T body) {
-		return ResponseEntity.ok(body);
-	}
-
-	/**
 	 * 封装数据为AjaxResult
 	 *
 	 * @param data 数据
