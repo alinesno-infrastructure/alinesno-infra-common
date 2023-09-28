@@ -2,7 +2,9 @@ package com.alinesno.infra.common.web.adapter.utils.file;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
+import lombok.Getter;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,18 +36,12 @@ public class FileUploadUtils {
 	/**
 	 * 默认上传的地址
 	 */
-//	alinesno:
-//		  file:
-//		    mapping.path
+	@Getter
 	@Value("${alinesno.file.local.path}")
 	private static String defaultBaseDir;
 
 	public static void setDefaultBaseDir(String defaultBaseDir) {
 		FileUploadUtils.defaultBaseDir = defaultBaseDir;
-	}
-
-	public static String getDefaultBaseDir() {
-		return defaultBaseDir;
 	}
 
 	/**
@@ -133,8 +129,7 @@ public class FileUploadUtils {
 	public static final String getPathFileName(String uploadDir, String fileName) throws IOException {
 		int dirLastIndex = defaultBaseDir.length() + 1;
 		String currentDir = StringUtils.substring(uploadDir, dirLastIndex);
-		String pathFileName = Constants.RESOURCE_PREFIX + "/" + currentDir + "/" + fileName;
-		return pathFileName;
+        return Constants.RESOURCE_PREFIX + "/" + currentDir + "/" + fileName;
 	}
 
 	/**
@@ -148,7 +143,7 @@ public class FileUploadUtils {
 	public static final void assertAllowed(MultipartFile file, String[] allowedExtension)
 			throws FileSizeLimitExceededException, InvalidExtensionException {
 		long size = file.getSize();
-		if (DEFAULT_MAX_SIZE != -1 && size > DEFAULT_MAX_SIZE) {
+		if (size > DEFAULT_MAX_SIZE) {
 			throw new FileSizeLimitExceededException(DEFAULT_MAX_SIZE / 1024 / 1024);
 		}
 
@@ -181,7 +176,7 @@ public class FileUploadUtils {
 	 * @param allowedExtension
 	 * @return
 	 */
-	public static final boolean isAllowedExtension(String extension, String[] allowedExtension) {
+	public static boolean isAllowedExtension(String extension, String[] allowedExtension) {
 		for (String str : allowedExtension) {
 			if (str.equalsIgnoreCase(extension)) {
 				return true;
@@ -199,7 +194,7 @@ public class FileUploadUtils {
 	public static final String getExtension(MultipartFile file) {
 		String extension = FilenameUtils.getExtension(file.getOriginalFilename());
 		if (StringUtils.isEmpty(extension)) {
-			extension = MimeTypeUtils.getExtension(file.getContentType());
+			extension = MimeTypeUtils.getExtension(Objects.requireNonNull(file.getContentType()));
 		}
 		return extension;
 	}

@@ -29,10 +29,10 @@ public class CoreImportProvider {
 		s.add(SpringContext.class.getName());
 		s.add(AsyncConfig.class.getName()); // 添加异步线程池
 		s.add(RedisConfig.class.getName()); // Redis配置
-		s.add(WebUploadUtils.class.getName()); 
+		s.add(WebUploadUtils.class.getName());
 
 		// 数据库源
-		s.add(MyBatisPlusConfig.class.getName());
+		// s.add(MyBatisPlusConfig.class.getName());
 
 		// Dubbo统一异常处理
 		s.add(RpcServiceExceptionAspect.class.getName());

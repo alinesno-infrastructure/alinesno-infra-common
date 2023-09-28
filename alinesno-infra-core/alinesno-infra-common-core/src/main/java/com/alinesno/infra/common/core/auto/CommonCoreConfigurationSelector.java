@@ -17,11 +17,10 @@ public class CommonCoreConfigurationSelector extends CustomAutoConfigurationImpo
 
 	@Override
 	public String[] selectImports(AnnotationMetadata importingClassMetadata) {
-		List<String> importBean = new ArrayList<String>();
 
-		// common core
+        // common core
 		List<String> coreLoader = CoreImportProvider.classLoader();
-		importBean.addAll(coreLoader);
+        List<String> importBean = new ArrayList<String>(coreLoader);
 
 		return importBean.toArray(new String[] {});
 	}
