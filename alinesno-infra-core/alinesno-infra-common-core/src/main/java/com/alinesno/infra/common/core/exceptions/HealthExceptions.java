@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 健康异常控制器
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年12月23日 下午8:51:47
  */
 public class HealthExceptions {

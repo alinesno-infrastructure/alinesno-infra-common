@@ -3,7 +3,7 @@ package com.alinesno.infra.common.core.cache;
 /**
  * 接口实现
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年11月19日 上午8:49:34
  */
 public interface RedisConstants {

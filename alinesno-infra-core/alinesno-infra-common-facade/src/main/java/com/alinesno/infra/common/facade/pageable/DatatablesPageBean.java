@@ -15,7 +15,7 @@ import com.alinesno.infra.common.facade.wrapper.RpcWrapper;
 /**
  * 分页数据
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2018年8月16日 上午8:59:44
  */
 @SuppressWarnings("serial")

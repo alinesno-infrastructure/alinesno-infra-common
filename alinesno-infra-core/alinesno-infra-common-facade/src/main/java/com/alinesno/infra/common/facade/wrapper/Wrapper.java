@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 条件基类
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2018年12月15日 上午8:32:20
  */
 public abstract class Wrapper implements Serializable {

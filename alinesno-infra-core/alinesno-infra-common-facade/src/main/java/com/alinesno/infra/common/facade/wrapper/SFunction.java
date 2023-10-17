@@ -8,7 +8,7 @@ import java.util.function.Function;
  *
  * @param <T>
  * @param <R>
- * @author WeiXiaoJin
+ * @author luoxiaodong
  */
 @FunctionalInterface
 public interface SFunction<T, R> extends Function<T, R>, Serializable {

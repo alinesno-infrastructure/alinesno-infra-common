@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 条件封装
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2018年12月14日 下午2:24:23
  */
 @SuppressWarnings("serial")

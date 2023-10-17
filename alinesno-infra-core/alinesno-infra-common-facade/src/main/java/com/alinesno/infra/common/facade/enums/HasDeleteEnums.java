@@ -3,7 +3,7 @@ package com.alinesno.infra.common.facade.enums;
 /**
  * 菜单类型
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年1月14日 下午6:48:39
  */
 public enum HasDeleteEnums {

@@ -13,7 +13,7 @@ import com.alinesno.infra.common.facade.wrapper.mybatis.MyBatisPlusConfig;
 /**
  * 对外提供核心对象,便于springboot实现enable功能
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年4月7日 下午2:41:44
  */
 public class CoreImportProvider {

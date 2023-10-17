@@ -11,7 +11,7 @@ import org.springframework.util.StringUtils;
 /**
  * 自定义缓存管理
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年11月22日 上午8:09:48
  */
 public class CustomRedisCacheManager extends RedisCacheManager {

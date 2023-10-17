@@ -26,7 +26,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
  * 服务实现基类
  *
  * @param <Entity>
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2018年11月20日 下午8:05:00
  */
 @Transactional

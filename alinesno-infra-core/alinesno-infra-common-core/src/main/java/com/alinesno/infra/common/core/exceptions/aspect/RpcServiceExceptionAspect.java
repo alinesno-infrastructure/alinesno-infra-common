@@ -15,7 +15,7 @@ import com.alinesno.infra.common.core.exceptions.HealthExceptions;
 /**
  * 处理Dubbo统一异常问题
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年9月17日 下午10:04:28
  */
 @Aspect

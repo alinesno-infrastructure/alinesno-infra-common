@@ -16,11 +16,12 @@
 	<artifactId>alinesno-infra-common-sdk-parent</artifactId>
 
 	<modules>
-		<!-- common core -->
+		<!-- common sdk -->
 		<module>alinesno-infra-sdk-distlock</module>
 		<module>alinesno-infra-sdk-kafka</module>
 		<module>alinesno-infra-sdk-mongodb</module>
 		<module>alinesno-infra-sdk-redis</module>
+		<module>alinesno-infra-sdk-actable</module>
 	</modules>
 
 </project>

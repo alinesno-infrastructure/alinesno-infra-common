@@ -12,7 +12,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 /**
  * 添加异常执行方法
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年6月19日 下午9:17:19
  */
 @Configuration

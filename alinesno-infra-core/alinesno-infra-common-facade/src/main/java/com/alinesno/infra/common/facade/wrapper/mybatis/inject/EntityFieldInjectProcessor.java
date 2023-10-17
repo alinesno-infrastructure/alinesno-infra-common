@@ -13,7 +13,7 @@ import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
  * 平台字段填充插件处理器 通过定制 mybatis plugin 填充插件实现多插件注入执行
  * 并且用法和原生插件风格一致，为各个组件实现不同的字段注入需求提供支持
  *
- * @author WeiXiaoJin
+ * @author luoxiaodong
  */
 public class EntityFieldInjectProcessor implements MetaObjectHandler {
 	private static final Logger logger = LoggerFactory.getLogger(EntityFieldInjectProcessor.class);

@@ -33,7 +33,7 @@ import org.springframework.util.ClassUtils;
 /**
  * 自定义基础引入类实现
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年9月22日 下午1:51:14
  */
 public abstract class CustomAutoConfigurationImportSelector implements ImportSelector, BeanClassLoaderAware,

@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 /**
  * 实体对象基类,定义基本属性
  *
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @version 1.0.0
  */
 @SuppressWarnings("serial")

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+        <groupId>com.alinesno.infra.common</groupId>
+        <artifactId>alinesno-infra-platform-parent</artifactId>
+		<version>${revision}</version>
+		<relativePath>../../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>alinesno-infra-common-sdk-actable</artifactId>
+	<packaging>jar</packaging>
+
+	<properties>
+		<actable.version>1.5.0.RELEASE</actable.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- 集成actable 自动生成代码框架 -->
+		<dependency>
+			<groupId>com.gitee.sunchenbin.mybatis.actable</groupId>
+			<artifactId>alinesno-infra-mybatis-enhance-actable</artifactId>
+			<version>${actable.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.baomidou</groupId>
+					<artifactId>mybatis-plus-annotation</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- 公共组件包 _start -->
+		<dependency>
+			<groupId>com.alinesno.infra.common</groupId>
+			<artifactId>alinesno-infra-common-core</artifactId>
+			<version>${revision}</version>
+		</dependency>
+		<!-- 公共组件包 _end -->
+
+	</dependencies>
+
+</project>

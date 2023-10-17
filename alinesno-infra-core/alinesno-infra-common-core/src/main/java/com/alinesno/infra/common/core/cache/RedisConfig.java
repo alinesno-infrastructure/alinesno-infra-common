@@ -24,7 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * 配置自定义redis配置
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年7月7日 下午6:56:03
  */
 @SuppressWarnings("deprecation")

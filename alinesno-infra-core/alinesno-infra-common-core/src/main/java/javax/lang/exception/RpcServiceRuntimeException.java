@@ -3,7 +3,7 @@ package javax.lang.exception;
 /**
  * 多数情况下，创建自定义异常需要继承Exception，本例继承Exception的子类RuntimeException,放在javax或者java目录下面,dubbo不做拦截
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年9月17日 下午9:18:23
  */
 @SuppressWarnings("serial")

@@ -10,7 +10,7 @@ import com.alinesno.infra.common.core.auto.constom.CustomAutoConfigurationImport
 /**
  * 引入自动类
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @version 1.0.0
  */
 public class CommonCoreConfigurationSelector extends CustomAutoConfigurationImportSelector {

@@ -453,8 +453,13 @@ public class CommonLoginController {
                 "        },\n" +
                 "    ]" ;
 
-        JSONArray menusArr = JSONArray.parseArray(menusJson) ;
+        JSONArray menusArr = getDefineMenus() == null ? JSONArray.parseArray(menusJson) : getDefineMenus() ;
 
         return AjaxResult.success(menusArr) ;
     }
+
+    public JSONArray getDefineMenus(){
+       return null ;
+    }
+
 }

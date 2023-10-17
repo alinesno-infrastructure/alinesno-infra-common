@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 /**
  * 工具类
  *
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2018年8月5日 下午1:09:50
  */
 @Component

@@ -10,7 +10,7 @@ import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 /**
  * 平台内置注入插件
  *
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @version 1.0.0
  */
 public class InnerInjectPlugin implements EntityFieldInjectPlugin {

@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ImportResource;
 /**
  * alinesno-cloud的web引导服务,包含有前端，登陆等服务组件
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @sine 2019年4月5日 上午11:32:55
  */
 @Target(ElementType.TYPE)

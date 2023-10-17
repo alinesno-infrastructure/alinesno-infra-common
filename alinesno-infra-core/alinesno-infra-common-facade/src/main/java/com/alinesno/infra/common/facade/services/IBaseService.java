@@ -12,7 +12,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * 
  * 查询 --> find* 更新--> update* 删除--> delete*
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2018年11月20日 下午7:51:58
  */
 public interface IBaseService<Entity> extends IService<Entity> {

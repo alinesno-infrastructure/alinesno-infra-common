@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * 平台自有插件注册器
  *
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年4月7日 下午2:46:18
  */
 class PluginRegistry {

@@ -24,7 +24,7 @@ import org.springframework.transaction.interceptor.TransactionInterceptor;
 /**
  * SpringBoot全局事务配置
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2018年1月7日 上午7:02:11
  */
 @Aspect

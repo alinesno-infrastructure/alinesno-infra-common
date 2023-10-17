@@ -26,7 +26,7 @@ import cn.hutool.core.lang.UUID;
 /**
  * 文件上传工具对象，用于单体应用的，内置的简单文件上传功能
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年4月11日 上午8:42:51
  */
 @Component

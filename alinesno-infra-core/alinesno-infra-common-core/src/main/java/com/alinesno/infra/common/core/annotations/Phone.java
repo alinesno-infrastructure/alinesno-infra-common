@@ -20,7 +20,7 @@ import javax.validation.constraints.Null;
  * 验证手机号，空和正确的手机号都能验证通过<br/>
  * 正确的手机号由11位数字组成，第一位为1 第二位为 3、4、5、7、8
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年9月18日 下午9:13:27
  */
 @Null

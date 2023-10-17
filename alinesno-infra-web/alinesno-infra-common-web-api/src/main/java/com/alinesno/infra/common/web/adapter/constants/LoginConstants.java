@@ -3,7 +3,7 @@ package com.alinesno.infra.common.web.adapter.constants;
 /**
  * 用户常量
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @sine 2019年4月5日 下午2:13:30
  */
 public interface LoginConstants {

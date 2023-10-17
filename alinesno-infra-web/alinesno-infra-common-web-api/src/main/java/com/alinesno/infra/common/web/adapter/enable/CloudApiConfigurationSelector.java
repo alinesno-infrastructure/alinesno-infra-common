@@ -9,7 +9,7 @@ import org.springframework.core.type.AnnotationMetadata;
 /**
  * 引入自动类
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @sine 2019年4月5日 下午3:34:07
  */
 public class CloudApiConfigurationSelector implements ImportSelector {

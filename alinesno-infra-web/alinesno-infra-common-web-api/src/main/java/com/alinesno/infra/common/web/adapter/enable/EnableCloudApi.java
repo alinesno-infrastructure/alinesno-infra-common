@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Import;
 /**
  * 支持消息接收
  * 
- * @author WeiXiaoJin
- * @since 2019年4月9日 上午11:29:00
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

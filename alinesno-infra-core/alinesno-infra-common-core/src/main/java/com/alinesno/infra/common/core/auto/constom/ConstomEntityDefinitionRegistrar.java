@@ -18,7 +18,7 @@ import org.springframework.util.StringUtils;
 /**
  * 实体扫描器
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2018年2月29日 下午12:38:06
  */
 public abstract class ConstomEntityDefinitionRegistrar

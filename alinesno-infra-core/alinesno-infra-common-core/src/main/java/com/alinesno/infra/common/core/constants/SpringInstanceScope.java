@@ -3,7 +3,7 @@ package com.alinesno.infra.common.core.constants;
 /**
  * spirng 实例化参数
  * 
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年1月12日 上午10:38:14
  */
 public interface SpringInstanceScope {

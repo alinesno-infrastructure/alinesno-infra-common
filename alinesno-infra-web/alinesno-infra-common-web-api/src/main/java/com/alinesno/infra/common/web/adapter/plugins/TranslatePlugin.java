@@ -15,7 +15,7 @@ import com.alinesno.infra.common.web.adapter.utils.StringUtils;
 /**
  * 转换插件接口
  *
- * @author WeiXiaoJin
+ * @author luoxiaodong
  * @since 2019年4月7日 下午2:24:08
  */
 public interface TranslatePlugin {
