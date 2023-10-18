@@ -1,9 +1,9 @@
 package com.alinesno.infra.common.core.monitor.server;
 
-import java.lang.management.ManagementFactory;
-
 import com.alinesno.infra.common.core.utils.Arith;
 import com.alinesno.infra.common.core.utils.DateUtils;
+
+import java.lang.management.ManagementFactory;
 
 /**
  * JVM相关信息

@@ -1,19 +1,14 @@
 package com.alinesno.infra.common.facade.wrapper;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
+import com.alinesno.infra.common.facade.wrapper.mybatis.WrapperGenerator;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.sql.SqlInjectionUtils;
+import com.google.common.base.CaseFormat;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.alinesno.infra.common.facade.wrapper.mybatis.WrapperGenerator;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.google.common.base.CaseFormat;
+import java.util.*;
 
 /**
  * 用于rpc的条件封装，传输参数封装，便于后期自定义和兼容扩展，兼容dubbo和http的请示参数，同时方便前后端集成

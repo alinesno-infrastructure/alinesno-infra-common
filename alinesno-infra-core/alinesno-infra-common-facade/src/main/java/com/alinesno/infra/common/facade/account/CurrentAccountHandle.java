@@ -9,7 +9,6 @@ package com.alinesno.infra.common.facade.account;
 public class CurrentAccountHandle {
 
 	public static CurrentAccountBean getCurrentAccount() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

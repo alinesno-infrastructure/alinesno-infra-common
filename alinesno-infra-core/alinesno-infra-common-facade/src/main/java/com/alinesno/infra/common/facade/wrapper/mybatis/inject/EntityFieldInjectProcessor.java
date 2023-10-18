@@ -1,13 +1,12 @@
 package com.alinesno.infra.common.facade.wrapper.mybatis.inject;
 
-import java.util.Comparator;
-import java.util.List;
-
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * 平台字段填充插件处理器 通过定制 mybatis plugin 填充插件实现多插件注入执行

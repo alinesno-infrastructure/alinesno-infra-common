@@ -1,8 +1,5 @@
 package com.alinesno.infra.common.web.adapter.enable;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.alinesno.infra.common.web.adapter.config.CORSProperites;
 import com.alinesno.infra.common.web.adapter.config.CorsFilter;
 import com.alinesno.infra.common.web.adapter.config.ServletConfig;
@@ -10,6 +7,9 @@ import com.alinesno.infra.common.web.adapter.config.WhiteListDefine;
 import com.alinesno.infra.common.web.adapter.exception.GlobalExceptionHandler;
 import com.alinesno.infra.common.web.adapter.plugins.AjaxResultResponseBodyAdvice;
 import com.alinesno.infra.common.web.adapter.plugins.DatagridResponseBodyAdvice;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 公共引用组件

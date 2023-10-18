@@ -1,16 +1,15 @@
 package com.alinesno.infra.common.web.adapter.plugins;
 
+import com.alibaba.fastjson.JSONObject;
+import com.alinesno.infra.common.facade.mapper.entity.BaseEntity;
+import com.alinesno.infra.common.web.adapter.utils.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.alibaba.fastjson.JSONObject;
-import com.alinesno.infra.common.facade.mapper.entity.BaseEntity;
-import com.alinesno.infra.common.web.adapter.utils.StringUtils;
 
 /**
  * 转换插件接口

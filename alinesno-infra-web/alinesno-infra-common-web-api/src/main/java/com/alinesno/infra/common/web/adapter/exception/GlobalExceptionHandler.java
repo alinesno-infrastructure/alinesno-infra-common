@@ -1,9 +1,8 @@
 package com.alinesno.infra.common.web.adapter.exception;
 
-import java.nio.file.AccessDeniedException;
-
-import javax.security.auth.login.AccountExpiredException;
-
+import com.alinesno.infra.common.facade.response.AjaxResult;
+import com.alinesno.infra.common.facade.response.HttpStatus;
+import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import org.apache.ibatis.exceptions.PersistenceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +14,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-import com.alinesno.infra.common.facade.response.AjaxResult;
-import com.alinesno.infra.common.facade.response.HttpStatus;
-import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
+import javax.security.auth.login.AccountExpiredException;
+import java.nio.file.AccessDeniedException;
 
 /**
  * 全局异常处理器

@@ -1,12 +1,8 @@
 package com.alinesno.infra.common.feign.annotation;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
 import com.dtflys.forest.annotation.Headers;
+
+import java.lang.annotation.*;
 
 /**
  * 自定义注解方式

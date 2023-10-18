@@ -1,10 +1,9 @@
 package com.alinesno.infra.common.facade.mapper.id;
 
+import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.stereotype.Component;
-
-import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 
 /**
  * 自定义ID生成器

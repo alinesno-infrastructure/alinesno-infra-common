@@ -1,12 +1,12 @@
 package com.alinesno.infra.common.metrics.core.config;
+
+import io.micrometer.core.instrument.MeterRegistry;
+import io.prometheus.client.CollectorRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.Bean;
-
-import io.micrometer.core.instrument.MeterRegistry;
-import io.prometheus.client.CollectorRegistry;
 
 /**
  * 集成Prometheus默认配置

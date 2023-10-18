@@ -1,11 +1,8 @@
 package com.alinesno.infra.common.web.adapter.dto.menus;
 
-import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Data
 public class Menu {

@@ -1,8 +1,7 @@
 package com.alinesno.infra.common.core.utils.sql;
 
-import org.apache.commons.lang3.StringUtils;
-
 import cn.hutool.core.exceptions.UtilException;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * sql操作工具类

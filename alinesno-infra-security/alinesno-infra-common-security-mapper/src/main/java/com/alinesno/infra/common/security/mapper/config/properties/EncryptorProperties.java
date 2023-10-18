@@ -1,10 +1,9 @@
 package com.alinesno.infra.common.security.mapper.config.properties;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-
 import com.alinesno.infra.common.core.constants.AlgorithmType;
 import com.alinesno.infra.common.core.constants.EncodeType;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 /**
  * 加解密属性配置类

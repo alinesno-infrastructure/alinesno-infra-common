@@ -1,12 +1,12 @@
 package com.alinesno.infra.common.core.cache.redis;
 
-import java.time.Duration;
-
 import org.springframework.data.redis.cache.RedisCache;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
 import org.springframework.util.StringUtils;
+
+import java.time.Duration;
 
 /**
  * 自定义缓存管理

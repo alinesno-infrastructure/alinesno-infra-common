@@ -1,21 +1,19 @@
 package com.alinesno.infra.common.security.api.filter;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-
-import com.alinesno.infra.common.core.utils.StringUtils;
-
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HtmlUtil;
+import com.alinesno.infra.common.core.utils.StringUtils;
 import jakarta.servlet.ReadListener;
 import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 /**
  * XSS过滤处理

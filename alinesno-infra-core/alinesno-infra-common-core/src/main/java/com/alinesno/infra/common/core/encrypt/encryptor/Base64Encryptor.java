@@ -1,10 +1,9 @@
 package com.alinesno.infra.common.core.encrypt.encryptor;
 
+import cn.hutool.core.codec.Base64;
 import com.alinesno.infra.common.core.constants.AlgorithmType;
 import com.alinesno.infra.common.core.constants.EncodeType;
 import com.alinesno.infra.common.core.encrypt.EncryptContext;
-
-import cn.hutool.core.codec.Base64;
 
 /**
  * Base64算法实现

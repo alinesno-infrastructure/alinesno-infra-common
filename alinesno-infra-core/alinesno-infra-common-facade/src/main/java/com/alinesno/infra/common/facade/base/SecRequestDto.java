@@ -1,5 +1,7 @@
 package com.alinesno.infra.common.facade.base;
 
+import lombok.Data;
+
 /**
  * SecurityRequestDto是一个安全请求数据传输对象，用于在接口调用过程中传递安全相关的信息。
  *
@@ -15,6 +17,7 @@ package com.alinesno.infra.common.facade.base;
  * @author luoxiaodong
  * @version 1.0.0
  */
+@Data
 public class SecRequestDto {
 
     // 接口id 可空
@@ -35,51 +38,4 @@ public class SecRequestDto {
     // 请求的业务参数(AES加密后传入) 可空
     private String body;
 
-    public String getServiceId() {
-        return serviceId;
-    }
-
-    public void setServiceId(String serviceId) {
-        this.serviceId = serviceId;
-    }
-
-    public String getRequestId() {
-        return requestId;
-    }
-
-    public void setRequestId(String requestId) {
-        this.requestId = requestId;
-    }
-
-    public String getSign() {
-        return sign;
-    }
-
-    public void setSign(String sign) {
-        this.sign = sign;
-    }
-
-    public String getAseKey() {
-        return aseKey;
-    }
-
-    public void setAseKey(String aseKey) {
-        this.aseKey = aseKey;
-    }
-
-    public long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getBody() {
-        return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
-    }
 }

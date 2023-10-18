@@ -6,13 +6,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.redisson.api.*;
-import org.redisson.client.protocol.pubsub.PubSubType;
 
 import java.time.Duration;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
 import java.util.function.Consumer;
 
 /**

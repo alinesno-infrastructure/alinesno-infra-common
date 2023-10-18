@@ -1,8 +1,5 @@
 package com.alinesno.infra.common.web.adapter.enable;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.alinesno.infra.common.web.adapter.login.controller.CommonCaptchaController;
 import com.alinesno.infra.common.web.adapter.login.controller.CommonLoginController;
 import com.alinesno.infra.common.web.adapter.login.kaptcha.CaptchaConfig;
@@ -12,7 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
-import org.springframework.lang.NonNullApi;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 引入自动类

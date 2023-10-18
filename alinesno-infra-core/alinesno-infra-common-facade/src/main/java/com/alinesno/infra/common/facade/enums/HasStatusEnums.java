@@ -10,8 +10,8 @@ public enum HasStatusEnums {
 
 	LEGAL(0, "合法"), ILLEGAL(1, "非法"),;
 
-	public int value; // 菜单值
-	public String menuName; // 菜单名称
+	public final int value; // 菜单值
+	public final String menuName; // 菜单名称
 
 	HasStatusEnums(int value, String menuName) {
 		this.value = value;

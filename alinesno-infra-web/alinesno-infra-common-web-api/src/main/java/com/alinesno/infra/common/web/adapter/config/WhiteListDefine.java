@@ -1,10 +1,10 @@
 package com.alinesno.infra.common.web.adapter.config;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 资源服务器配置白名单列表，允许配置内的规则匿名访问

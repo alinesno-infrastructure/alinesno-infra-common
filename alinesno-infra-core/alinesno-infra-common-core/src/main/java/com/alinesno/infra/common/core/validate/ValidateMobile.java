@@ -1,11 +1,10 @@
 package com.alinesno.infra.common.core.validate;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
-
+import cn.hutool.core.util.PhoneUtil;
 import org.apache.commons.lang.StringUtils;
 
-import cn.hutool.core.util.PhoneUtil;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
 /**
  * 验证手机号是否正确

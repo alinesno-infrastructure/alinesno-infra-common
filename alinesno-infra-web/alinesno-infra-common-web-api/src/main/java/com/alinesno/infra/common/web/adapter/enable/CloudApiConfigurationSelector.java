@@ -1,10 +1,10 @@
 package com.alinesno.infra.common.web.adapter.enable;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 引入自动类

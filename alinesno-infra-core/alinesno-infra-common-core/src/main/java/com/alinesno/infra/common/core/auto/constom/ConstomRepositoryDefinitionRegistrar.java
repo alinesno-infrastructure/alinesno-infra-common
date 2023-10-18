@@ -1,7 +1,5 @@
 package com.alinesno.infra.common.core.auto.constom;
 
-import java.lang.annotation.Annotation;
-
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.ResourceLoaderAware;
@@ -14,6 +12,8 @@ import org.springframework.data.repository.config.RepositoryConfigurationDelegat
 import org.springframework.data.repository.config.RepositoryConfigurationExtension;
 import org.springframework.data.repository.config.RepositoryConfigurationUtils;
 import org.springframework.util.Assert;
+
+import java.lang.annotation.Annotation;
 
 public abstract class ConstomRepositoryDefinitionRegistrar
 		implements ImportBeanDefinitionRegistrar, ResourceLoaderAware, EnvironmentAware, BaseConstomBusinessAuto {

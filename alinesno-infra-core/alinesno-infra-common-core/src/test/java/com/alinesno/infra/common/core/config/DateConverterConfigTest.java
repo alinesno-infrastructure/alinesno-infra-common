@@ -3,11 +3,10 @@ package com.alinesno.infra.common.core.config;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * 类名：DateConverterConfigTest
  * 描述：这是一个示例的JUnit单元测试类，用于测试DateConverterConfig类的方法。

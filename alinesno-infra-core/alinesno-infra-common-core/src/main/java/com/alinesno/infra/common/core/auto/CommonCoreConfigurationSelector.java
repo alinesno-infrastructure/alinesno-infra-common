@@ -1,11 +1,10 @@
 package com.alinesno.infra.common.core.auto;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.alinesno.infra.common.core.auto.constom.CustomAutoConfigurationImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
 
-import com.alinesno.infra.common.core.auto.constom.CustomAutoConfigurationImportSelector;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 引入自动类

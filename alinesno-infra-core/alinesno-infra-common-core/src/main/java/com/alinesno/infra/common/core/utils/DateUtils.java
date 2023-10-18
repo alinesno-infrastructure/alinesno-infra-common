@@ -1,11 +1,11 @@
 package com.alinesno.infra.common.core.utils;
 
+import org.apache.commons.lang.time.DateFormatUtils;
+
 import java.lang.management.ManagementFactory;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import org.apache.commons.lang.time.DateFormatUtils;
 
 /**
  * 时间工具类

@@ -6,9 +6,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * 工作基础类
  * 
  * @author luoxiaodong
- * @since 2018年9月23日 下午5:57:51
+ * @version 1.0.0
  * @param <T>
- * @param <K>
  */
 public interface IBaseMapper<T> extends BaseMapper<T> {
 

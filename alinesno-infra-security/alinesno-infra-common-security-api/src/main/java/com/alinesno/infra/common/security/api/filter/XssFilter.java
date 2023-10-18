@@ -1,21 +1,14 @@
 package com.alinesno.infra.common.security.api.filter;
 
+import com.alinesno.infra.common.core.utils.StringUtils;
+import jakarta.servlet.*;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpMethod;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.http.HttpMethod;
-
-import com.alinesno.infra.common.core.utils.StringUtils;
-
-import jakarta.servlet.Filter;
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.FilterConfig;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * 防止XSS攻击的过滤器

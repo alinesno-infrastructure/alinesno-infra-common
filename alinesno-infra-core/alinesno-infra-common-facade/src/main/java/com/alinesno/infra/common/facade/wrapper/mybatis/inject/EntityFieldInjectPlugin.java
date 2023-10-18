@@ -1,8 +1,7 @@
 package com.alinesno.infra.common.facade.wrapper.mybatis.inject;
 
-import org.apache.ibatis.reflection.MetaObject;
-
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import org.apache.ibatis.reflection.MetaObject;
 
 /**
  * 平台实体类字段注入插件抽象

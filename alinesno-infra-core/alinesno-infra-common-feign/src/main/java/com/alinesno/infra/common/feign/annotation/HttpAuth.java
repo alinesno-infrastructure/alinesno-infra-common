@@ -1,13 +1,9 @@
 package com.alinesno.infra.common.feign.annotation;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
 import com.dtflys.forest.annotation.MethodLifeCycle;
 import com.dtflys.forest.annotation.RequestAttributes;
+
+import java.lang.annotation.*;
 
 /**
  * 自定义请求路径加密和加权配置

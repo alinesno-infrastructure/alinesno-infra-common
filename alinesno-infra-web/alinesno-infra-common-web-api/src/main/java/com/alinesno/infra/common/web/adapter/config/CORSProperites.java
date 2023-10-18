@@ -1,8 +1,8 @@
 package com.alinesno.infra.common.web.adapter.config;
 
-import java.util.List;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import java.util.List;
 
 /**
  * 跨域配置

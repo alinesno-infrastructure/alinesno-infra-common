@@ -1,8 +1,8 @@
 package com.alinesno.infra.common.facade.response;
 
-import java.util.HashMap;
-
 import org.springframework.util.StringUtils;
+
+import java.util.HashMap;
 
 /**
  * 操作消息提醒，后期使用 common-facade中的AjaxResult

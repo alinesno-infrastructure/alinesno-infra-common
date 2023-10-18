@@ -1,9 +1,10 @@
 package com.alinesno.infra.common.web.adapter.base.adapter;
-import java.util.List;
 
 import com.alinesno.infra.common.facade.response.AjaxResult;
 import com.alinesno.infra.common.web.adapter.base.dto.ManagerCodeDto;
 import com.alinesno.infra.common.web.adapter.base.dto.ManagerSettingsDto;
+
+import java.util.List;
 
 /**
  * 平台配置服务

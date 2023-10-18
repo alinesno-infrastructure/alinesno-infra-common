@@ -1,7 +1,5 @@
 package com.alinesno.infra.common.web.adapter.exception.file;
 
-import java.io.Serial;
-
 /**
  * 文件名称超长限制异常类
  * 

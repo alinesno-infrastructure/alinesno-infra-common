@@ -3,14 +3,13 @@ package com.alinesno.infra.common.core.encrypt.encryptor;
 import com.alinesno.infra.common.core.constants.AlgorithmType;
 import com.alinesno.infra.common.core.constants.EncodeType;
 import com.alinesno.infra.common.core.encrypt.EncryptContext;
-import cn.hutool.crypto.symmetric.AES;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.nio.charset.StandardCharsets;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @DisplayName("AesEncryptor 单元测试")
 public class AesEncryptorTest {

@@ -1,9 +1,8 @@
 package com.alinesno.infra.common.web.adapter.login.listener;
 
-import org.springframework.stereotype.Component;
-
 import cn.dev33.satoken.listener.SaTokenListener;
 import cn.dev33.satoken.stp.SaLoginModel;
+import org.springframework.stereotype.Component;
 
 /**
  * 自定义侦听器的实现 

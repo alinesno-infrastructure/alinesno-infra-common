@@ -1,14 +1,6 @@
 package com.alinesno.infra.common.facade.wrapper.mybatis;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
-
+import cn.hutool.core.net.NetUtil;
 import com.alinesno.infra.common.facade.wrapper.mybatis.inject.EntityFieldInjectPlugin;
 import com.alinesno.infra.common.facade.wrapper.mybatis.inject.EntityFieldInjectProcessor;
 import com.alinesno.infra.common.facade.wrapper.mybatis.inject.InnerInjectPlugin;
@@ -20,8 +12,14 @@ import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
-import cn.hutool.core.net.NetUtil;
+import java.util.List;
 
 /**
  * MyBatis Plus分页配置

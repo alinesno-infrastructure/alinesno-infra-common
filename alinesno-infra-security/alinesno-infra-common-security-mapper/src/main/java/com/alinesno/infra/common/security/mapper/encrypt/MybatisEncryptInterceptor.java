@@ -1,20 +1,19 @@
 package com.alinesno.infra.common.security.mapper.encrypt;
 
-import java.lang.reflect.Field;
-import java.sql.PreparedStatement;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-
+import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.util.ObjectUtil;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.plugin.Intercepts;
 import org.apache.ibatis.plugin.Invocation;
 import org.apache.ibatis.plugin.Signature;
 
-import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.util.ObjectUtil;
+import java.lang.reflect.Field;
+import java.sql.PreparedStatement;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * 入参加密拦截处理

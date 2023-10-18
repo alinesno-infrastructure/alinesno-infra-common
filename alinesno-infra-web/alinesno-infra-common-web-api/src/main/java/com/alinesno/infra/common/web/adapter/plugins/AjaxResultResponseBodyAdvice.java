@@ -1,11 +1,8 @@
 package com.alinesno.infra.common.web.adapter.plugins;
 
-import static com.alinesno.infra.common.facade.response.AjaxResult.DATA_TAG;
-
-import java.lang.reflect.Method;
-import java.util.Collections;
-import java.util.List;
-
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alinesno.infra.common.facade.response.AjaxResult;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
@@ -15,9 +12,11 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.alinesno.infra.common.facade.response.AjaxResult;
+import java.lang.reflect.Method;
+import java.util.Collections;
+import java.util.List;
+
+import static com.alinesno.infra.common.facade.response.AjaxResult.DATA_TAG;
 
 /**
  * 对于单个数据对象返回的数据处理,用于支持单个返回值的字段转换

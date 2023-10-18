@@ -1,14 +1,9 @@
 package com.alinesno.infra.common.security.mapper.annotation;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Inherited;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
 import com.alinesno.infra.common.core.constants.AlgorithmType;
 import com.alinesno.infra.common.core.constants.EncodeType;
+
+import java.lang.annotation.*;
 
 /**
  * 字段加密注解

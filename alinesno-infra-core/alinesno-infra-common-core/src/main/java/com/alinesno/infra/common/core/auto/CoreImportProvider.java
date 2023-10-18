@@ -1,14 +1,13 @@
 package com.alinesno.infra.common.core.auto;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.alinesno.infra.common.core.cache.RedisConfig;
 import com.alinesno.infra.common.core.config.AsyncConfig;
 import com.alinesno.infra.common.core.context.SpringContext;
 import com.alinesno.infra.common.core.exceptions.aspect.RpcServiceExceptionAspect;
 import com.alinesno.infra.common.core.utils.WebUploadUtils;
-import com.alinesno.infra.common.facade.wrapper.mybatis.MyBatisPlusConfig;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 对外提供核心对象,便于springboot实现enable功能

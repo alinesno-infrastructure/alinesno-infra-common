@@ -1,8 +1,8 @@
 package com.alinesno.infra.common.web.adapter.dto.menus;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
+
+import java.util.List;
 
 /**
  * 路由配置信息

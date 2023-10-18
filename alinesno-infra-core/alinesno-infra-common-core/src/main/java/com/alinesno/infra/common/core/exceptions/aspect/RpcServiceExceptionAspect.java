@@ -1,7 +1,6 @@
 package com.alinesno.infra.common.core.exceptions.aspect;
 
-import javax.lang.exception.RpcServiceRuntimeException;
-
+import com.alinesno.infra.common.core.exceptions.HealthExceptions;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
@@ -10,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import com.alinesno.infra.common.core.exceptions.HealthExceptions;
+import javax.lang.exception.RpcServiceRuntimeException;
 
 /**
  * 处理Dubbo统一异常问题

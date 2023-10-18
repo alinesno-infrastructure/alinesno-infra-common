@@ -1,11 +1,11 @@
 package com.alinesno.infra.common.facade.services;
 
-import java.io.Serializable;
-import java.util.List;
-
 import com.alinesno.infra.common.facade.wrapper.RpcWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * 业务服务基类，统一使用同一前缀，避免与其它混乱，主要为以下

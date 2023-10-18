@@ -1,16 +1,9 @@
 package com.alinesno.infra.common.web.adapter.base.adapter;
-import java.util.List;
 
 import com.alinesno.infra.common.facade.response.AjaxResult;
-import com.alinesno.infra.common.web.adapter.base.dto.DeptDto;
-import com.alinesno.infra.common.web.adapter.base.dto.EnterpriseDto;
-import com.alinesno.infra.common.web.adapter.base.dto.EnterpriseThemeDto;
-import com.alinesno.infra.common.web.adapter.base.dto.ManagerAccountDto;
-import com.alinesno.infra.common.web.adapter.base.dto.ManagerApplicationDto;
-import com.alinesno.infra.common.web.adapter.base.dto.ManagerDepartmentDto;
-import com.alinesno.infra.common.web.adapter.base.dto.ManagerResourceDto;
-import com.alinesno.infra.common.web.adapter.base.dto.ManagerTenantDto;
-import com.alinesno.infra.common.web.adapter.base.dto.UpdatePasswordDto;
+import com.alinesno.infra.common.web.adapter.base.dto.*;
+
+import java.util.List;
 
 /**
  * 平台认证服务

@@ -1,8 +1,8 @@
 package com.alinesno.infra.common.security.mapper.enums;
 
-import java.util.function.Function;
-
 import cn.hutool.core.util.DesensitizedUtil;
+
+import java.util.function.Function;
 
 /**
  * 脱敏策略
