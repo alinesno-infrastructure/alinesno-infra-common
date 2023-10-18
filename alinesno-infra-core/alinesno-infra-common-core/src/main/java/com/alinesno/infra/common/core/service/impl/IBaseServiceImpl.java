@@ -70,7 +70,7 @@ public class IBaseServiceImpl<Entity extends BaseEntity, M extends IBaseMapper<E
 		int modStatus = e.getHasStatus() % 2;
 		int realStatus = modStatus == 0 ? 1 : 0;
 		e.setHasStatus(realStatus);
-		return mapper.updateById(e) == 1 ? true : false;
+		return mapper.updateById(e) == 1;
 	}
 
 	@Override

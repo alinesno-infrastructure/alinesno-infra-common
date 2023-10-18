@@ -1,5 +1,6 @@
 package com.alinesno.infra.common.core.context;
 
+import lombok.Getter;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -17,6 +18,8 @@ import java.util.stream.Collectors;
 @Component
 public class SpringContext implements ApplicationContextAware {
 
+	// 获取applicationContext
+	@Getter
 	private static ApplicationContext applicationContext = null;
 
 	@Override
@@ -24,11 +27,6 @@ public class SpringContext implements ApplicationContextAware {
 		if (applicationContext == null) {
 			applicationContext = app;
 		}
-	}
-
-	// 获取applicationContext
-	public static ApplicationContext getApplicationContext() {
-		return applicationContext;
 	}
 
 	// 通过name获取 Bean.

@@ -19,7 +19,7 @@ public class CommonCoreConfigurationSelector extends CustomAutoConfigurationImpo
 
         // common core
 		List<String> coreLoader = CoreImportProvider.classLoader();
-        List<String> importBean = new ArrayList<String>(coreLoader);
+        List<String> importBean = new ArrayList<>(coreLoader);
 
 		return importBean.toArray(new String[] {});
 	}

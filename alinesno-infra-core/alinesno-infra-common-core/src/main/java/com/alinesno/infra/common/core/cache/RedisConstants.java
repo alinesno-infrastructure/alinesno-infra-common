@@ -8,10 +8,10 @@ package com.alinesno.infra.common.core.cache;
  */
 public interface RedisConstants {
 
-	public static final String HOURS_12 = "12H";
-	public static final String HOURS_1 = "1h";
-	public static final String MILLIS_10 = "10m";
-	public static final String MILLIS_5 = "5m";
-	public static final String RETRY_TIME = "alinesno.infra.password.retry.times";
+	String HOURS_12 = "12H";
+	String HOURS_1 = "1h";
+	String MILLIS_10 = "10m";
+	String MILLIS_5 = "5m";
+	String RETRY_TIME = "alinesno.infra.password.retry.times";
 
 }

@@ -36,7 +36,7 @@ public class RedisConfig extends CachingConfigurerSupport implements RedisConsta
 	private String keyPrefix;
 
 	// 过期时间1天
-	private Duration timeToLive = Duration.ofHours(12);
+	private final Duration timeToLive = Duration.ofHours(12);
 
 	@Bean
 	public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory) {

@@ -1,7 +1,6 @@
 package com.alinesno.infra.common.core.exceptions;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 健康异常控制器
@@ -9,9 +8,8 @@ import org.slf4j.LoggerFactory;
  * @author luoxiaodong
  * @since 2019年12月23日 下午8:51:47
  */
+@Slf4j
 public class HealthExceptions {
-
-	private static final Logger log = LoggerFactory.getLogger(HealthExceptions.class);
 
 	/**
 	 * 发送异常信息
@@ -19,7 +17,7 @@ public class HealthExceptions {
 	 * @param e
 	 */
 	public static void sendException(Exception e) {
-		log.debug("e = {}", e);
+		log.debug("e = {}", e.getMessage());
 	}
 
 }

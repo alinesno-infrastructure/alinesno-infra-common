@@ -6,10 +6,6 @@ import javax.validation.ReportAsSingleViolation;
 import javax.validation.constraints.Null;
 import java.lang.annotation.*;
 
-//import org.hibernate.validator.constraints.CompositionType;
-//import org.hibernate.validator.constraints.ConstraintComposition;
-//import org.hibernate.validator.constraints.Length;
-
 /**
  * 
  * 验证手机号，空和正确的手机号都能验证通过<br/>

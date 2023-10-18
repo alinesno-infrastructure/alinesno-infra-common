@@ -1,5 +1,7 @@
 package com.alinesno.infra.common.core.exceptions;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -7,6 +9,7 @@ import java.io.StringWriter;
 /**
  * 异常工具类
  */
+@Slf4j
 public class ExceptionUtils {
 
 	/**
@@ -44,7 +47,7 @@ public class ExceptionUtils {
 		try {
 			stringWriter.close();
 		} catch (IOException ie) {
-			ie.printStackTrace();
+			log.error("服务异常信息:{}" , ie.getMessage());
 		}
 		return buffer.toString();
 	}
