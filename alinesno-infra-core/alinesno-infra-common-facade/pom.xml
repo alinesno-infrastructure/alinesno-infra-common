@@ -29,7 +29,7 @@
 
 		<!-- 集成actable 自动生成代码框架 -->
 		<dependency>
-			<groupId>com.gitee.sunchenbin.mybatis.actable</groupId>
+			<groupId>com.alinesno.infra.mybatis.actable</groupId>
 			<artifactId>alinesno-infra-mybatis-enhance-actable</artifactId>
 			<version>${actable.version}</version>
 			<exclusions>
