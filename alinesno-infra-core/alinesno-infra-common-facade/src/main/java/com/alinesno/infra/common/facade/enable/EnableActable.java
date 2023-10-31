@@ -1,4 +1,4 @@
-package com.alinesno.infra.sdk.actable.enable;
+package com.alinesno.infra.common.facade.enable;
 
 import org.springframework.context.annotation.Import;
 

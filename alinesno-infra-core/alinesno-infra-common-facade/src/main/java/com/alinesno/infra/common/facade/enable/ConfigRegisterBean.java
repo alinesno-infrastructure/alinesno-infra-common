@@ -1,4 +1,4 @@
-package com.alinesno.infra.sdk.actable.config;
+package com.alinesno.infra.common.facade.enable;
 
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
@@ -9,9 +9,9 @@ public class ConfigRegisterBean {
 
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer() {
-        MapperScannerConfigurer configurer = new MapperScannerConfigurer();
-        configurer.setBasePackage("com.gitee.sunchenbin.mybatis.actable.dao.*");
-        return configurer;
+        MapperScannerConfigurer configure = new MapperScannerConfigurer();
+        configure.setBasePackage("com.gitee.sunchenbin.mybatis.actable.dao.*");
+        return configure;
     }
 
 }

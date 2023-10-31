@@ -1,6 +1,5 @@
-package com.alinesno.infra.sdk.actable.enable;
+package com.alinesno.infra.common.facade.enable;
 
-import com.alinesno.infra.sdk.actable.config.ConfigRegisterBean;
 import com.gitee.sunchenbin.mybatis.actable.manager.common.BaseCRUDManagerImpl;
 import com.gitee.sunchenbin.mybatis.actable.manager.handler.StartUpHandlerImpl;
 import com.gitee.sunchenbin.mybatis.actable.manager.system.SysMysqlCreateTableManagerImpl;
