@@ -118,10 +118,10 @@
 		</dependency>
 
 		<!-- fastjson_start -->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.alibaba</groupId>-->
+<!--			<artifactId>fastjson</artifactId>-->
+<!--		</dependency>-->
 		<!-- fastjson_end -->
 
 		<!-- easy poi_start -->

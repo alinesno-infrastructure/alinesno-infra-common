@@ -1,6 +1,5 @@
 package com.alinesno.infra.common.facade.mapper.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -36,7 +35,6 @@ public class BaseEntity implements Serializable {
 	/* 更新时间 用户可以点击更新，保存最新更新的时间 **/
 	@ColumnType(value = MySqlTypeConstant.DATETIME, length = 18)
 	@ColumnComment("添加时间")
-	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@TableField(fill = FieldFill.INSERT)
 	private Date addTime; // 添加时间
@@ -44,7 +42,6 @@ public class BaseEntity implements Serializable {
 	/* @Excel(name = "删除时间" , format = "yyyy-MM-dd HH:mm:ss", width = 25) */
 	@ColumnType(value = MySqlTypeConstant.DATETIME, length = 18)
 	@ColumnComment("删除时间")
-	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@TableField
 	private Date deleteTime; // 删除时间
@@ -56,7 +53,6 @@ public class BaseEntity implements Serializable {
 
 	@ColumnType(value = MySqlTypeConstant.DATETIME, length = 18)
 	@ColumnComment("更新时间")
-	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@TableField(fill = FieldFill.UPDATE, updateStrategy = FieldStrategy.DEFAULT)
 	private Date updateTime; // 更新时间

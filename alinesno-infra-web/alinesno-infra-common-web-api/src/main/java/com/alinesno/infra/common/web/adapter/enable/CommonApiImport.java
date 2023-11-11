@@ -6,7 +6,6 @@ import com.alinesno.infra.common.web.adapter.config.ServletConfig;
 import com.alinesno.infra.common.web.adapter.config.WhiteListDefine;
 import com.alinesno.infra.common.web.adapter.exception.GlobalExceptionHandler;
 import com.alinesno.infra.common.web.adapter.plugins.AjaxResultResponseBodyAdvice;
-import com.alinesno.infra.common.web.adapter.plugins.DatagridResponseBodyAdvice;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +34,6 @@ public class CommonApiImport {
 		importBean.add(GlobalExceptionHandler.class.getName());
 
 		// 平台字段转换
-		importBean.add(DatagridResponseBodyAdvice.class.getName());
 		importBean.add(AjaxResultResponseBodyAdvice.class.getName());
 
 		return importBean;

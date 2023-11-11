@@ -1,12 +1,9 @@
 package com.alinesno.infra.common.web.adapter.plugins;
 
-import com.alibaba.fastjson.JSONObject;
 import com.alinesno.infra.common.core.context.SpringContext;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.List;
 
 /**
  * 字段转换插件执行器
@@ -14,8 +11,8 @@ import java.util.List;
  * @author luoandon@gmail.com
  * @version 1.0.0
  */
+@Slf4j
 public class TranslationPluginExecutor {
-	private final static Logger log = LoggerFactory.getLogger(TranslationPluginExecutor.class);
 
 	/**
 	 * 执行插件
@@ -24,7 +21,7 @@ public class TranslationPluginExecutor {
 	 * @param convertCode 字段转换配置
 	 * @return 转换后的数据列表
 	 */
-	public static List<JSONObject> execute(List<JSONObject> array, TranslateCode convertCode) {
+	public static ArrayNode execute(ArrayNode array, TranslateCode convertCode) {
 		String pluginName = convertCode.plugin();
 		// 优先执行平台插件
 		for (Class<? extends TranslatePlugin> c : PluginRegistry.query()) {
@@ -32,7 +29,7 @@ public class TranslationPluginExecutor {
 			try {
 				plugin.translate(array, convertCode);
 			} catch (Exception e) {
-				log.error("代码{} , 代码转换异常:{}", pluginName, e);
+				log.error("代码{} , 代码转换异常:{}", pluginName, e.getMessage());
 			}
 		}
 		// 执行自定义插件
@@ -41,7 +38,7 @@ public class TranslationPluginExecutor {
 			try {
 				selfP.translate(array, convertCode);
 			} catch (Exception e) {
-				log.error("插件{} , 转换值:{} , 代码转换异常:{}", pluginName, array, e);
+				log.error("插件{} , 转换值:{} , 代码转换异常:{}", pluginName, array, e.getMessage());
 			}
 		}
 		return array;

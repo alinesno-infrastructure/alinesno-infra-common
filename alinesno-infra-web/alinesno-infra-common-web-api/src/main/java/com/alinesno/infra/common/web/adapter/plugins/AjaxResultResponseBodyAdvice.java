@@ -1,8 +1,8 @@
 package com.alinesno.infra.common.web.adapter.plugins;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.alinesno.infra.common.facade.response.AjaxResult;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import java.lang.reflect.Method;
-import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import static com.alinesno.infra.common.facade.response.AjaxResult.DATA_TAG;
 
@@ -27,6 +27,9 @@ import static com.alinesno.infra.common.facade.response.AjaxResult.DATA_TAG;
 @Order(2)
 @RestControllerAdvice
 public class AjaxResultResponseBodyAdvice implements ResponseBodyAdvice<AjaxResult> {
+
+	private ObjectMapper mapper = new ObjectMapper();
+
 	/**
 	 * Whether this component supports the given controller method return type and
 	 * the selected {@code HttpMessageConverter} type.
@@ -64,18 +67,26 @@ public class AjaxResultResponseBodyAdvice implements ResponseBodyAdvice<AjaxResu
 	public AjaxResult beforeBodyWrite(AjaxResult body, MethodParameter returnType, MediaType selectedContentType,
 			Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request,
 			ServerHttpResponse response) {
+
 		if (body != null && body.get(DATA_TAG) != null) {
+
 			Object data = body.get(DATA_TAG);
-			List<JSONObject> array;
-			TranslateCode convertCode = returnType.getMethod().getAnnotation(TranslateCode.class);
+
+			ArrayNode array;
+			TranslateCode convertCode = Objects.requireNonNull(returnType.getMethod()).getAnnotation(TranslateCode.class);
+
 			if (data instanceof List) {
-				array = JSON.parseArray(JSONObject.toJSONString(data), JSONObject.class);
-				List<JSONObject> result = TranslationPluginExecutor.execute(array, convertCode);
+				array = mapper.valueToTree(data);
+				ArrayNode result = TranslationPluginExecutor.execute(array, convertCode);
 				body.put(DATA_TAG, result);
+
+//				array = JSON.parseArray(ObjectNode.toJSONString(data), ObjectNode.class);
+//				List<ObjectNode> result = TranslationPluginExecutor.execute(array, convertCode);
+//				body.put(DATA_TAG, result);
 			} else {
-				array = Collections.singletonList(JSON.parseObject(JSONObject.toJSONString(data)));
-				List<JSONObject> result = TranslationPluginExecutor.execute(array, convertCode);
-				body.put(DATA_TAG, result.get(0));
+//				array = Collections.singletonList(JSON.parseObject(JSONObject.toJSONString(data)));
+//				List<JSONObject> result = TranslationPluginExecutor.execute(array, convertCode);
+//				body.put(DATA_TAG, result.get(0));
 			}
 
 		}
