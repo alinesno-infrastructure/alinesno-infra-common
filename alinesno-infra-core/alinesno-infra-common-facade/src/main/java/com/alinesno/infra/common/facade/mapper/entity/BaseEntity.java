@@ -3,6 +3,8 @@ package com.alinesno.infra.common.facade.mapper.entity;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.gitee.sunchenbin.mybatis.actable.annotation.ColumnComment;
 import com.gitee.sunchenbin.mybatis.actable.annotation.ColumnType;
 import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
@@ -20,9 +22,10 @@ import java.util.Date;
 @Data
 public class BaseEntity implements Serializable {
 
-	@ColumnType(length = 64)
+	@ColumnType(length = 64 , value=MySqlTypeConstant.BIGINT)
 	@ColumnComment("主键")
 	@TableId(type = IdType.ASSIGN_ID)
+	@JsonSerialize(using = ToStringSerializer.class)
 	private Long id; // 唯一ID号
 
 	@ColumnType(length = 128)

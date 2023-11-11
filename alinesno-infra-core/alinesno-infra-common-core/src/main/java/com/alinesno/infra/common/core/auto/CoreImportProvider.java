@@ -5,6 +5,8 @@ import com.alinesno.infra.common.core.config.AsyncConfig;
 import com.alinesno.infra.common.core.context.SpringContext;
 import com.alinesno.infra.common.core.exceptions.aspect.RpcServiceExceptionAspect;
 import com.alinesno.infra.common.core.utils.WebUploadUtils;
+import com.alinesno.infra.common.facade.wrapper.mybatis.MybatisPlusConfig;
+import com.alinesno.infra.common.facade.wrapper.mybatis.inject.DbMetaObjectHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +32,9 @@ public class CoreImportProvider {
 		s.add(RedisConfig.class.getName()); // Redis配置
 		s.add(WebUploadUtils.class.getName());
 
-		// 数据库源
-		// s.add(MyBatisPlusConfig.class.getName());
+		// mybatis-plus处理
+		s.add(MybatisPlusConfig.class.getName());
+		s.add(DbMetaObjectHandler.class.getName());
 
 		// Dubbo统一异常处理
 		s.add(RpcServiceExceptionAspect.class.getName());
