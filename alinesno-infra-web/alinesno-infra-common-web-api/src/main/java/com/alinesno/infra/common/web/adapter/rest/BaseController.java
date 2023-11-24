@@ -2,7 +2,6 @@ package com.alinesno.infra.common.web.adapter.rest;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
-import com.alibaba.fastjson.JSONObject;
 import com.alinesno.infra.common.facade.mapper.entity.BaseEntity;
 import com.alinesno.infra.common.facade.pageable.DatatablesPageBean;
 import com.alinesno.infra.common.facade.pageable.TableDataInfo;
@@ -162,7 +161,6 @@ public abstract class BaseController<E extends BaseEntity, S extends IBaseServic
 	@ResponseBody
 	@PostMapping("findIds")
 	public AjaxResult findIds(@RequestBody List<String> list) {
-		log.debug("delete ids:{}", JSONObject.toJSON(list));
 		List<E> data = getFeign().listByIds(list);
 		return AjaxResult.success(data);
 	}

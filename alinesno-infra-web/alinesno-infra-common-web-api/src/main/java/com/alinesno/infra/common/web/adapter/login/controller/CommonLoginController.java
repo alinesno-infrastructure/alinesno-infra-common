@@ -1,8 +1,10 @@
 package com.alinesno.infra.common.web.adapter.login.controller;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alinesno.infra.common.facade.response.AjaxResult;
 import com.alinesno.infra.common.web.adapter.dto.LoginBodyDto;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -452,12 +454,25 @@ public class CommonLoginController {
                 "        },\n" +
                 "    ]" ;
 
-        JSONArray menusArr = getDefineMenus() == null ? JSONArray.parseArray(menusJson) : getDefineMenus() ;
+        JsonArray menusArr;
+        if (getDefineMenus() != null) {
+            menusArr = new Gson().fromJson(getDefineMenus(), JsonArray.class);
+        } else {
+            JsonElement parsedJson = new Gson().fromJson(menusJson, JsonElement.class);
+            if (parsedJson.isJsonArray()) {
+                menusArr = parsedJson.getAsJsonArray();
+            } else {
+                // 如果 JSON 数据不是数组，您可以处理逻辑以适应您的需求
+                menusArr = new JsonArray();
+                // 或者抛出异常，具体取决于您的业务需求
+                // throw new IllegalStateException("Invalid JSON data: Expected an array.");
+            }
+        }
 
         return AjaxResult.success(menusArr) ;
     }
 
-    public JSONArray getDefineMenus(){
+    public String getDefineMenus(){
        return null ;
     }
 

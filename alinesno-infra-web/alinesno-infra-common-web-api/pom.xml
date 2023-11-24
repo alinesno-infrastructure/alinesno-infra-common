@@ -90,11 +90,13 @@
 		</dependency>
 		<!--Swagger2 end -->
 
-		<!-- 阿里JSON解析器 -->
+		<!-- 阿里JSON解析器
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 		</dependency>
+		-->
+
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
