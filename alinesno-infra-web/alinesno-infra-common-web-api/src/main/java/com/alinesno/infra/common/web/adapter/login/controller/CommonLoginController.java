@@ -2,15 +2,15 @@ package com.alinesno.infra.common.web.adapter.login.controller;
 
 import com.alinesno.infra.common.facade.response.AjaxResult;
 import com.alinesno.infra.common.web.adapter.dto.LoginBodyDto;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
+import com.alinesno.infra.common.web.adapter.dto.menus.Menu;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -124,356 +124,32 @@ public class CommonLoginController {
 
     /**
      * 获取路由信息
-     *
      * @return 路由信息
      */
     @GetMapping("getRouters")
-    public AjaxResult getRouters()
-    {
+    public AjaxResult getRouters() throws JsonProcessingException {
 
-        String menusJson = "[\n" +
-                "        {\n" +
-                "            \"name\": \"Dashboard\",\n" +
-                "            \"path\": \"/dashboard\",\n" +
-                "            \"hidden\": false,\n" +
-                "            \"redirect\": \"noRedirect\",\n" +
-                "            \"component\": \"Layout\",\n" +
-                "            \"alwaysShow\": true,\n" +
-                "            \"meta\": {\n" +
-                "                \"title\": \"概览\",\n" +
-                "                \"icon\": \"tool\",\n" +
-                "                \"noCache\": false,\n" +
-                "                \"link\": null\n" +
-                "            },\n" +
-                "            \"children\": [\n" +
-                "                {\n" +
-                "                    \"name\": \"Index\",\n" +
-                "                    \"path\": \"index\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"仪盘表\",\n" +
-                "                        \"icon\": \"build\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "            ]\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"name\": \"System\",\n" +
-                "            \"path\": \"/system\",\n" +
-                "            \"hidden\": false,\n" +
-                "            \"redirect\": \"noRedirect\",\n" +
-                "            \"component\": \"Layout\",\n" +
-                "            \"alwaysShow\": true,\n" +
-                "            \"meta\": {\n" +
-                "                \"title\": \"系统管理\",\n" +
-                "                \"icon\": \"system\",\n" +
-                "                \"noCache\": false,\n" +
-                "                \"link\": null\n" +
-                "            },\n" +
-                "            \"children\": [\n" +
-                "                {\n" +
-                "                    \"name\": \"User\",\n" +
-                "                    \"path\": \"user\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/user/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"用户管理\",\n" +
-                "                        \"icon\": \"user\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Role\",\n" +
-                "                    \"path\": \"role\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/role/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"角色管理\",\n" +
-                "                        \"icon\": \"peoples\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Menu\",\n" +
-                "                    \"path\": \"menu\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/menu/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"菜单管理\",\n" +
-                "                        \"icon\": \"tree-table\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Dept\",\n" +
-                "                    \"path\": \"dept\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/dept/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"部门管理\",\n" +
-                "                        \"icon\": \"tree\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Post\",\n" +
-                "                    \"path\": \"post\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/post/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"岗位管理\",\n" +
-                "                        \"icon\": \"post\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Dict\",\n" +
-                "                    \"path\": \"dict\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/dict/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"字典管理\",\n" +
-                "                        \"icon\": \"dict\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Config\",\n" +
-                "                    \"path\": \"config\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/config/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"参数设置\",\n" +
-                "                        \"icon\": \"edit\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Notice\",\n" +
-                "                    \"path\": \"notice\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/notice/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"通知公告\",\n" +
-                "                        \"icon\": \"message\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Log\",\n" +
-                "                    \"path\": \"log\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"redirect\": \"noRedirect\",\n" +
-                "                    \"component\": \"ParentView\",\n" +
-                "                    \"alwaysShow\": true,\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"日志管理\",\n" +
-                "                        \"icon\": \"log\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    },\n" +
-                "                    \"children\": [\n" +
-                "                        {\n" +
-                "                            \"name\": \"Operlog\",\n" +
-                "                            \"path\": \"operlog\",\n" +
-                "                            \"hidden\": false,\n" +
-                "                            \"component\": \"monitor/operlog/index\",\n" +
-                "                            \"meta\": {\n" +
-                "                                \"title\": \"操作日志\",\n" +
-                "                                \"icon\": \"form\",\n" +
-                "                                \"noCache\": false,\n" +
-                "                                \"link\": null\n" +
-                "                            }\n" +
-                "                        },\n" +
-                "                        {\n" +
-                "                            \"name\": \"Logininfor\",\n" +
-                "                            \"path\": \"logininfor\",\n" +
-                "                            \"hidden\": false,\n" +
-                "                            \"component\": \"monitor/logininfor/index\",\n" +
-                "                            \"meta\": {\n" +
-                "                                \"title\": \"登录日志\",\n" +
-                "                                \"icon\": \"logininfor\",\n" +
-                "                                \"noCache\": false,\n" +
-                "                                \"link\": null\n" +
-                "                            }\n" +
-                "                        }\n" +
-                "                    ]\n" +
-                "                }\n" +
-                "            ]\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"name\": \"Monitor\",\n" +
-                "            \"path\": \"/monitor\",\n" +
-                "            \"hidden\": false,\n" +
-                "            \"redirect\": \"noRedirect\",\n" +
-                "            \"component\": \"Layout\",\n" +
-                "            \"alwaysShow\": true,\n" +
-                "            \"meta\": {\n" +
-                "                \"title\": \"系统监控\",\n" +
-                "                \"icon\": \"monitor\",\n" +
-                "                \"noCache\": false,\n" +
-                "                \"link\": null\n" +
-                "            },\n" +
-                "            \"children\": [\n" +
-                "                {\n" +
-                "                    \"name\": \"Online\",\n" +
-                "                    \"path\": \"online\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"monitor/online/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"在线用户\",\n" +
-                "                        \"icon\": \"online\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Job\",\n" +
-                "                    \"path\": \"job\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"monitor/job/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"定时任务\",\n" +
-                "                        \"icon\": \"job\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Druid\",\n" +
-                "                    \"path\": \"druid\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"monitor/druid/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"数据监控\",\n" +
-                "                        \"icon\": \"druid\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Server\",\n" +
-                "                    \"path\": \"server\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"monitor/server/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"服务监控\",\n" +
-                "                        \"icon\": \"server\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Cache\",\n" +
-                "                    \"path\": \"cache\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"monitor/cache/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"缓存监控\",\n" +
-                "                        \"icon\": \"redis\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"CacheList\",\n" +
-                "                    \"path\": \"cacheList\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"monitor/cache/list\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"缓存列表\",\n" +
-                "                        \"icon\": \"redis-list\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                }\n" +
-                "            ]\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"name\": \"Tool\",\n" +
-                "            \"path\": \"/tool\",\n" +
-                "            \"hidden\": false,\n" +
-                "            \"redirect\": \"noRedirect\",\n" +
-                "            \"component\": \"Layout\",\n" +
-                "            \"alwaysShow\": true,\n" +
-                "            \"meta\": {\n" +
-                "                \"title\": \"系统工具\",\n" +
-                "                \"icon\": \"tool\",\n" +
-                "                \"noCache\": false,\n" +
-                "                \"link\": null\n" +
-                "            },\n" +
-                "            \"children\": [\n" +
-                "                {\n" +
-                "                    \"name\": \"Build\",\n" +
-                "                    \"path\": \"build\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"tool/build/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"表单构建\",\n" +
-                "                        \"icon\": \"build\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Gen\",\n" +
-                "                    \"path\": \"gen\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"tool/gen/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"代码生成\",\n" +
-                "                        \"icon\": \"code\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Swagger\",\n" +
-                "                    \"path\": \"swagger\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"tool/swagger/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"系统接口\",\n" +
-                "                        \"icon\": \"swagger\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                }\n" +
-                "            ]\n" +
-                "        },\n" +
-                "    ]" ;
+        Menu dashboardMenu = new Menu("Dashboard", "/dashboard", false, "noRedirect", "Layout", true, new Menu.Meta("仪盘表", "dashboard", false, null), List.of(
+                new Menu("Dashboard", "index", false, false , "dashboard", new Menu.Meta("概览", "dashboard", false, null))
+        ));
 
-        JsonArray menusArr;
-        if (getDefineMenus() != null) {
-            menusArr = new Gson().fromJson(getDefineMenus(), JsonArray.class);
-        } else {
-            JsonElement parsedJson = new Gson().fromJson(menusJson, JsonElement.class);
-            if (parsedJson.isJsonArray()) {
-                menusArr = parsedJson.getAsJsonArray();
-            } else {
-                // 如果 JSON 数据不是数组，您可以处理逻辑以适应您的需求
-                menusArr = new JsonArray();
-                // 或者抛出异常，具体取决于您的业务需求
-                // throw new IllegalStateException("Invalid JSON data: Expected an array.");
-            }
-        }
+        Menu mdmMenu = new Menu("Mdm", "/mdm", false, "noRedirect", "Layout", true, new Menu.Meta("主数据管理", "system", false, null), List.of(
+                new Menu("Application", "mdm/application/list", false, false , "mdm/application/list", new Menu.Meta("应用管理", "druid", false, null)),
+                new Menu("IndustryClassify", "mdm/IndustryClassify/list", false, false , "mdm/IndustryClassify/list", new Menu.Meta("行业分类", "peoples", false, null)),
+                new Menu("DataCatagory", "mdm/dataCatagory/list", false, false , "mdm/dataCatagory/list", new Menu.Meta("数据目录", "online", false, null)),
+                new Menu("DataDetail", "mdm/dataDetail/list", false, false , "mdm/dataDetail/list", new Menu.Meta("标准数据", "user", false, null)),
+                new Menu("BusinessSystem", "mdm/businessSystem/list", false, false , "mdm/businessSystem/list", new Menu.Meta("业务系统", "peoples", false, null))
+        ));
 
-        return AjaxResult.success(menusArr) ;
-    }
+        Menu systemMenu = new Menu("System", "/system", false, "noRedirect", "Layout", true, new Menu.Meta("历史数据", "monitor", false, null), List.of(
+                new Menu("DataChangeLog", "mdm/dataChangeLog/list", false, false , "mdm/dataChangeLog/list", new Menu.Meta("目录历史", "tree", false, null)),
+                new Menu("DataDetailLog", "mdm/dataDetailLog/list", false, false , "mdm/dataDetailLog/list", new Menu.Meta("数据历史", "job", false, null))
+        ));
 
-    public String getDefineMenus(){
-       return null ;
+
+        List<Menu> menus = List.of(dashboardMenu, mdmMenu , systemMenu ) ;
+
+        return AjaxResult.success(menus) ;
     }
 
 }
