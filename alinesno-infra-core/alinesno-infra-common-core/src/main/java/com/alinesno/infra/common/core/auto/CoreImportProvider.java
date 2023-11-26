@@ -2,6 +2,7 @@ package com.alinesno.infra.common.core.auto;
 
 import com.alinesno.infra.common.core.cache.RedisConfig;
 import com.alinesno.infra.common.core.config.AsyncConfig;
+import com.alinesno.infra.common.core.config.JacksonConfig;
 import com.alinesno.infra.common.core.context.SpringContext;
 import com.alinesno.infra.common.core.exceptions.aspect.RpcServiceExceptionAspect;
 import com.alinesno.infra.common.core.utils.WebUploadUtils;
@@ -31,6 +32,7 @@ public class CoreImportProvider {
 		s.add(AsyncConfig.class.getName()); // 添加异步线程池
 		s.add(RedisConfig.class.getName()); // Redis配置
 		s.add(WebUploadUtils.class.getName());
+		s.add(JacksonConfig.class.getName());
 
 		// mybatis-plus处理
 		s.add(MybatisPlusConfig.class.getName());
