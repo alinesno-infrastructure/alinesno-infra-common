@@ -4,7 +4,7 @@ import com.alinesno.infra.common.core.cache.RedisConfig;
 import com.alinesno.infra.common.core.config.AsyncConfig;
 import com.alinesno.infra.common.core.config.JacksonConfig;
 import com.alinesno.infra.common.core.context.SpringContext;
-import com.alinesno.infra.common.core.exceptions.aspect.RpcServiceExceptionAspect;
+import com.alinesno.infra.common.core.exception.aspect.RpcServiceExceptionAspect;
 import com.alinesno.infra.common.core.utils.WebUploadUtils;
 import com.alinesno.infra.common.facade.wrapper.mybatis.MybatisPlusConfig;
 import com.alinesno.infra.common.facade.wrapper.mybatis.inject.DbMetaObjectHandler;

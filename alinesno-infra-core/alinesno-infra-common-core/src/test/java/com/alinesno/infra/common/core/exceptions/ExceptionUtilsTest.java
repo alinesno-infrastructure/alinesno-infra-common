@@ -1,5 +1,6 @@
 package com.alinesno.infra.common.core.exceptions;
 
+import com.alinesno.infra.common.core.exception.ExceptionUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
