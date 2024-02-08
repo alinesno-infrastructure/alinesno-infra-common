@@ -34,14 +34,14 @@
 	</developers>
 
 	<modules>
-		<module>alinesno-infra-core</module> <!-- 公共代码配置-->
-		<module>alinesno-infra-sdk</module> <!-- 公共SDK服务-->
-		<module>alinesno-infra-security</module> <!-- 安全-->
-		<module>alinesno-infra-metrics</module> <!-- 指标-->
-		<module>alinesno-infra-web</module> <!-- 前端服务-->
+		<module>alinesno-infra-common-kernel</module> <!-- 公共代码配置-->
+		<module>alinesno-infra-common-sdk</module> <!-- 公共SDK服务-->
+		<module>alinesno-infra-common-security</module> <!-- 安全-->
+		<module>alinesno-infra-common-metrics</module> <!-- 指标-->
+		<module>alinesno-infra-common-web</module> <!-- 前端服务-->
 
 		<!-- 集成示例 -->
-		<module>alinesno-infra-simples</module>
+		<module>alinesno-infra-common-simple</module>
 	</modules>
 
 	<properties>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+        <groupId>com.alinesno.infra.common</groupId>
+        <artifactId>alinesno-infra-platform-parent</artifactId>
+		<version>${revision}</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<packaging>pom</packaging>
+
+	<artifactId>alinesno-infra-common-security</artifactId>
+
+	<modules>
+		<!-- common core -->
+		<module>alinesno-infra-common-security-core</module>
+		<module>alinesno-infra-common-security-api</module>
+		<module>alinesno-infra-common-security-log</module>
+		<module>alinesno-infra-common-security-mapper</module>
+	</modules>
+
+</project>
+
