@@ -127,7 +127,7 @@
         <hibernate.validator.version>8.0.1.Final</hibernate.validator.version>
 
 		<!-- SMS 配置 -->
-		<sms4j.version>2.2.0</sms4j.version>
+		<sms4j.version>3.1.1</sms4j.version>
 		<bcprov.jdk15on.version>1.70</bcprov.jdk15on.version>
 
 		<!-- kryo -->
