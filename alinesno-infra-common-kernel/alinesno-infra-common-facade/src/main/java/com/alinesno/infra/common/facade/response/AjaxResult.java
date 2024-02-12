@@ -2,6 +2,7 @@ package com.alinesno.infra.common.facade.response;
 
 import org.springframework.util.StringUtils;
 
+import java.io.Serial;
 import java.util.HashMap;
 
 /**
@@ -10,6 +11,8 @@ import java.util.HashMap;
  * @author luoxiaodong
  */
 public class AjaxResult extends HashMap<String, Object> {
+
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	/** 状态码 */
@@ -138,6 +141,30 @@ public class AjaxResult extends HashMap<String, Object> {
 	 */
 	public static AjaxResult error(int code, String msg) {
 		return new AjaxResult(code, msg, null);
+	}
+
+	/**
+	 * 返回数据结果
+	 * @return
+	 */
+	public Object getData(){
+		return this.get(DATA_TAG) ;
+	}
+
+	/**
+	 * 获取返回信息
+	 * @return
+	 */
+	public String getMsg(){
+		return this.get(MSG_TAG)+"" ;
+	}
+
+	/**
+	 * 获取返回状态码
+	 * @return
+	 */
+	public int getCode(){
+		return Integer.parseInt((String) this.get(CODE_TAG));
 	}
 
 }

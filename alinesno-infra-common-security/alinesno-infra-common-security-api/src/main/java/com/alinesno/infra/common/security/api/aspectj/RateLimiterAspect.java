@@ -8,6 +8,7 @@ import com.alinesno.infra.common.facade.exception.ServiceException;
 import com.alinesno.infra.common.security.api.annotation.RateLimiter;
 import com.alinesno.infra.common.security.api.enums.LimitType;
 import com.alinesno.infra.common.security.api.utils.ServletUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -33,11 +34,10 @@ import java.lang.reflect.Method;
  *
  * @author Lion Li
  */
+@Slf4j
 @Aspect
 @Component
 public class RateLimiterAspect {
-
-	private static final Logger log = LoggerFactory.getLogger(RateLimiterAspect.class);
 
 	/**
 	 * 定义spel表达式解析器
