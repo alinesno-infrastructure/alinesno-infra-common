@@ -1,5 +1,6 @@
 package com.alinesno.infra.common.facade.wrapper;
 
+import com.alinesno.infra.common.facade.pageable.ConditionDto;
 import com.alinesno.infra.common.facade.wrapper.mybatis.WrapperGenerator;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.sql.SqlInjectionUtils;
@@ -42,15 +43,6 @@ public class RpcWrapper<T> extends Wrapper {
 
 	public void setHasOrder(boolean isHasOrder) {
 		this.isHasOrder = isHasOrder;
-	}
-
-	public List<Condition> getCondition() {
-		return condition;
-	}
-
-	public RpcWrapper<T> setCondition(List<Condition> condition) {
-		this.condition = condition;
-		return this;
 	}
 
 	public RpcWrapper<T> where(String sqlWhere, Object... params) {
@@ -229,21 +221,12 @@ public class RpcWrapper<T> extends Wrapper {
 	}
 
 	public RpcWrapper<T> between(String column, Object val1, Object val2) {
-//		condition.add(new Condition(Wrapper.BETWEEN, column, Arrays.asList(value)));
+		// condition.add(new Condition(Wrapper.BETWEEN, column, Arrays.asList(value)));
 		return this;
 	}
 
-	public boolean isRemoveApplication() {
-		return removeApplication;
-	}
-
-	public void setRemoveApplication(boolean removeApplication) {
-		this.removeApplication = removeApplication;
-	}
-
 	public RpcWrapper<T> notBetween(String column, Object val1, Object val2) {
-
-		return null;
+		return this ;
 	}
  
 	/**
@@ -251,35 +234,20 @@ public class RpcWrapper<T> extends Wrapper {
 	 *
 	 * @param c 前端传递参数
 	 */
-	public void builderCondition(Map<String, Object> c) {
+	public void builderCondition(List<ConditionDto> c) {
 		if (c != null) {
 			if (condition != null) {
-                for (Map.Entry<String, Object> me : c.entrySet()) {
-                    String[] keys = me.getKey().trim().split("\\|");
-                    Object value = me.getValue();
+				for(ConditionDto me : c){
+					Condition condition = new Condition() ;
 
-                    if (StringUtils.isBlank(keys[0]) || value == null || StringUtils.isBlank("" + value)) {
-                        continue;
-                    }
-					Condition condition = getCondition(me, keys);
+					condition.setCondition(me.getType());
+					condition.setParams(me.getValue());
+					condition.setParams(me.getColumn());
+
 					this.condition.add(condition);
-                }
+				}
 			}
 		}
-	}
-
-	private static Condition getCondition(Map.Entry<String, Object> me, String[] keys) {
-		Condition condition = new Condition();
-		if (keys.length == 1) { // 条件
-			condition.setCondition("eq");
-			condition.setColumn(keys[0]);
-			condition.setParams(String.valueOf(me.getValue()));
-		} else if (keys.length >= 2) { // 条件
-			condition.setCondition(keys[1]);
-			condition.setColumn(keys[0]);
-			condition.setParams(String.valueOf(me.getValue()));
-		}
-		return condition;
 	}
 
 	public static <T> RpcWrapper<T> build() {
@@ -288,8 +256,7 @@ public class RpcWrapper<T> extends Wrapper {
 
 	@Override
 	public String toString() {
-		return "RestWrapper [isHasOrder=" + isHasOrder + ", removeApplication=" + removeApplication + ", condition="
-				+ condition + "]";
+		return "RestWrapper [isHasOrder=" + isHasOrder + ", removeApplication=" + removeApplication + ", condition=" + condition + "]";
 	}
 
 	/**
@@ -327,9 +294,6 @@ public class RpcWrapper<T> extends Wrapper {
 						}
 						wrapper.in(column, in);
 						break;
-					case EQ:
-						wrapper.eq(column, params);
-						break;
 					case NE:
 						wrapper.ne(column, params);
 					case OR:
@@ -353,14 +317,13 @@ public class RpcWrapper<T> extends Wrapper {
 					case LT:
 						wrapper.lt(column, params);
 						break;
-
 					case LETIME:
-						String lesql = String.format("UNIX_TIMESTAMP(%s) <= UNIX_TIMESTAMP('%s')", column, params);
-						wrapper.apply(true, lesql);
+						String le_sql = String.format("UNIX_TIMESTAMP(%s) <= UNIX_TIMESTAMP('%s')", column, params);
+						wrapper.apply(true, le_sql);
 						break;
 					case LTTIME:
-						String ltsql = String.format("UNIX_TIMESTAMP(%s) < UNIX_TIMESTAMP('%s')", column, params);
-						wrapper.apply(true, ltsql);
+						String lt_sql = String.format("UNIX_TIMESTAMP(%s) < UNIX_TIMESTAMP('%s')", column, params);
+						wrapper.apply(true, lt_sql);
 						break;
 					case GE:
 						wrapper.ge(column, params);
@@ -399,8 +362,10 @@ public class RpcWrapper<T> extends Wrapper {
 	 */
 	private void validateXssValue(String column, Object params) {
 		// 手动校验方式
-		SqlInjectionUtils.check(column) ;
-		SqlInjectionUtils.check(params.toString()) ;
+		if(column != null && params != null){
+			SqlInjectionUtils.check(column) ;
+			SqlInjectionUtils.check(params.toString()) ;
+		}
 	}
 
 }

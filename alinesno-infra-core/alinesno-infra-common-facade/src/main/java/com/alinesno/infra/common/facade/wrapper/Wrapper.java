@@ -1,5 +1,7 @@
 package com.alinesno.infra.common.facade.wrapper;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,9 +10,8 @@ import java.io.Serializable;
  * @author luoxiaodong
  * @since 2018年12月15日 上午8:32:20
  */
+@Data
 public abstract class Wrapper implements Serializable {
-
-	private static final long serialVersionUID = 4005829114789471495L;
 
 	public static final String EQ = "eq"; // 等于
 	public static final String NE = "ne"; // 不等于
@@ -33,21 +34,5 @@ public abstract class Wrapper implements Serializable {
 
 	private int pageNumber; // 第几页
 	private int pageSize; // 每页显示
-
-	public int getPageNumber() {
-		return pageNumber;
-	}
-
-	public void setPageNumber(int pageNumber) {
-		this.pageNumber = pageNumber;
-	}
-
-	public int getPageSize() {
-		return pageSize;
-	}
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
 
 }

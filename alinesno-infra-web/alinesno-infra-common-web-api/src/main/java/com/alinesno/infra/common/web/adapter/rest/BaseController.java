@@ -16,6 +16,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.base.CaseFormat;
 import com.google.common.base.Converter;
 import io.swagger.annotations.ApiOperation;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -41,6 +42,9 @@ public abstract class BaseController<E extends BaseEntity, S extends IBaseServic
 
 	@Autowired
 	protected S feign;
+
+	@Autowired
+	private HttpServletRequest request ;
 
 	/**
 	 * 驼峰转换工具
@@ -104,7 +108,7 @@ public abstract class BaseController<E extends BaseEntity, S extends IBaseServic
 	 * @return 表格数据信息
 	 */
 	protected TableDataInfo toPage(Model model, S feign, DatatablesPageBean page, RpcWrapper<E> wrapper, Page<E> pageableResult) {
-		RpcWrapper<E> restWrapper = page.buildWrapper();
+		RpcWrapper<E> restWrapper = page.buildWrapper(request);
 
 		if (pageableResult == null) {
 			pageableResult = new Page<E>(page.getPageNum(), page.getPageSize());
