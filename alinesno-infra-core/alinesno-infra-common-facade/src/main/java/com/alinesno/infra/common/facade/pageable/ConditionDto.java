@@ -24,7 +24,7 @@ public class ConditionDto implements Serializable {
 	private String value;
 
 	/**
-	 * 连接类型，如llike,equals,gt,ge,lt,le
+	 * 连接类型，如like,equals,gt,ge,lt,le
 	 */
 	private String type;
 
