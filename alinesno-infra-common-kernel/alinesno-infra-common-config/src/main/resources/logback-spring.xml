@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--该日志将日志级别不同的log信息保存到不同的文件中
+名称不要调整成: logback-spring.xml
+-->
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <springProperty scope="context" name="springApplicationName" source="spring.application.name"/>
+    <springProperty scope="context" name="logstashHost" source="alinesno.logback.logstash.host" defaultValue="localhost:5044"/>
+    <springProperty scope="context" name="maxFileSize" source="alinesno.logback.max.file.size" defaultValue="2048MB"/>
+    <springProperty scope="context" name="maxFileHistory" source="alinesno.logback.max.file.history" defaultVaue="60"/>
+    <springProperty scope="context" name="loggingHome" source="alinesno.logback.logging.home" defaultValue="${user.home}/alinesno-running-logger"/>
+
+    <!-- kakfa -->
+    <springProperty scope="context" name="kafkaTopic" source="alinesno.logback.kafka.topic" defaultValue="alinesno-error-logs"/>
+    <springProperty scope="context" name="kafkaServers" source="alinesno.logback.kafka.servers" defaultValue="119.23.247.48:30092"/>
+
+    <property name="CONSOLE_LOG_PATTERN" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+
+    <!-- 按照每天生成日志文件 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${loggingHome}/${springApplicationName}.log</File>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50}:%L - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${loggingHome}/archived/${springApplicationName}.%d{yyyy-MM-dd}-%i.zip</FileNamePattern>
+            <maxFileSize>${maxFileSize}</maxFileSize>
+            <maxHistory>${maxFileHistory}</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 异常文件输出设置，将异常堆栈另外保存一份到单独的文件中，方便查找 -->
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${loggingHome}/${springApplicationName}.error.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${loggingHome}/archived-error/${springApplicationName}.%d{yyyy-MM-dd}-%i.zip</FileNamePattern>
+            <maxFileSize>${maxFileSize}</maxFileSize>
+            <maxHistory>${maxFileHistory}</maxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- 只打印错误日志 -->
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- 只打印警告日志 -->
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 为logstash输出的JSON格式的Appender -->
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>${logstashHost}</destination>
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <pattern>
+                    <pattern>
+                        {
+                        "severity": "%level",
+                        "service": "${springApplicationName:-}",
+                        "trace": "%X{X-B3-TraceId:-}",
+                        "span": "%X{X-B3-SpanId:-}",
+                        "exportable": "%X{X-Span-Export:-}",
+                        "pid": "${PID:-}",
+                        "thread": "%thread",
+                        "class": "%logger{40}",
+                        "message": "%message"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+    </appender>
+
+    <!-- 将错误日志发送到kafka，并集成预警系统 -->
+    <appender name="kafkaAppender" class="com.github.danielwegener.logback.kafka.KafkaAppender">
+        <encoder>
+            <pattern>
+                {
+                "severity": "%level",
+                "service": "${springApplicationName:-}",
+                "trace": "%X{X-B3-TraceId:-}",
+                "span": "%X{X-B3-SpanId:-}",
+                "exportable": "%X{X-Span-Export:-}",
+                "pid": "${PID:-}",
+                "thread": "%thread",
+                "class": "%logger{40}",
+                "message": "%message"
+                }
+            </pattern>
+            <charset>utf8</charset>
+        </encoder>
+        <topic>${kafkaTopic}</topic>
+        <keyingStrategy class="com.github.danielwegener.logback.kafka.keying.NoKeyKeyingStrategy" />
+        <deliveryStrategy class="com.github.danielwegener.logback.kafka.delivery.AsynchronousDeliveryStrategy" />
+        <producerConfig>bootstrap.servers=${kafkaServers}</producerConfig>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- log configure -->
+    <logger name="org.apache.dubbo" level="ERROR" />
+    <logger name="com.ulisesbocchio" level="ERROR" />
+    <logger name="org.apache.kafka" level="ERROR" />
+    <logger name="org.springframework.kafka" level="ERROR" />
+    <logger name="com.baomidou.mybatisplus.core.toolkit.ReflectionKit" level="INFO" />
+
+    <logger name="com.alinesno.infra" level="DEBUG" />
+    <logger name="java.sql.Statement" level="ERROR" />
+    <logger name="java.sql.PreparedStatement" level="ERROR" />
+
+    <!-- hibernate -->
+    <logger name="org.hibernate.engine.QueryParameters" level="ERROR"/>
+    <logger name="org.hibernate.engine.query.HQLQueryPlan" level="ERROR"/>
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="ERROR"/>
+
+    <!-- 日志输出级别，多环境输出 -->
+    <springProfile name="!hub">
+        <root level="INFO" additivity="true">
+            <appender-ref ref="FILE" />
+            <appender-ref ref="ERROR" />
+        </root>
+    </springProfile>
+
+    <!-- 发送至logstash -->
+    <springProfile name="hub">
+        <root level="INFO" addactivity="true">
+            <appender-ref ref="LOGSTASH"/>
+        </root>
+    </springProfile>
+
+</configuration>
