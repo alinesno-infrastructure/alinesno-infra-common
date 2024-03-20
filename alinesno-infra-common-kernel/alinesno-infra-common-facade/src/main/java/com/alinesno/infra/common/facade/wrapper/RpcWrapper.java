@@ -278,6 +278,11 @@ public class RpcWrapper<T> extends Wrapper {
 				String column = c.getColumn();
 				Object params = c.getParams();
 
+				// 处理为空的问题
+				if(StringUtils.isBlank(column) || params == null || StringUtils.isBlank(params+"")){
+					continue;
+				}
+
 				// 判断是否包含特殊的字符
 				validateXssValue(column, params);
 
