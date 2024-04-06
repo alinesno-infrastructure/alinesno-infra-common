@@ -1,4 +1,4 @@
-package com.alinesno.infra.common.facade.account;
+package com.alinesno.infra.common.web.adapter.login.account;
 
 import com.alinesno.infra.common.facade.mapper.entity.BaseEntity;
 import lombok.Data;

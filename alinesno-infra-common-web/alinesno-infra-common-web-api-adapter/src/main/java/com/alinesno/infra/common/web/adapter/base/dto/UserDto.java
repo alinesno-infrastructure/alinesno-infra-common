@@ -1,4 +1,4 @@
-package com.alinesno.infra.common.web.adapter.dto;
+package com.alinesno.infra.common.web.adapter.base.dto;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -19,7 +19,13 @@
 		<!-- 公共组件包 _start -->
 		<dependency>
 			<groupId>com.alinesno.infra.common</groupId>
-			<artifactId>alinesno-infra-common-web-api</artifactId>
+			<artifactId>alinesno-infra-common-facade</artifactId>
+			<version>${revision}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alinesno.infra.common</groupId>
+			<artifactId>alinesno-infra-common-core</artifactId>
 			<version>${revision}</version>
 		</dependency>
 		<!-- 公共组件包 _end -->

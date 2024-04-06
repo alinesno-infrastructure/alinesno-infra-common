@@ -20,6 +20,19 @@
 
 	<dependencies>
 
+		<!-- 公共web包_start -->
+		<dependency>
+			<groupId>com.alinesno.infra.common</groupId>
+			<artifactId>alinesno-infra-common-web-api-login</artifactId>
+			<version>${revision}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alinesno.infra.common</groupId>
+			<artifactId>alinesno-infra-common-web-api-adapter</artifactId>
+			<version>${revision}</version>
+		</dependency>
+		<!-- 公共web包_end -->
+
 		<!-- 公共组件包 _start -->
 		<dependency>
 			<groupId>com.alinesno.infra.common</groupId>
