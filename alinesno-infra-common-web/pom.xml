@@ -22,6 +22,7 @@
 		<module>alinesno-infra-common-web-api-adapter</module>
 		<module>alinesno-infra-common-web-api-login</module>
 		<module>alinesno-infra-common-web-api-sso</module>
+		<module>alinesno-infra-common-web-api-log</module>
 
 	</modules>
 
