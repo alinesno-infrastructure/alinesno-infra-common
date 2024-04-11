@@ -1,5 +1,6 @@
 package com.alinesno.infra.common.web.adapter.enable;
 
+import com.alinesno.infra.common.web.adapter.base.controller.SysDictDataController;
 import com.alinesno.infra.common.web.adapter.login.controller.CommonCaptchaController;
 import com.alinesno.infra.common.web.adapter.login.controller.CommonLoginController;
 import com.alinesno.infra.common.web.adapter.login.kaptcha.CaptchaConfig;
@@ -29,6 +30,9 @@ public class ApiConfigurationSelector implements ImportSelector {
 	public String[] selectImports(@NotNull AnnotationMetadata importingClassMetadata) {
 
         List<String> importBean = new ArrayList<>(CommonApiImport.importCommonWeb());
+
+		// 公共API类
+		importBean.add(SysDictDataController.class.getName()) ;
 
 		// 验证码信息
 		importBean.add(KaptchaTextCreator.class.getName()) ;
