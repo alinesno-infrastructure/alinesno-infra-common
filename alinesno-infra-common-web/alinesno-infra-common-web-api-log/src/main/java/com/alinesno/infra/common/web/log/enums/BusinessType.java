@@ -12,6 +12,11 @@ public enum BusinessType {
     OTHER,
 
     /**
+     * 搜索
+     */
+    SEARCH ,
+
+    /**
      * 新增
      */
     INSERT,

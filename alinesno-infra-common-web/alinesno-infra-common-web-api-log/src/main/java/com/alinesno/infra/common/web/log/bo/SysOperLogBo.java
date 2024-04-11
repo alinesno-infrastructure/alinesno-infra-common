@@ -1,5 +1,6 @@
 package com.alinesno.infra.common.web.log.bo;
 
+import com.alinesno.infra.common.web.log.event.OperLogEvent;
 import io.github.linpeilie.annotations.AutoMapper;
 import io.github.linpeilie.annotations.AutoMappers;
 import lombok.Data;

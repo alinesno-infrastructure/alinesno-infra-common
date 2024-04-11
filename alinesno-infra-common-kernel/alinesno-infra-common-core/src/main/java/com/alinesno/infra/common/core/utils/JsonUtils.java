@@ -8,6 +8,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ import java.util.List;
  *
  * @author 芋道源码
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class JsonUtils {
 
 	private static final ObjectMapper OBJECT_MAPPER = SpringContext.getBean(ObjectMapper.class);
@@ -89,8 +92,7 @@ public class JsonUtils {
 			return null;
 		}
 		try {
-			return OBJECT_MAPPER.readValue(text,
-					OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Dict.class));
+			return OBJECT_MAPPER.readValue(text, OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Dict.class));
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -101,8 +103,7 @@ public class JsonUtils {
 			return new ArrayList<>();
 		}
 		try {
-			return OBJECT_MAPPER.readValue(text,
-					OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, clazz));
+			return OBJECT_MAPPER.readValue(text, OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, clazz));
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

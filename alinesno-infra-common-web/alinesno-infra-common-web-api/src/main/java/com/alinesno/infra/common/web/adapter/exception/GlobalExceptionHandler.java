@@ -1,9 +1,9 @@
 package com.alinesno.infra.common.web.adapter.exception;
 
 import com.alinesno.infra.common.core.exception.DemoModeException;
-import com.alinesno.infra.common.core.exception.ServiceException;
 import com.alinesno.infra.common.core.exception.base.BaseException;
 import com.alinesno.infra.common.core.utils.StringUtils;
+import com.alinesno.infra.common.facade.exception.ServiceException;
 import com.alinesno.infra.common.facade.response.AjaxResult;
 import com.alinesno.infra.common.facade.response.HttpStatus;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;

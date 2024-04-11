@@ -40,6 +40,8 @@
 		<module>alinesno-infra-common-metrics</module> <!-- 指标-->
 		<module>alinesno-infra-common-web</module> <!-- 前端服务-->
 
+		<module>alinesno-infra-common-extend</module> <!-- 核心能力扩展包 -->
+
 		<!-- 集成示例 -->
 		<module>alinesno-infra-common-simple</module>
 	</modules>
