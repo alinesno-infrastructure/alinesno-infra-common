@@ -54,32 +54,4 @@ public class InfraBaseEntity extends BaseEntity {
 	private String departmentId; // 部门权限: 只能看到自己所在部门的数据
 	/////////////////////////////// 数据权限规划 _end ///////////////////////
 
-	public void setApplicationName(String applicationName) {
-		this.applicationName = applicationName;
-	}
-
-	public void setFieldId(String fieldId) {
-		this.fieldId = fieldId;
-	}
-
-	public void setDepartmentId(String departmentId) {
-		this.departmentId = departmentId;
-	}
-
-	public void setApplicationId(Long applicationId) {
-		this.applicationId = applicationId;
-	}
-
-	public void setTenantId(String tenantId) {
-		this.tenantId = tenantId;
-	}
-
-	public void setDeleteManager(String deleteManager) {
-		this.deleteManager = deleteManager;
-	}
-
-	public void setHasDelete(int hasDelete) {
-		this.hasDelete = hasDelete;
-	}
-
 }
