@@ -1,5 +1,6 @@
 package com.alinesno.infra.common.facade.mapper.entity;
 
+import com.alinesno.infra.common.facade.enums.HasStatusEnums;
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -49,7 +50,7 @@ public class BaseEntity implements Serializable {
 	@ColumnType(length = 1)
 	@ColumnComment("状态")
 	@TableField(fill = FieldFill.INSERT)
-	private int hasStatus; // = HasStatusEnums.LEGAL.value ; // 状态(0启用|1禁用)
+	private int hasStatus = HasStatusEnums.LEGAL.value ; // 状态(0启用|1禁用)
 
 	@ColumnType(value = MySqlTypeConstant.DATETIME, length = 18)
 	@ColumnComment("更新时间")

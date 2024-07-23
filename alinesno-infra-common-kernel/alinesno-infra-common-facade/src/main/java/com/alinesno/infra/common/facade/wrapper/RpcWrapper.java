@@ -242,7 +242,7 @@ public class RpcWrapper<T> extends Wrapper {
 
 					condition.setCondition(me.getType());
 					condition.setParams(me.getValue());
-					condition.setParams(me.getColumn());
+					condition.setColumn(me.getColumn());
 
 					this.condition.add(condition);
 				}

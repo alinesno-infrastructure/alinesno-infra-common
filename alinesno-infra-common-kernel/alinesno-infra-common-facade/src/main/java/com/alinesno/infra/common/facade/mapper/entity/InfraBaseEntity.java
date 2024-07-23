@@ -39,9 +39,9 @@ public class InfraBaseEntity extends BaseEntity {
 	private String applicationName; // 应用名称，唯一性，用于做应用标识【最好与springboot的applicaiotn.name对应】
 
 	@ColumnType(length = 32)
-	@ColumnComment("所属租户")
+	@ColumnComment("组织ID")
 	@TableField
-	private String tenantId = "0"; // 所属租户 , 租户权限
+	private Long orgId = 0L ; // 所属组织 , 租户权限
 
 	@ColumnType(length = 128)
 	@ColumnComment("字段权限")
@@ -51,7 +51,7 @@ public class InfraBaseEntity extends BaseEntity {
 	@ColumnType(length = 32)
 	@ColumnComment("部门权限")
 	@TableField
-	private String departmentId; // 部门权限: 只能看到自己所在部门的数据
+	private Long departmentId; // 部门权限: 只能看到自己所在部门的数据
 	/////////////////////////////// 数据权限规划 _end ///////////////////////
 
 }
