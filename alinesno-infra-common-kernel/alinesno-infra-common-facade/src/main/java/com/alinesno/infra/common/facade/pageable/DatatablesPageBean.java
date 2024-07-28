@@ -37,6 +37,8 @@ public class DatatablesPageBean implements Serializable {
 	private Map<String, Object> condition = new ConcurrentHashMap<>();
 	private List<ConditionDto> conditionList = new ArrayList<>();
 
+	private List<String> ignores = new ArrayList<>() ;
+
 	public boolean isBootstrapTable() {
         return this.pageSize != 0;
 	}
@@ -70,10 +72,20 @@ public class DatatablesPageBean implements Serializable {
 	 */
 	public <T> RpcWrapper<T> buildWrapper(HttpServletRequest request) {
 
+		if(ignores.isEmpty()){
+			ignores.add("pageNum") ;
+			ignores.add("pageSize") ;
+		}
+
 		 Map<String, String[]> parameterMap = request.getParameterMap();
 
 		 for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
 			 String key = entry.getKey();
+
+			 if(ignores.contains(key)){
+				 continue;
+			 }
+
 			 String[] values = entry.getValue();
 
 			 if (values != null) {
