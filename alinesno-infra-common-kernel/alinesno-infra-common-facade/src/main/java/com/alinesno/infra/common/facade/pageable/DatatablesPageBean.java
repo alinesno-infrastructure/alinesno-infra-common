@@ -72,9 +72,11 @@ public class DatatablesPageBean implements Serializable {
 	 */
 	public <T> RpcWrapper<T> buildWrapper(HttpServletRequest request) {
 
+		// TODO 待优化
 		if(ignores.isEmpty()){
 			ignores.add("pageNum") ;
 			ignores.add("pageSize") ;
+			ignores.add("params") ;
 		}
 
 		 Map<String, String[]> parameterMap = request.getParameterMap();
