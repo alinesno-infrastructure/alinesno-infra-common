@@ -149,7 +149,7 @@
 
 		<!-- springboot间接依赖版本 -->
 		<tomcat.version>11.0.0-M11</tomcat.version>
-		<protobuf.java.version>3.24.3</protobuf.java.version>
+		<protobuf.java.version>3.25.5</protobuf.java.version>
 		<jackson.databing.version>2.15.2</jackson.databing.version>
 
 	</properties>
