@@ -1,10 +1,10 @@
 package com.alinesno.infra.common.extend.websocket.config;
 
 import cn.hutool.core.util.StrUtil;
-import com.alinesno.infra.common.extend.websocket.listener.WebSocketTopicListener;
 import com.alinesno.infra.common.extend.websocket.config.properties.WebSocketProperties;
 import com.alinesno.infra.common.extend.websocket.handler.PlusWebSocketHandler;
 import com.alinesno.infra.common.extend.websocket.interceptor.PlusWebSocketInterceptor;
+import com.alinesno.infra.common.extend.websocket.listener.WebSocketTopicListener;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
