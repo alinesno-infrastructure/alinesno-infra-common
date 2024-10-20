@@ -1,8 +1,11 @@
 package com.alinesno.infra.common.web.adapter.login.interceptor;
 
+import com.alinesno.infra.common.core.context.SpringContext;
+import com.alinesno.infra.common.web.adapter.base.consumer.IBaseAuthorityConsumer;
 import com.alinesno.infra.common.web.adapter.login.account.CurrentAccountBean;
 import com.alinesno.infra.common.web.adapter.login.account.CurrentAccountJwt;
 import com.alinesno.infra.common.web.adapter.login.annotation.CurrentAccount;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
@@ -15,6 +18,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
  * @author luoxiaodong
  * @version 1.0.0
  */
+@Slf4j
 public class CurrentAccountMethodArgumentResolver implements HandlerMethodArgumentResolver {
 
 	@Override
@@ -27,8 +31,18 @@ public class CurrentAccountMethodArgumentResolver implements HandlerMethodArgume
 	public CurrentAccountBean resolveArgument(MethodParameter methodParameter,
 											  ModelAndViewContainer modelAndViewContainer, NativeWebRequest nativeWebRequest,
 											  WebDataBinderFactory webDataBinderFactory) throws Exception {
+
+		IBaseAuthorityConsumer baseAuthorityAdapter = SpringContext.getBean(IBaseAuthorityConsumer.class);
+		log.debug("baseAuthorityAdapter = {}" , baseAuthorityAdapter);
+
 		// 获取当前登录用户
-        return CurrentAccountJwt.getAccount();
+		long userId = CurrentAccountJwt.getUserId() ;
+
+		CurrentAccountBean currentAccountBean = new CurrentAccountBean() ;
+
+		log.debug("当前用户ID:{}", userId);
+
+		return currentAccountBean ;
 
 	}
 
