@@ -137,7 +137,7 @@
 		<kryo-serializers-version>0.45</kryo-serializers-version>
 		<forest.version>1.5.33</forest.version>
 		<commons.codec.version>1.15</commons.codec.version>
-		<xnio.api.version>3.8.10.Final</xnio.api.version>
+		<xnio.api.version>3.8.14.Final</xnio.api.version>
 		<netty.all.version>5.0.0.Alpha2</netty.all.version>
 		<snakeyaml.version>2.0</snakeyaml.version>
 
