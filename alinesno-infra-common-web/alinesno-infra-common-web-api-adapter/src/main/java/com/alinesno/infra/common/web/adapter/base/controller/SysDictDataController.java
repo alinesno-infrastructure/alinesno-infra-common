@@ -1,24 +1,35 @@
 package com.alinesno.infra.common.web.adapter.base.controller;
 
-import cn.hutool.json.JSONUtil;
 import com.alinesno.infra.common.facade.response.AjaxResult;
+import com.alinesno.infra.common.web.adapter.base.consumer.IBaseConfigConsumer;
+import com.alinesno.infra.common.web.adapter.base.dto.ManagerCodeDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * 数据字典信息
  *
- * @author Lion Li
+ * @author luoxiaodong
  */
 @Slf4j
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/system/dict/data")
 public class SysDictDataController {
+
+    @Autowired
+    private IBaseConfigConsumer configConsumer ;
+
+    @Value("${spring.application.id:projectCode}")
+    private String projectCode ;
 
     /**
      * 根据字典类型查询字典数据信息
@@ -30,46 +41,9 @@ public class SysDictDataController {
 
         log.debug("dictType = {}" , dictType);
 
-        String json = "[\n" +
-                "        {\n" +
-                "            \"dictCode\": 1,\n" +
-                "            \"dictSort\": 1,\n" +
-                "            \"dictLabel\": \"男\",\n" +
-                "            \"dictValue\": \"0\",\n" +
-                "            \"dictType\": \"sys_user_sex\",\n" +
-                "            \"cssClass\": \"\",\n" +
-                "            \"listClass\": \"\",\n" +
-                "            \"isDefault\": \"Y\",\n" +
-                "            \"remark\": \"性别男\",\n" +
-                "            \"createTime\": \"2023-12-26 12:50:18\"\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"dictCode\": 2,\n" +
-                "            \"dictSort\": 2,\n" +
-                "            \"dictLabel\": \"女\",\n" +
-                "            \"dictValue\": \"1\",\n" +
-                "            \"dictType\": \"sys_user_sex\",\n" +
-                "            \"cssClass\": \"\",\n" +
-                "            \"listClass\": \"\",\n" +
-                "            \"isDefault\": \"N\",\n" +
-                "            \"remark\": \"性别女\",\n" +
-                "            \"createTime\": \"2023-12-26 12:50:18\"\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"dictCode\": 3,\n" +
-                "            \"dictSort\": 3,\n" +
-                "            \"dictLabel\": \"未知\",\n" +
-                "            \"dictValue\": \"2\",\n" +
-                "            \"dictType\": \"sys_user_sex\",\n" +
-                "            \"cssClass\": \"\",\n" +
-                "            \"listClass\": \"\",\n" +
-                "            \"isDefault\": \"N\",\n" +
-                "            \"remark\": \"性别未知\",\n" +
-                "            \"createTime\": \"2023-12-26 12:50:18\"\n" +
-                "        }\n" +
-                "    ]" ;
+        List<ManagerCodeDto> codes = configConsumer.codeListByType(dictType  , projectCode) ;
 
-        return AjaxResult.success(JSONUtil.parseArray(json)) ;
+        return AjaxResult.success(codes) ;
     }
 
 }
