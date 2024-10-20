@@ -1,6 +1,7 @@
 package com.alinesno.infra.common.web.adapter.base.controller;
 
 import com.alinesno.infra.common.facade.response.AjaxResult;
+import com.alinesno.infra.common.facade.response.R;
 import com.alinesno.infra.common.web.adapter.base.consumer.IBaseConfigConsumer;
 import com.alinesno.infra.common.web.adapter.base.dto.ManagerCodeDto;
 import lombok.RequiredArgsConstructor;
@@ -41,9 +42,14 @@ public class SysDictDataController {
 
         log.debug("dictType = {}" , dictType);
 
-        List<ManagerCodeDto> codes = configConsumer.codeListByType(dictType  , projectCode) ;
+        R<List<ManagerCodeDto>> r = configConsumer.codeListByType(dictType  , projectCode) ;
 
-        return AjaxResult.success(codes) ;
+        if(r.getData() != null){
+            List<ManagerCodeDto> codes = r.getData() ;
+            return AjaxResult.success(codes) ;
+        }
+
+        return AjaxResult.success() ;
     }
 
 }
