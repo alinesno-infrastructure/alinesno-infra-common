@@ -3,12 +3,17 @@ package com.alinesno.infra.common.web.adapter.login.security;
 import cn.dev33.satoken.interceptor.SaInterceptor;
 import cn.dev33.satoken.stp.StpUtil;
 import com.alinesno.infra.common.web.adapter.login.exception.LoginAuthException;
+import com.alinesno.infra.common.web.adapter.login.interceptor.CurrentAccountMethodArgumentResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.List;
 
 /**
  * 权限安全配置
@@ -23,6 +28,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class SecurityConfig implements WebMvcConfigurer {
 
     private final SecurityProperties securityProperties;
+
+    @Autowired
+    private CurrentAccountMethodArgumentResolver currentAccountMethodArgumentResolver ;
+
+    //把自定义解析器添加到解析器集合当中
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
+        resolvers.add(currentAccountMethodArgumentResolver);
+    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
