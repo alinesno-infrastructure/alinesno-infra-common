@@ -3,8 +3,12 @@ package com.alinesno.infra.common.web.adapter.enable;
 import com.alinesno.infra.common.web.adapter.base.controller.SysDictDataController;
 import com.alinesno.infra.common.web.adapter.login.controller.CommonCaptchaController;
 import com.alinesno.infra.common.web.adapter.login.controller.CommonLoginController;
-import com.alinesno.infra.common.web.adapter.login.kaptcha.CaptchaConfig;
-import com.alinesno.infra.common.web.adapter.login.kaptcha.KaptchaTextCreator;
+import com.alinesno.infra.common.web.adapter.login.controller.kaptcha.CaptchaConfig;
+import com.alinesno.infra.common.web.adapter.login.controller.kaptcha.KaptchaTextCreator;
+import com.alinesno.infra.common.web.adapter.login.interceptor.CurrentAccountMethodArgumentResolver;
+import com.alinesno.infra.common.web.adapter.login.security.SecurityConfig;
+import com.alinesno.infra.common.web.adapter.login.security.SecurityProperties;
+import com.alinesno.infra.common.web.adapter.login.security.StpInterfaceImpl;
 import jakarta.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +38,11 @@ public class ApiConfigurationSelector implements ImportSelector {
 		// 公共API类
 		importBean.add(SysDictDataController.class.getName()) ;
 
+		// 安全验证
+		importBean.add(SecurityProperties.class.getName()) ;
+		importBean.add(SecurityConfig.class.getName()) ;
+		importBean.add(StpInterfaceImpl.class.getName()) ;
+
 		// 验证码信息
 		importBean.add(KaptchaTextCreator.class.getName()) ;
 		importBean.add(CaptchaConfig.class.getName()) ;
@@ -41,6 +50,7 @@ public class ApiConfigurationSelector implements ImportSelector {
 		// 登陆信息
 		importBean.add(CommonCaptchaController.class.getName()) ;
 		importBean.add(CommonLoginController.class.getName()) ;
+		importBean.add(CurrentAccountMethodArgumentResolver.class.getName()) ;
 
 		return importBean.toArray(new String[] {});
 	}
