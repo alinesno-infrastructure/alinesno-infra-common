@@ -1,5 +1,7 @@
 package com.alinesno.infra.common.extend.excel.annotation;
 
+import com.alinesno.infra.common.extend.excel.core.CellMergeStrategy;
+
 import java.lang.annotation.*;
 
 /**
