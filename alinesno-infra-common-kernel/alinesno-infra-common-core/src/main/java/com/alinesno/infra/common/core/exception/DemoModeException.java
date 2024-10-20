@@ -1,7 +1,5 @@
 package com.alinesno.infra.common.core.exception;
 
-import java.io.Serial;
-
 /**
  * 演示模式异常
  * 
