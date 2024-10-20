@@ -1,8 +1,10 @@
 package com.alinesno.infra.common.web.adapter.base.consumer;
 
-import com.alinesno.infra.common.facade.response.AjaxResult;
+import com.alinesno.infra.common.facade.response.R;
 import com.alinesno.infra.common.web.adapter.base.dto.ManagerCodeDto;
-import com.alinesno.infra.common.web.adapter.base.dto.ManagerSettingsDto;
+import com.dtflys.forest.annotation.BaseRequest;
+import com.dtflys.forest.annotation.Get;
+import com.dtflys.forest.annotation.Query;
 
 import java.util.List;
 
@@ -11,14 +13,8 @@ import java.util.List;
  * @author luoxiaodong
  * @version 1.0.0
  */
+@BaseRequest(baseURL = "#{alinesno.infra.gateway.host}/base-authority" , connectTimeout = 30*1000)
 public interface IBaseConfigConsumer {
-
-//    /**
-//     * 通过代码类型查询代码
-//     * @param codeType 代码类型
-//     * @return 代码列表
-//     */
-//    List<ManagerCodeDto> codeListByType(String codeType);
 
     /**
      * 通过代码类型查询代码
@@ -26,7 +22,16 @@ public interface IBaseConfigConsumer {
      * @param projectCode 应用ID
      * @return 代码列表
      */
-    List<ManagerCodeDto> codeListByType(String codeType, String projectCode);
+    @Get("/v1/api/base/authority/dict/codeListByType")
+    R<List<ManagerCodeDto>> codeListByType(@Query("codeType") String codeType,
+                                           @Query("projectCode")  String projectCode);
+
+//    /**
+//     * 通过代码类型查询代码
+//     * @param codeType 代码类型
+//     * @return 代码列表
+//     */
+//    List<ManagerCodeDto> codeListByType(String codeType);
 
 //    /**
 //     * 代码查询
