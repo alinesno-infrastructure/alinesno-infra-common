@@ -1,8 +1,7 @@
 package com.alinesno.infra.common.web.log.event;
 
-import lombok.Data;
-
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.Data;
 
 import java.io.Serial;
 import java.io.Serializable;
