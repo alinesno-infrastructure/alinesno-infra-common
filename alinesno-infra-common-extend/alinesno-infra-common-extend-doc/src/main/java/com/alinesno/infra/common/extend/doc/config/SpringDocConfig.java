@@ -1,13 +1,13 @@
 package com.alinesno.infra.common.extend.doc.config;
 
 import com.alinesno.infra.common.core.utils.StringUtils;
+import com.alinesno.infra.common.extend.doc.config.properties.SpringDocProperties;
+import com.alinesno.infra.common.extend.doc.handler.OpenApiHandler;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
-import com.alinesno.infra.common.extend.doc.config.properties.SpringDocProperties;
-import com.alinesno.infra.common.extend.doc.handler.OpenApiHandler;
 import org.springdoc.core.configuration.SpringDocConfiguration;
 import org.springdoc.core.customizers.OpenApiBuilderCustomizer;
 import org.springdoc.core.customizers.OpenApiCustomizer;
