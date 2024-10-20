@@ -1,9 +1,19 @@
 package com.alinesno.infra.common.web.adapter.login.controller;
 
+import cn.dev33.satoken.stp.StpUtil;
+import cn.hutool.core.lang.Assert;
+import cn.hutool.json.JSONUtil;
 import com.alinesno.infra.common.facade.response.AjaxResult;
+import com.alinesno.infra.common.web.adapter.base.consumer.IBaseAuthorityConsumer;
+import com.alinesno.infra.common.web.adapter.base.dto.ManagerAccountDto;
+import com.alinesno.infra.common.web.adapter.base.dto.ManagerResourceDto;
 import com.alinesno.infra.common.web.adapter.dto.LoginBodyDto;
-import com.alinesno.infra.common.web.adapter.dto.menus.Menu;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.alinesno.infra.common.web.adapter.login.account.CurrentAccountBean;
+import com.alinesno.infra.common.web.adapter.login.account.CurrentAccountJwt;
+import com.alinesno.infra.common.web.adapter.login.annotation.CurrentAccount;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,8 +24,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+@Slf4j
 @RestController
 public class CommonLoginController {
+
+//    @Autowired
+//    private IManagerResourceService managerResourceService ;
+//
+//    @Autowired
+//    private IManagerAccountService managerAccountService ;
+//
+//    @Autowired
+//    private IManagerProjectService managerProjectService ;
+
+    @Value("${spring.application.id:projectCode}")
+    private String projectCode ;
+
+    @Autowired
+    private IBaseAuthorityConsumer authorityConsumer ;
 
     /**
      * 令牌
@@ -29,8 +55,7 @@ public class CommonLoginController {
      * @return 结果
      */
     @PostMapping("/login")
-    public AjaxResult login(@RequestBody LoginBodyDto loginBody)
-    {
+    public AjaxResult login(@RequestBody LoginBodyDto loginBody) {
         AjaxResult ajax = AjaxResult.success();
         // 生成令牌
         String token = UUID.randomUUID().toString() ;
@@ -39,43 +64,46 @@ public class CommonLoginController {
     }
 
     /**
+     * 退出登陆
+     * @return
+     */
+    @PostMapping("/logout")
+    public AjaxResult logout() {
+        StpUtil.logout();
+        return AjaxResult.success();
+    }
+
+    /**
      * 获取用户信息
      *
      * @return 用户信息
      */
     @GetMapping("getInfo")
-    public AjaxResult getInfo() {
+    public AjaxResult getInfo(@CurrentAccount CurrentAccountBean account) {
+
+        log.debug("account : {}" , account);
+
+        long userId = CurrentAccountJwt.getUserId() ;
+        Assert.notNull(userId , "用户未登录") ;
+
+        ManagerAccountDto accountEntity = authorityConsumer.getById(userId) ;
 
         Map<String, Object> data = new HashMap<>();
+
         // 将数据填充到data中...
         data.put("permissions", new String[]{"*:*:*"});
 
         Map<String, Object> user = new HashMap<>();
-        user.put("createBy", "admin");
-        user.put("createTime", "2023-04-23 16:11:38");
-        user.put("updateBy", null);
-        user.put("updateTime", null);
-        user.put("remark", "管理员");
-        user.put("userId", 1);
-        user.put("deptId", 103);
-        user.put("userName", "admin");
-        user.put("nickName", "AIP技术团队");
-        user.put("email", "aip-team@163.com");
-        user.put("phonenumber", "15888888888");
-        user.put("sex", "1");
-        user.put("avatar", "");
-        user.put("password", "");
-        user.put("status", "0");
-        user.put("delFlag", "0");
-        user.put("loginIp", "");
-        user.put("loginDate", "2023-09-21T16:54:12.000+08:00");
+        user.put("userId", userId);
+        user.put("deptId", accountEntity.getDepartment());
+        user.put("userName", accountEntity.getLoginName());
+        user.put("nickName", accountEntity.getName());
+        user.put("email", accountEntity.getEmail());
+        user.put("phoneNumber", accountEntity.getPhone());
+        user.put("sex", accountEntity.getSex());
+        user.put("avatar", accountEntity.getAvatarPath());
 
         Map<String, Object> dept = new HashMap<>();
-        dept.put("createBy", null);
-        dept.put("createTime", null);
-        dept.put("updateBy", null);
-        dept.put("updateTime", null);
-        dept.put("remark", null);
         dept.put("deptId", 103);
         dept.put("parentId", 101);
         dept.put("ancestors", "0,100,101");
@@ -92,10 +120,6 @@ public class CommonLoginController {
         user.put("dept", dept);
 
         Map<String, Object> role = new HashMap<>();
-        role.put("createBy", null);
-        role.put("createTime", null);
-        role.put("updateBy", null);
-        role.put("updateTime", null);
         role.put("remark", null);
         role.put("roleId", 1);
         role.put("roleName", "超级管理员");
@@ -124,32 +148,23 @@ public class CommonLoginController {
 
     /**
      * 获取路由信息
+     *
      * @return 路由信息
      */
     @GetMapping("getRouters")
-    public AjaxResult getRouters() throws JsonProcessingException {
+    public AjaxResult getRouters() {
 
-        Menu dashboardMenu = new Menu("Dashboard", "/dashboard", false, "noRedirect", "Layout", true, new Menu.Meta("仪盘表", "dashboard", false, null), List.of(
-                new Menu("Dashboard", "index", false, false , "dashboard", new Menu.Meta("概览", "dashboard", false, null))
-        ));
+        // 查询代码不为空，提示配置spring.application.id
+        if (projectCode != null && projectCode.isEmpty()) {
+            return AjaxResult.error("项目代码不能为空，请在application.yml配置spring.application.id") ;
+        }
 
-        Menu mdmMenu = new Menu("Mdm", "/mdm", false, "noRedirect", "Layout", true, new Menu.Meta("主数据管理", "system", false, null), List.of(
-                new Menu("Application", "mdm/application/list", false, false , "mdm/application/list", new Menu.Meta("应用管理", "druid", false, null)),
-                new Menu("IndustryClassify", "mdm/IndustryClassify/list", false, false , "mdm/IndustryClassify/list", new Menu.Meta("行业分类", "peoples", false, null)),
-                new Menu("DataCatagory", "mdm/dataCatagory/list", false, false , "mdm/dataCatagory/list", new Menu.Meta("数据目录", "online", false, null)),
-                new Menu("DataDetail", "mdm/dataDetail/list", false, false , "mdm/dataDetail/list", new Menu.Meta("标准数据", "user", false, null)),
-                new Menu("BusinessSystem", "mdm/businessSystem/list", false, false , "mdm/businessSystem/list", new Menu.Meta("业务系统", "peoples", false, null))
-        ));
+        long accountId = CurrentAccountJwt.getUserId() ;
 
-        Menu systemMenu = new Menu("System", "/system", false, "noRedirect", "Layout", true, new Menu.Meta("历史数据", "monitor", false, null), List.of(
-                new Menu("DataChangeLog", "mdm/dataChangeLog/list", false, false , "mdm/dataChangeLog/list", new Menu.Meta("目录历史", "tree", false, null)),
-                new Menu("DataDetailLog", "mdm/dataDetailLog/list", false, false , "mdm/dataDetailLog/list", new Menu.Meta("数据历史", "job", false, null))
-        ));
+        ManagerResourceDto resourceDto = authorityConsumer.findMenusByProjectCode(projectCode , accountId) ;
+        log.debug("resourceDto : {}" , JSONUtil.toJsonPrettyStr(resourceDto));
 
-
-        List<Menu> menus = List.of(dashboardMenu, mdmMenu , systemMenu ) ;
-
-        return AjaxResult.success(menus) ;
+        return AjaxResult.success(resourceDto.getChildren()) ;
     }
 
 }
