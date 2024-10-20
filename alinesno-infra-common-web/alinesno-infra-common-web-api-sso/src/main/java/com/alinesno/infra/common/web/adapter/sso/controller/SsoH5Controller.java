@@ -42,10 +42,8 @@ public class SsoH5Controller {
 		if(loginId != null) {
 			StpUtil.login(loginId);
 
-			String adminToken = UUID.randomUUID().toString() ;
-
 			SaResult result = SaResult.data(StpUtil.getTokenValue());
-			result.put("adminToken" , adminToken) ;
+			result.put("AdminToken" , result.getData()) ;
 
 			return result ;
 		}
