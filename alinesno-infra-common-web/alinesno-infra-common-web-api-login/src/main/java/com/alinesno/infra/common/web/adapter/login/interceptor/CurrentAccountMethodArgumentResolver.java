@@ -1,11 +1,14 @@
 package com.alinesno.infra.common.web.adapter.login.interceptor;
 
 import com.alinesno.infra.common.core.context.SpringContext;
+import com.alinesno.infra.common.facade.response.R;
 import com.alinesno.infra.common.web.adapter.base.consumer.IBaseAuthorityConsumer;
+import com.alinesno.infra.common.web.adapter.base.dto.ManagerAccountDto;
 import com.alinesno.infra.common.web.adapter.login.account.CurrentAccountBean;
 import com.alinesno.infra.common.web.adapter.login.account.CurrentAccountJwt;
 import com.alinesno.infra.common.web.adapter.login.annotation.CurrentAccount;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
@@ -38,7 +41,20 @@ public class CurrentAccountMethodArgumentResolver implements HandlerMethodArgume
 		// 获取当前登录用户
 		long userId = CurrentAccountJwt.getUserId() ;
 
+		R<ManagerAccountDto> accountDtoR = baseAuthorityAdapter.getById(userId) ;
+		if (R.isError(accountDtoR)) {
+			log.warn("获取当前用户信息失败:{}" , accountDtoR.getMsg());
+			return null ;
+		}
+
+		ManagerAccountDto accountDto = accountDtoR.getData() ;
+
 		CurrentAccountBean currentAccountBean = new CurrentAccountBean() ;
+
+		currentAccountBean.setId(accountDto.getId());
+		currentAccountBean.setName(accountDto.getName());
+		currentAccountBean.setPhone(accountDto.getPhone());
+		currentAccountBean.setEmail(accountDto.getEmail());
 
 		log.debug("当前用户ID:{}", userId);
 
