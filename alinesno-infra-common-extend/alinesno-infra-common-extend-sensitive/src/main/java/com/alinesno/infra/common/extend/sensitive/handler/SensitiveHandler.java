@@ -2,6 +2,7 @@ package com.alinesno.infra.common.extend.sensitive.handler;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.alinesno.infra.common.core.context.SpringContext;
+import com.alinesno.infra.common.extend.sensitive.annotation.Sensitive;
 import com.alinesno.infra.common.extend.sensitive.core.SensitiveService;
 import com.alinesno.infra.common.extend.sensitive.core.SensitiveStrategy;
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -10,7 +11,6 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.ContextualSerializer;
-import com.alinesno.infra.common.extend.sensitive.annotation.Sensitive;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 
