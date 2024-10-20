@@ -1,6 +1,5 @@
 package com.alinesno.infra.common.web.adapter.base.dto;
 
-import java.util.Collection;
 import java.util.Set;
 
 
