@@ -28,7 +28,13 @@
 			<artifactId>alinesno-infra-common-core</artifactId>
 			<version>${revision}</version>
 		</dependency>
-		<!-- 公共组件包 _end -->
+
+        <dependency>
+            <groupId>com.dtflys.forest</groupId>
+            <artifactId>forest-core</artifactId>
+			<version>${forest.version}</version>
+        </dependency>
+        <!-- 公共组件包 _end -->
 
 	</dependencies>
 
