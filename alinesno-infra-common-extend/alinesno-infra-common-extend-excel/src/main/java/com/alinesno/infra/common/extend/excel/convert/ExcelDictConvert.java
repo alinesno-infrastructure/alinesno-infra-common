@@ -9,7 +9,6 @@ import com.alibaba.excel.metadata.GlobalConfiguration;
 import com.alibaba.excel.metadata.data.ReadCellData;
 import com.alibaba.excel.metadata.data.WriteCellData;
 import com.alibaba.excel.metadata.property.ExcelContentProperty;
-import com.alinesno.infra.common.core.context.SpringContext;
 import com.alinesno.infra.common.core.utils.StringUtils;
 import com.alinesno.infra.common.extend.excel.annotation.ExcelDictFormat;
 import com.alinesno.infra.common.extend.excel.utils.ExcelUtil;
