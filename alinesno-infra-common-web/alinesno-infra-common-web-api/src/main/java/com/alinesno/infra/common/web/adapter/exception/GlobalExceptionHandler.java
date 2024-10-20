@@ -1,11 +1,13 @@
 package com.alinesno.infra.common.web.adapter.exception;
 
+import cn.dev33.satoken.exception.NotLoginException;
 import com.alinesno.infra.common.core.exception.DemoModeException;
 import com.alinesno.infra.common.core.exception.base.BaseException;
 import com.alinesno.infra.common.core.utils.StringUtils;
 import com.alinesno.infra.common.facade.exception.ServiceException;
 import com.alinesno.infra.common.facade.response.AjaxResult;
 import com.alinesno.infra.common.facade.response.HttpStatus;
+import com.alinesno.infra.common.web.adapter.login.exception.LoginAuthException;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.ibatis.exceptions.PersistenceException;
@@ -25,7 +27,7 @@ import java.nio.file.AccessDeniedException;
 
 /**
  * 全局异常处理器
- * 
+ *
  * @author luoxiaodong
  * @version 1.0.0
  */
@@ -47,6 +49,12 @@ public class GlobalExceptionHandler {
 	public AjaxResult handlerNoFoundException(Exception e) {
 		log.error(e.getMessage(), e);
 		return AjaxResult.error(HttpStatus.NOT_FOUND, "路径不存在，请检查路径是否正确");
+	}
+
+	@ExceptionHandler({LoginAuthException.class , NotLoginException.class})
+	public AjaxResult handleLoginAuthorizationException(LoginAuthException e) {
+		log.error(e.getMessage());
+		return AjaxResult.error(HttpStatus.UNAUTHORIZED, "用户认证失败，请重新登陆");
 	}
 
 	@ExceptionHandler(AccessDeniedException.class)
