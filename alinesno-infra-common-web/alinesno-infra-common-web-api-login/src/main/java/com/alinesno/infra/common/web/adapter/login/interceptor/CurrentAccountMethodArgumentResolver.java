@@ -52,6 +52,7 @@ public class CurrentAccountMethodArgumentResolver implements HandlerMethodArgume
 		CurrentAccountBean currentAccountBean = new CurrentAccountBean() ;
 
 		currentAccountBean.setId(accountDto.getId());
+		currentAccountBean.setOrgId(accountDto.getOrgId());
 		currentAccountBean.setName(accountDto.getName());
 		currentAccountBean.setPhone(accountDto.getPhone());
 		currentAccountBean.setEmail(accountDto.getEmail());
