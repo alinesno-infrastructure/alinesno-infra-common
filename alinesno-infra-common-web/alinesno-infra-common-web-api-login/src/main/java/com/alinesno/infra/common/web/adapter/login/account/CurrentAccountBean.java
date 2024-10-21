@@ -1,6 +1,7 @@
 package com.alinesno.infra.common.web.adapter.login.account;
 
 import com.alinesno.infra.common.facade.mapper.entity.BaseEntity;
+import com.alinesno.infra.common.facade.mapper.entity.InfraBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,7 +15,7 @@ import java.util.Set;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class CurrentAccountBean extends BaseEntity {
+public class CurrentAccountBean extends InfraBaseEntity {
 	/**
 	 * 所属者
 	 */
@@ -27,7 +28,7 @@ public class CurrentAccountBean extends BaseEntity {
 	/**
 	 * 用户头像
 	 */
-	private String avatorPath;
+	private String avatarPath;
 
 	/**
 	 * 最后登陆ip
