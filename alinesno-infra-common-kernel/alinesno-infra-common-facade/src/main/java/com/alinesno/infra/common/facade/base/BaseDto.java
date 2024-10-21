@@ -1,6 +1,6 @@
 package com.alinesno.infra.common.facade.base;
 
-import com.alinesno.infra.common.facade.mapper.entity.BaseEntity;
+import com.alinesno.infra.common.facade.mapper.entity.InfraBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class BaseDto extends BaseEntity {
+public class BaseDto extends InfraBaseEntity {
 
     //参数签名 非空
     private String sign;
