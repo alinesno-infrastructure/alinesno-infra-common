@@ -14,45 +14,15 @@
 	<artifactId>alinesno-infra-common-extend-datascope</artifactId>
 	<packaging>jar</packaging>
 
-	<properties>
-		<easyexcel.version>3.3.3</easyexcel.version>
-		<springdoc.version>2.2.0</springdoc.version>
-		<therapi-javadoc.version>0.15.0</therapi-javadoc.version>
-	</properties>
-
 	<dependencies>
 
 		<!-- 公共组件包 _start -->
 		<dependency>
 			<groupId>com.alinesno.infra.common</groupId>
-			<artifactId>alinesno-infra-common-facade</artifactId>
-			<version>${revision}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.alinesno.infra.common</groupId>
-			<artifactId>alinesno-infra-common-core</artifactId>
+			<artifactId>alinesno-infra-common-web-api-login</artifactId>
 			<version>${revision}</version>
 		</dependency>
 		<!-- 公共组件包 _end -->
-
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>easyexcel</artifactId>
-			<version>${easyexcel.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
-			<version>${springdoc.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.github.therapi</groupId>
-			<artifactId>therapi-runtime-javadoc</artifactId>
-			<version>${therapi-javadoc.version}</version>
-		</dependency>
 
 	</dependencies>
 
