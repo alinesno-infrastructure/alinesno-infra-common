@@ -3,6 +3,7 @@ package com.alinesno.infra.common.web.adapter.login.account;
 import cn.dev33.satoken.stp.StpUtil;
 import com.alinesno.infra.common.web.adapter.base.dto.LoginUserDto;
 import com.alinesno.infra.common.web.adapter.base.dto.ManagerAccountDto;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 获取当前用户基本信息
@@ -10,7 +11,10 @@ import com.alinesno.infra.common.web.adapter.base.dto.ManagerAccountDto;
  * @author luoxiaodong
  * @version 1.0.0
  */
+@Slf4j
 public class CurrentAccountJwt {
+
+	private static final String currentAccountDto = "CURRENT_ACCOUNT_DTO" ;
 
 	/**
 	 * 获取当前登陆用户
@@ -28,7 +32,8 @@ public class CurrentAccountJwt {
 	 * @return
 	 */
 	public static ManagerAccountDto get()  {
-		ManagerAccountDto e = new ManagerAccountDto();
+		ManagerAccountDto e = (ManagerAccountDto) StpUtil.getSession().get(currentAccountDto);
+		log.debug("获取当前用户信息:{}" , e);
 		return e;
 	}
 	
