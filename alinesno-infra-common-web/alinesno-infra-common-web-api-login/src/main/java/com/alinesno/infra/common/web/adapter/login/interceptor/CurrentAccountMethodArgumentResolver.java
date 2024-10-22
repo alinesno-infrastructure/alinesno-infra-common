@@ -41,7 +41,7 @@ public class CurrentAccountMethodArgumentResolver implements HandlerMethodArgume
 		// 获取当前登录用户
 		long userId = CurrentAccountJwt.getUserId() ;
 
-		R<ManagerAccountDto> accountDtoR = baseAuthorityAdapter.getById(userId) ;
+		R<ManagerAccountDto> accountDtoR = baseAuthorityAdapter.getManagerAccountDto(userId) ;
 		if (R.isError(accountDtoR)) {
 			log.warn("获取当前用户信息失败:{}" , accountDtoR.getMsg());
 			return null ;
@@ -52,10 +52,11 @@ public class CurrentAccountMethodArgumentResolver implements HandlerMethodArgume
 		CurrentAccountBean currentAccountBean = new CurrentAccountBean() ;
 
 		currentAccountBean.setId(accountDto.getId());
-		currentAccountBean.setOrgId(accountDto.getOrgId());
 		currentAccountBean.setName(accountDto.getName());
 		currentAccountBean.setPhone(accountDto.getPhone());
 		currentAccountBean.setEmail(accountDto.getEmail());
+
+		currentAccountBean.setOrgId(accountDto.getOrgId());
 
 		log.debug("当前用户ID:{}", userId);
 
