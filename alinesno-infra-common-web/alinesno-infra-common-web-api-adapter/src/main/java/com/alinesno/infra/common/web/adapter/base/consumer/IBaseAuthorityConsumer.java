@@ -8,6 +8,7 @@ import com.dtflys.forest.annotation.Get;
 import com.dtflys.forest.annotation.Query;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 平台认证服务
@@ -27,7 +28,14 @@ public interface IBaseAuthorityConsumer {
      * @param userId
      * @return
      */
-    @Get("/v1/api/base/authority/account/getById")
-    R<ManagerAccountDto> getById(@Query("id") long userId);
+    @Get("/v1/api/base/authority/account/getManagerAccountDto")
+    R<ManagerAccountDto> getManagerAccountDto(@Query("id") long userId);
 
+    /**
+     * 获取用户登陆信息
+     * @param accountId
+     * @return
+     */
+    @Get("/v1/api/base/authority/account/getAccountInfo")
+    R<Map<String, Object>> getAccountInfo(@Query("id") long accountId);
 }
