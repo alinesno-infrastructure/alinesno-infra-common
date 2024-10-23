@@ -30,7 +30,7 @@ public class DataPermissionSaveAdvice {
 	private HttpServletRequest request;
 
 	// 拦截指定的方法,这里指只拦截TestService.getResultData这个方法
-	@Pointcut("@annotation(com.alinesno.infra.base.authority.annotation.DataPermissionSave)")
+	@Pointcut("@annotation(com.alinesno.infra.common.extend.datasource.annotation.DataPermissionSave)")
 	public void pointcut() {
 
 	}
