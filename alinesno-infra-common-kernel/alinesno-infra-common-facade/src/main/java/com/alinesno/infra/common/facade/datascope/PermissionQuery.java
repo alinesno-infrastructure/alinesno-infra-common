@@ -1,6 +1,5 @@
 package com.alinesno.infra.common.facade.datascope;
 
-import com.alinesno.infra.common.facade.datascope.DataSourceScope;
 import com.alinesno.infra.common.facade.mapper.entity.InfraBaseEntity;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import lombok.Data;
