@@ -1,6 +1,5 @@
 package com.alinesno.infra.common.web.adapter.login.account;
 
-import com.alinesno.infra.common.facade.mapper.entity.BaseEntity;
 import com.alinesno.infra.common.facade.mapper.entity.InfraBaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
