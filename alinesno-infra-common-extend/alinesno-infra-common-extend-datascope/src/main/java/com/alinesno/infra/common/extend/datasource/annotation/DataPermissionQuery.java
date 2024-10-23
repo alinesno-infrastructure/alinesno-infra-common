@@ -1,7 +1,7 @@
 package com.alinesno.infra.common.extend.datasource.annotation;
 
 
-import com.alinesno.infra.common.extend.datasource.enums.DataSourceScope;
+import com.alinesno.infra.common.facade.datascope.DataSourceScope;
 
 import java.lang.annotation.*;
 
