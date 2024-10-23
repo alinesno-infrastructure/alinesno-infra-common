@@ -4,7 +4,7 @@ import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.StpUtil;
 import com.alinesno.infra.common.core.context.SpringContext;
 import com.alinesno.infra.common.extend.datasource.annotation.DataPermissionScope;
-import com.alinesno.infra.common.extend.datasource.enums.DataSourceScope;
+import com.alinesno.infra.common.facade.datascope.DataSourceScope;
 import com.alinesno.infra.common.facade.pageable.ConditionDto;
 import com.alinesno.infra.common.facade.pageable.DatatablesPageBean;
 import com.alinesno.infra.common.web.adapter.base.dto.ManagerAccountDto;
@@ -36,7 +36,7 @@ public class DataPermissionScopeAdvice {
 	private HttpServletRequest request;
 
 	// 拦截指定的方法,这里指只拦截TestService.getResultData这个方法
-	@Pointcut("@annotation(com.alinesno.infra.base.authority.annotation.DataPermissionScope)")
+	@Pointcut("@annotation(com.alinesno.infra.common.extend.datasource.annotation.DataPermissionScope)")
 	public void pointcut() {
 
 	}
