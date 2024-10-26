@@ -43,7 +43,7 @@
 		<module>alinesno-infra-common-extend</module> <!-- 核心能力扩展包 -->
 
 		<!-- 集成示例 -->
-		<module>alinesno-infra-common-simple</module>
+		<!-- <module>alinesno-infra-common-simple</module> -->
 	</modules>
 
 	<properties>
