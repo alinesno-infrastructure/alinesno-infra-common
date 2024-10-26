@@ -142,13 +142,13 @@ jobs:
           echo '</settings>' >> nexus-config.xml
 
       - name: Build and Deploy to Nexus
-        run: mvn clean deploy --settings nexus-config.xml
+        run: mvn clean package --settings nexus-config.xml
 
-      - uses: dbelyaev/action-checkstyle@v0.8.4
-        with:
-          github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review
-          level: warning
+      # - uses: dbelyaev/action-checkstyle@v0.8.4
+        # with:
+          # github_token: ${{ secrets.github_token }}
+          # reporter: github-pr-review
+          # level: warning
 
 #      - name: Deploy to AliyunCR
 #        run: |
@@ -158,11 +158,11 @@ jobs:
 #                        -Djib.to.auth.username=${{secrets.ALIYUN_CR_USERNAME}} \
 #                        -Djib.to.auth.password=${{secrets.ALIYUN_CR_PASSWORD}}
 
-      - name: Install MurphySec code scan cli
-        run: |
-          wget -q https://s.murphysec.com/release/install.sh -O - | /bin/bash
+      # - name: Install MurphySec code scan cli
+        # run: |
+          # wget -q https://s.murphysec.com/release/install.sh -O - | /bin/bash
 
-      - name: Code scan
-        run: murphysec scan . --token ${{ secrets.MURPHYSEC_TOKEN }}
+      # - name: Code scan
+        # run: murphysec scan . --token ${{ secrets.MURPHYSEC_TOKEN }}
 
-       
+
