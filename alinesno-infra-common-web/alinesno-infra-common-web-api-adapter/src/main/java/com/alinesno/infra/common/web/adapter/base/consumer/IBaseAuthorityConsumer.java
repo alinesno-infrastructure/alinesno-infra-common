@@ -1,11 +1,12 @@
 package com.alinesno.infra.common.web.adapter.base.consumer;
 
+import com.alinesno.infra.common.facade.response.AjaxResult;
 import com.alinesno.infra.common.facade.response.R;
 import com.alinesno.infra.common.web.adapter.base.dto.ManagerAccountDto;
 import com.alinesno.infra.common.web.adapter.base.dto.ManagerResourceDto;
-import com.dtflys.forest.annotation.BaseRequest;
-import com.dtflys.forest.annotation.Get;
-import com.dtflys.forest.annotation.Query;
+import com.dtflys.forest.annotation.*;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
@@ -38,4 +39,22 @@ public interface IBaseAuthorityConsumer {
      */
     @Get("/v1/api/base/authority/account/getAccountInfo")
     R<Map<String, Object>> getAccountInfo(@Query("id") long accountId);
+
+
+    /**
+     * 更新用户信息
+     * @param dto
+     * @return
+     */
+    @Put("/v1/api/base/authority/account/updateProfile")
+    R<String> updateProfile(@JSONBody ManagerAccountDto dto);
+
+    /**
+     * 更新用户头像
+     * @param file
+     * @param userId
+     * @return
+     */
+    @Post("/v1/api/base/authority/account/updateAvatar")
+    R<String> updateAvatar(@DataFile("avatarfile") MultipartFile file, @Query("userId") long userId);
 }
