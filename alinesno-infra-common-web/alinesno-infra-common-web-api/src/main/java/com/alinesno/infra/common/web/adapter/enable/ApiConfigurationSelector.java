@@ -3,6 +3,7 @@ package com.alinesno.infra.common.web.adapter.enable;
 import com.alinesno.infra.common.web.adapter.base.controller.SysDictDataController;
 import com.alinesno.infra.common.web.adapter.login.controller.CommonCaptchaController;
 import com.alinesno.infra.common.web.adapter.login.controller.CommonLoginController;
+import com.alinesno.infra.common.web.adapter.login.controller.ManagerAccountController;
 import com.alinesno.infra.common.web.adapter.login.controller.kaptcha.CaptchaConfig;
 import com.alinesno.infra.common.web.adapter.login.controller.kaptcha.KaptchaTextCreator;
 import com.alinesno.infra.common.web.adapter.login.interceptor.CurrentAccountMethodArgumentResolver;
@@ -50,6 +51,7 @@ public class ApiConfigurationSelector implements ImportSelector {
 		// 登陆信息
 		importBean.add(CommonCaptchaController.class.getName()) ;
 		importBean.add(CommonLoginController.class.getName()) ;
+		importBean.add(ManagerAccountController.class.getName()) ;
 		importBean.add(CurrentAccountMethodArgumentResolver.class.getName()) ;
 
 		return importBean.toArray(new String[] {});
