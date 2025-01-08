@@ -1,1 +1,0 @@
-package com.alinesno.infra.common.security.api.config.properties;
