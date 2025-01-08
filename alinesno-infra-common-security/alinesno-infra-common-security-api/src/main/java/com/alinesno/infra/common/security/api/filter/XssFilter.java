@@ -8,6 +8,7 @@ import org.springframework.http.HttpMethod;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -26,9 +27,7 @@ public class XssFilter implements Filter {
 		String tempExcludes = filterConfig.getInitParameter("excludes");
 		if (StringUtils.isNotEmpty(tempExcludes)) {
 			String[] url = tempExcludes.split(StringUtils.SEPARATOR);
-			for (int i = 0; url != null && i < url.length; i++) {
-				excludes.add(url[i]);
-			}
+            Collections.addAll(excludes, url);
 		}
 	}
 
