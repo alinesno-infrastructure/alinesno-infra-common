@@ -1,0 +1,5 @@
+{
+  "name": "BarSeries",
+  "type": "class",
+  "implements": ["BarSeriesOption"]
+}
