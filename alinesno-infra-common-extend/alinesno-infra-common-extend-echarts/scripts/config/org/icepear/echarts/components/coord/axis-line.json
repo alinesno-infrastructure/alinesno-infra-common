@@ -1,0 +1,5 @@
+{
+  "name": "AxisLine",
+  "type": "class",
+  "implements": ["AxisLineOption"]
+}
