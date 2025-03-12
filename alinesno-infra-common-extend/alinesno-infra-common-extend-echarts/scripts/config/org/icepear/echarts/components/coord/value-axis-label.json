@@ -1,0 +1,5 @@
+{
+  "name": "ValueAxisLabel",
+  "type": "class",
+  "implements": ["ValueAxisLabelOption"]
+}
