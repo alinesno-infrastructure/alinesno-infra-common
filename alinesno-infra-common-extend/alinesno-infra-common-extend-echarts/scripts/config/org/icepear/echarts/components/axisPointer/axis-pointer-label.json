@@ -1,0 +1,5 @@
+{
+  "name": "AxisPointerLabel",
+  "type": "class",
+  "implements": ["AxisPointerLabelOption"]
+}
