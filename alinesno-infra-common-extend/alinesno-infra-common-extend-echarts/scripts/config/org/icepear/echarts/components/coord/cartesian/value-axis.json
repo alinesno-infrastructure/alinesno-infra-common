@@ -1,0 +1,5 @@
+{
+  "name": "ValueAxis",
+  "type": "class",
+  "implements": ["ValueAxisOption"]
+}
