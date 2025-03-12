@@ -1,0 +1,5 @@
+{
+  "name": "ToolboxSaveAsImageFeature",
+  "type": "class",
+  "implements": ["ToolboxSaveAsImageFeatureOption"]
+}
