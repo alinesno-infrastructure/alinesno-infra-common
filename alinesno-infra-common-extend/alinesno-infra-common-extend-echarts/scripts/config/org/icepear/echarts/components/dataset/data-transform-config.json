@@ -1,0 +1,5 @@
+{
+  "name": "DataTransformConfig",
+  "type": "class",
+  "implements": ["DataTransformConfigOption"]
+}
