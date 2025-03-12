@@ -1,0 +1,5 @@
+{
+  "name": "MarkPointDataItem",
+  "type": "class",
+  "implements": ["MarkPointDataItemOption"]
+}
