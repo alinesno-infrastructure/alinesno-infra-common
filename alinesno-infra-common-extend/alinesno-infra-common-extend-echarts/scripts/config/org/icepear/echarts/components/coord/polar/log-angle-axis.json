@@ -1,0 +1,5 @@
+{
+  "name": "LogAngleAxis",
+  "type": "class",
+  "implements": ["LogAngleAxisOption"]
+}
