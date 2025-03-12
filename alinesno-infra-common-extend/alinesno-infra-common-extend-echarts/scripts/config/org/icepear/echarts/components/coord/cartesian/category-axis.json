@@ -1,0 +1,5 @@
+{
+  "name": "CategoryAxis",
+  "type": "class",
+  "implements": ["CategoryAxisOption"]
+}
