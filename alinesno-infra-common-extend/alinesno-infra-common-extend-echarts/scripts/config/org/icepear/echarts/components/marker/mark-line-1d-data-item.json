@@ -1,0 +1,5 @@
+{
+  "name": "MarkLine1DDataItem",
+  "type": "class",
+  "implements": ["MarkLine1DDataItemOption"]
+}
