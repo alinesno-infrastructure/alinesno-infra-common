@@ -1,0 +1,5 @@
+{
+  "name": "AreaStyle",
+  "type": "class",
+  "implements": ["AreaStyleOption"]
+}
