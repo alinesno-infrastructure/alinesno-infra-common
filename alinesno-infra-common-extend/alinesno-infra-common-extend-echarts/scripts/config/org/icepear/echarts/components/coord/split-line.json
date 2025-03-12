@@ -1,0 +1,5 @@
+{
+  "name": "SplitLine",
+  "type": "class",
+  "implements": ["SplitLineOption"]
+}
