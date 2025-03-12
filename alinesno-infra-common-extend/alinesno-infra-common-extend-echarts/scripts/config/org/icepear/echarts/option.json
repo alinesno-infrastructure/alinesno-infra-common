@@ -1,0 +1,5 @@
+{
+  "name": "Option",
+  "type": "class",
+  "implements": ["EChartsOption"]
+}
