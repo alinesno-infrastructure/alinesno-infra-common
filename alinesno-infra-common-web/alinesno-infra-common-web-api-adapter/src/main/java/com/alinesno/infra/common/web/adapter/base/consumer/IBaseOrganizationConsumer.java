@@ -11,8 +11,16 @@ import java.util.List;
  * @author luoxiaodong
  * @version 1.0.0
  */
-@BaseRequest(baseURL = "#{alinesno.infra.gateway.host}/base-authority" , connectTimeout = 30*1000)
+@BaseRequest(baseURL = "#{alinesno.infra.gateway.host}" , connectTimeout = 30*1000)
 public interface IBaseOrganizationConsumer {
+
+    /**
+     * 通过ID查询组织号
+     * @param ids 组织ID号
+     * @return 代码列表
+     */
+    @Post("/v1/api/base/authority/organize/findOrgByIds")
+    R<List<OrganizationDto>> findOrgByIds(@JSONBody List<Long> ids) ;
 
     /**
      * 通过ID查询组织号
