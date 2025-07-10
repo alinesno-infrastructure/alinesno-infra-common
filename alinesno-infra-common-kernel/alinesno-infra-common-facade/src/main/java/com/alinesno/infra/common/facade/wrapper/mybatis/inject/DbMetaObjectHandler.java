@@ -19,20 +19,22 @@ import java.util.Date;
 @Component
 public class DbMetaObjectHandler implements MetaObjectHandler {
 
-    private final Date now = Date.from(Instant.now());
-
     @Override
     public void insertFill(MetaObject metaObject) {
         log.info("start insert fill ....");
 
-        this.strictInsertFill(metaObject, "addTime", Date.class, now);
+        this.strictInsertFill(metaObject, "addTime", Date.class, getNow());
         this.strictInsertFill(metaObject, "hasStatus", Integer.class, HasStatusEnums.LEGAL.value);
-        this.strictInsertFill(metaObject, "updateTime", Date.class, now);
+        this.strictInsertFill(metaObject, "updateTime", Date.class, getNow());
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
         log.info("start update fill ....");
-        this.strictUpdateFill(metaObject, "updateTime", Date.class, now);
+        this.strictUpdateFill(metaObject, "updateTime", Date.class, getNow());
+    }
+
+    private Date getNow() {
+        return Date.from(Instant.now());
     }
 }
