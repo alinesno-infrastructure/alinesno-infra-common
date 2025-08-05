@@ -24,7 +24,7 @@
 		<module>alinesno-infra-common-extend-idempotent</module>  <!-- 幂等 -->
 		<module>alinesno-infra-common-extend-sensitive</module>  <!-- 脱敏 -->
 		<module>alinesno-infra-common-extend-redis</module>  <!-- 缓存 -->
-		<module>alinesno-infra-common-extend-echarts</module>  <!-- Echarts仓库 -->
+		  <!-- <module>alinesno-infra-common-extend-echarts</module>  Echarts仓库 -->
 		<module>alinesno-infra-common-extend-websocket</module>  <!-- websocket -->
 		<module>alinesno-infra-common-extend-doc</module>  <!-- 文档注解 -->
 		<module>alinesno-infra-common-extend-oss</module>  <!-- 云存储 -->
