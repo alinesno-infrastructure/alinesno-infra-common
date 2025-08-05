@@ -11,7 +11,7 @@ import java.util.List;
  * @author luoxiaodong
  * @version 1.0.0
  */
-@BaseRequest(baseURL = "#{alinesno.infra.gateway.host}" , connectTimeout = 30*1000)
+@BaseRequest(baseURL = "#{alinesno.infra.gateway.host}/base-authority" , connectTimeout = 30*1000)
 public interface IBaseOrganizationConsumer {
 
     /**
