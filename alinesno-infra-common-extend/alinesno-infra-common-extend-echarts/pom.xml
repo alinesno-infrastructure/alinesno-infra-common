@@ -11,13 +11,7 @@
   </parent>
 
   <artifactId>alinesno-infra-common-extend-echarts</artifactId>
-  <version>1.0.7</version>
-
-  <name>ECharts Java</name>
-  <description>
-    A Java Visualization Library based on Apache ECharts.
-  </description>
-  <url>https://echarts.icepear.org/</url>
+ 
 
   <licenses>
     <license>
@@ -44,13 +38,7 @@
       <name>Xiaochuan Xu</name>
       <email>incandescentxxc@gmail.com</email>
     </developer>
-  </developers>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>8</maven.compiler.source>
-    <maven.compiler.target>8</maven.compiler.target>
-  </properties>
+  </developers> 
 
   <distributionManagement>
     <snapshotRepository>
@@ -74,7 +62,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.22</version>
+      <version>1.18.30</version>
       <scope>provided</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
