@@ -18,8 +18,10 @@ import org.springframework.core.annotation.Order;
 import org.springframework.validation.BindException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.security.auth.login.AccountExpiredException;
@@ -119,8 +121,7 @@ public class GlobalExceptionHandler {
 	 * 系统异常
 	 */
 	@ExceptionHandler(Exception.class)
-	public AjaxResult handleException(Exception e, HttpServletRequest request)
-	{
+	public AjaxResult handleException(Exception e, HttpServletRequest request) {
 		String requestURI = request.getRequestURI();
 		log.error("请求地址'{}',发生系统异常.", requestURI, e);
 		return AjaxResult.error(e.getMessage());
@@ -130,8 +131,7 @@ public class GlobalExceptionHandler {
 	 * 自定义验证异常
 	 */
 	@ExceptionHandler(BindException.class)
-	public AjaxResult handleBindException(BindException e)
-	{
+	public AjaxResult handleBindException(BindException e) {
 		log.error(e.getMessage(), e);
 		String message = e.getAllErrors().get(0).getDefaultMessage();
 		return AjaxResult.error(message);
@@ -141,8 +141,7 @@ public class GlobalExceptionHandler {
 	 * 自定义验证异常
 	 */
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public Object handleMethodArgumentNotValidException(MethodArgumentNotValidException e)
-	{
+	public Object handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
 		log.error(e.getMessage(), e);
 		String message = e.getBindingResult().getFieldError().getDefaultMessage();
 		return AjaxResult.error(message);
@@ -152,8 +151,30 @@ public class GlobalExceptionHandler {
 	 * 演示模式异常
 	 */
 	@ExceptionHandler(DemoModeException.class)
-	public AjaxResult handleDemoModeException(DemoModeException e)
-	{
+	public AjaxResult handleDemoModeException(DemoModeException e) {
 		return AjaxResult.error("演示模式，不允许操作");
+	}
+
+	/**
+	 * 缺少参数异常
+	 * @param ex
+	 * @return
+	 */
+	@ExceptionHandler(MissingServletRequestParameterException.class)
+	public AjaxResult handleMissingParam(MissingServletRequestParameterException ex) {
+		// ex.getParameterName() 可以得到缺失的参数名
+		String param = ex.getParameterName();
+		return AjaxResult.error(param + " 参数缺失或为空，请提供有效的 " + param);
+	}
+
+	/**
+	 * 参数类型不匹配异常
+	 * @param ex
+	 * @return
+	 */
+	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
+	public AjaxResult handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
+		String name = ex.getName();
+		return AjaxResult.error(name + " 参数类型错误，请提供合法的 " + name);
 	}
 }
