@@ -49,7 +49,7 @@
 	<properties>
 
 		<!-- alinesno_infra_version_start -->
-		<revision>1.1.0-SNAPSHOT</revision>
+		<revision>1.2.0-SNAPSHOT</revision>
 		<!-- alinesno_infra_version_end -->
 
 		<!-- compile -->
