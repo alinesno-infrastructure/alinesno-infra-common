@@ -2,6 +2,7 @@ package com.alinesno.infra.common.web.adapter.base.consumer;
 
 import com.alinesno.infra.common.facade.response.R;
 import com.alinesno.infra.common.web.adapter.base.dto.ManagerCodeDto;
+import com.alinesno.infra.common.web.adapter.base.interceptor.SaTokenForestInterceptor;
 import com.dtflys.forest.annotation.BaseRequest;
 import com.dtflys.forest.annotation.Get;
 import com.dtflys.forest.annotation.Query;
@@ -13,7 +14,11 @@ import java.util.List;
  * @author luoxiaodong
  * @version 1.0.0
  */
-@BaseRequest(baseURL = "#{alinesno.infra.gateway.host}/base-authority" , connectTimeout = 30*1000)
+@BaseRequest(
+        baseURL = "#{alinesno.infra.gateway.host}/base-authority" ,
+        interceptor = {SaTokenForestInterceptor.class},
+        connectTimeout = 30*1000
+)
 public interface IBaseConfigConsumer {
 
     /**
