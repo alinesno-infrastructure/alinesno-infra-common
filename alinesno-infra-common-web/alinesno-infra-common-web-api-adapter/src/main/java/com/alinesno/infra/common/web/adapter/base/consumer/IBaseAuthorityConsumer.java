@@ -4,6 +4,7 @@ import com.alinesno.infra.common.facade.response.AjaxResult;
 import com.alinesno.infra.common.facade.response.R;
 import com.alinesno.infra.common.web.adapter.base.dto.ManagerAccountDto;
 import com.alinesno.infra.common.web.adapter.base.dto.ManagerResourceDto;
+import com.alinesno.infra.common.web.adapter.base.interceptor.SaTokenForestInterceptor;
 import com.dtflys.forest.annotation.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,7 +17,11 @@ import java.util.Map;
  * @author luoxiaodong
  * @version 1.0.0
  */
-@BaseRequest(baseURL = "#{alinesno.infra.gateway.host}/base-authority" , connectTimeout = 30*1000)
+@BaseRequest(
+        baseURL = "#{alinesno.infra.gateway.host}/base-authority" ,
+        interceptor = {SaTokenForestInterceptor.class},
+        connectTimeout = 30*1000
+)
 public interface IBaseAuthorityConsumer {
 
 
