@@ -34,6 +34,12 @@
             <artifactId>forest-core</artifactId>
 			<version>${forest.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-core</artifactId>
+			<version>${satoken.version}</version>
+        </dependency>
         <!-- 公共组件包 _end -->
 
 	</dependencies>
