@@ -42,7 +42,12 @@ alinesno:
     # 过滤开关
     enabled: true
 
+# 配置加密配置
 jasypt:
-    encryptor:
-      password:
-      private-key-string:
+  encryptor:
+    # 指定加密密钥，生产环境请放到启动参数里面
+    password: ${JASYPT_ENCRYPTOR_PASSWORD:0f7b0a5d-46bc-40fd-b8ed-3181d21d644f}
+    # 指定解密算法，需要和加密时使用的算法一致
+    algorithm: PBEWithMD5AndDES
+    # 加密密钥的IV
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
