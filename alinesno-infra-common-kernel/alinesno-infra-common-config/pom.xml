@@ -13,7 +13,7 @@
 	<artifactId>alinesno-infra-common-config</artifactId>
 
 	<properties>
-		<jasypt.spring.boot.version>2.1.1</jasypt.spring.boot.version>
+		<jasypt.spring.boot.version>3.0.5</jasypt.spring.boot.version>
 		<logstash.logback.encoder.version>5.3</logstash.logback.encoder.version>
 		<kafka.logback.encoder.version>0.2.0-RC2</kafka.logback.encoder.version>
 	</properties>
