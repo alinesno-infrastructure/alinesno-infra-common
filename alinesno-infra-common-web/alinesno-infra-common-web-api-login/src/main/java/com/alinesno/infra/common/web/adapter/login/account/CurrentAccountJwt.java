@@ -32,9 +32,7 @@ public class CurrentAccountJwt {
 	 * @return
 	 */
 	public static ManagerAccountDto get()  {
-		ManagerAccountDto e = (ManagerAccountDto) StpUtil.getSession().get(currentAccountDto);
-		log.debug("获取当前用户信息:{}" , e);
-		return e;
+        return (ManagerAccountDto) StpUtil.getSession().get(currentAccountDto);
 	}
 	
 	/**
